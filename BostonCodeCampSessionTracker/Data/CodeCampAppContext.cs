@@ -12,8 +12,7 @@ namespace SemesterProjectTest.Data
         {
         }
 
-        public CodeCampAppContext(DbContextOptions<CodeCampAppContext> options)
-            : base(options)
+        public CodeCampAppContext(DbContextOptions<CodeCampAppContext> options) : base(options)
         {
         }
 
