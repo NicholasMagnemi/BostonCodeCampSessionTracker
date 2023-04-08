@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SemesterProjectTest.Models
+namespace BostonCodeCampSessionTracker.Models;
+
+public partial class SessionSpeaker
 {
-    public partial class SessionSpeaker
-    {
-        public Guid SessionSpeakerId { get; set; }
+    public int SessionSpeakerId { get; set; }
 
-        public int SpeakerId { get; set; }
+    public int SpeakerId { get; set; }
 
-        public int SessionId { get; set; }
-    }
+    public int SessionId { get; set; }
 }

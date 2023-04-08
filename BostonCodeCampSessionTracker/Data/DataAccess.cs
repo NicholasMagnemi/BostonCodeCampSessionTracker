@@ -1,5 +1,5 @@
-﻿using SemesterProjectTest.Data;
-using SemesterProjectTest.Models;
+﻿using BostonCodeCampSessionTracker.Models;
+using BostonCodeCampSessionTracker.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 //  using CodeCampAppContext context = new CodeCampAppContext();
 
-namespace SemesterProjectTest.Data
+namespace BostonCodeCampSessionTracker.Data
 {
     public class DataAccess
     {

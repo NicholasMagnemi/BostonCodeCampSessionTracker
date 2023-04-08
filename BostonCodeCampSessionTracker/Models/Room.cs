@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SemesterProjectTest.Models
+namespace BostonCodeCampSessionTracker.Models;
+
+public partial class Room
 {
-    public partial class Room
-    {
-        public Guid RoomId { get; set; }
+    public int RoomId { get; set; }
 
-        public int RoomMaxOcc { get; set; }
+    public int RoomMaxOcc { get; set; }
 
-        public string RoomName { get; set; } = null!;
-    }
+    public string RoomName { get; set; } = null!;
 }
