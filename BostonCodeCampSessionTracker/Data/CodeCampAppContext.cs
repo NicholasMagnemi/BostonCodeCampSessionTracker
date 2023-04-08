@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using BostonCodeCampSessionTracker.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Configuration;
 
 namespace BostonCodeCampSessionTracker.Data;
 
@@ -27,8 +28,10 @@ public partial class CodeCampAppContext : DbContext
     public virtual DbSet<TimeSlot> TimeSlots { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=tcp:currybostoncodecamp-app.database.windows.net,1433;Initial Catalog=Code_Camp_App;Persist Security Info=False;User ID=CurryTeam;Password=AzureSoftwareEngineering2023!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+    {
+        optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["CodeCampAppDatabase"].ConnectionString);
+    }
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -37,7 +40,7 @@ public partial class CodeCampAppContext : DbContext
             entity.HasKey(e => e.RoomId).HasName("PK__tmp_ms_x__32863919471BDA4C");
 
             entity.Property(e => e.RoomId)
-                .ValueGeneratedNever()
+                .ValueGeneratedOnAdd()
                 .HasColumnName("RoomID");
             entity.Property(e => e.RoomMaxOcc).HasColumnName("Room_MaxOcc");
             entity.Property(e => e.RoomName)
@@ -52,7 +55,7 @@ public partial class CodeCampAppContext : DbContext
             entity.ToTable("Session");
 
             entity.Property(e => e.SessionId)
-                .ValueGeneratedNever()
+                .ValueGeneratedOnAdd()
                 .HasColumnName("SessionID");
             entity.Property(e => e.RoomId).HasColumnName("RoomID");
             entity.Property(e => e.SessionTitle)
@@ -69,7 +72,7 @@ public partial class CodeCampAppContext : DbContext
             entity.ToTable("Session+Speaker");
 
             entity.Property(e => e.SessionSpeakerId)
-                .ValueGeneratedNever()
+                .ValueGeneratedOnAdd()
                 .HasColumnName("SessionSpeakerID");
             entity.Property(e => e.SessionId).HasColumnName("SessionID");
             entity.Property(e => e.SpeakerId).HasColumnName("SpeakerID");
@@ -79,8 +82,8 @@ public partial class CodeCampAppContext : DbContext
         {
             entity.ToTable("Speaker");
 
-            entity.Property(e => e.SpeakerId)
-                .ValueGeneratedNever()
+            entity.Property(e => e.SpeakerId).ValueGeneratedOnAdd()
+                
                 .HasColumnName("SpeakerID");
             entity.Property(e => e.SpeakerDayOfContact)
                 .HasColumnType("text")
@@ -104,7 +107,7 @@ public partial class CodeCampAppContext : DbContext
             entity.HasKey(e => e.TimeId).HasName("PK__tmp_ms_x__E04ED9678988D53B");
 
             entity.Property(e => e.TimeId)
-                .ValueGeneratedNever()
+                .ValueGeneratedOnAdd()
                 .HasColumnName("TimeID");
             entity.Property(e => e.TimeBegin).HasColumnName("Time_Begin");
             entity.Property(e => e.TimeDuration)
