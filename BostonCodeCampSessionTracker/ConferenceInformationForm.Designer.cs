@@ -1,4 +1,4 @@
-﻿namespace SemesterProjectTest
+﻿namespace BostonCodeCampSessionTracker
 {
     partial class ConferenceInformationForm
     {
@@ -956,7 +956,7 @@
             Controls.Add(tabControl1);
             Margin = new Padding(3, 2, 3, 2);
             Name = "ConferenceInformationForm";
-            Text = "c";
+            Text = "Boston Code Camp Session Tracker";
             Load += ConferenceInformationForm_Load;
             tabControl1.ResumeLayout(false);
             tabSpeakerInfo.ResumeLayout(false);

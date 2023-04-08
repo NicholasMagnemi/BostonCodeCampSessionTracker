@@ -2,7 +2,7 @@ using BostonCodeCampSessionTracker;
 using BostonCodeCampSessionTracker.Data;
 using BostonCodeCampSessionTracker.Models;
 
-namespace SemesterProjectTest
+namespace BostonCodeCampSessionTracker
 {
     public partial class ConferenceInformationForm : Form
     {
@@ -15,14 +15,16 @@ namespace SemesterProjectTest
         {
             DataAccess db = new DataAccess();
 
-            db.addSpeaker(txtBoxFirstName.Text, lblLastName.Text, lblEmail.Text, lblDayOfContact.Text);
+            db.addSpeaker(txtBoxFirstName.Text, txtBoxLastName.Text, txtBoxEmail.Text, txtBoxPhoneNumber.Text, txtBoxDayOfContact.Text);
+
+            updateSpeakerComboBoxes();
         }
 
         private void btnSaveRoom_Click(object sender, EventArgs e)
         {
-            //DataAccess db = new DataAccess();
+            DataAccess db = new DataAccess();
 
-            //db.addRoom(Convert.ToInt32(lblMaxCapacity.Text), lblRoomName.Text);
+            db.addRoom(Convert.ToInt32(txtBoxMaxCapacity.Text), txtBoxRoomID.Text);
         }
 
         private void btnSaveTimeSlot_Click(object sender, EventArgs e)
@@ -71,6 +73,24 @@ namespace SemesterProjectTest
         }
 
         private void ConferenceInformationForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void updateSpeakerComboBoxes()
+        {
+            DataAccess db = new DataAccess();
+
+            List<String> speakerNames = db.retrieveSpeakerNames();
+            cmbBoxSpeakerName.Items.Clear();
+
+            foreach (String speakerName in speakerNames)
+            {
+                cmbBoxSpeakerName.Items.Add(speakerName);
+            }
+        }
+
+        private void updateComboBoxes()
         {
 
         }

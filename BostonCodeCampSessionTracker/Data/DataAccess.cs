@@ -14,19 +14,17 @@ namespace BostonCodeCampSessionTracker.Data
     public class DataAccess
     {
 
-        public void addSpeaker(String fName, String lName, String eMail, String dayOfContact)
+        public void addSpeaker(String fName, String lName, String eMail, String speakerPhone, String dayOfContact)
         {
             using CodeCampAppContext context = new CodeCampAppContext();
-
-
 
             Speaker newSpeaker = new Speaker()
             {
                 SpeakerFname = fName,
                 SpeakerLname = lName,
                 SpeakerEmail = eMail,
+                SpeakerPhone = speakerPhone,
                 SpeakerDayOfContact = dayOfContact
-
             };
             context.Speakers.Add(newSpeaker);
             context.SaveChanges();
@@ -78,5 +76,19 @@ namespace BostonCodeCampSessionTracker.Data
             };
         }
 
+        public List<String> retrieveSpeakerNames()
+        {
+            using CodeCampAppContext context = new CodeCampAppContext();
+
+            List<string> speakersFullNames = new List<string>();
+
+            var speakers = context.Speakers.ToList();
+
+            foreach ( var speaker in speakers ) 
+            {
+                speakersFullNames.Add(speaker.SpeakerFname + " " + speaker.SpeakerLname);
+            }
+            return speakersFullNames;
+        }
     }
 }
