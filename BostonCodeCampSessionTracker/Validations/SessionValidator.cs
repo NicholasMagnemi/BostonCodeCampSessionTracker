@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BostonCodeCampSessionTracker.Validation
+namespace BostonCodeCampSessionTracker.Validations
 {
-    internal class Validator
+    internal class SessionValidator
     {
     }
 }

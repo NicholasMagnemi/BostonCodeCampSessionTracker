@@ -6,6 +6,8 @@ using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
+using BostonCodeCampSessionTracker.Validations;
+using FluentValidation.Results;
 
 //  using CodeCampAppContext context = new CodeCampAppContext();
 
@@ -14,8 +16,10 @@ namespace BostonCodeCampSessionTracker.Data
     public class DataAccess
     {
 
-        public void addSpeaker(String fName, String lName, String eMail, String speakerPhone, String dayOfContact)
+        public bool addSpeaker(String fName, String lName, String eMail, String speakerPhone, String dayOfContact)
         {
+            SpeakerValidator validator = new SpeakerValidator();
+
             using CodeCampAppContext context = new CodeCampAppContext();
 
             Speaker newSpeaker = new Speaker()
@@ -26,8 +30,19 @@ namespace BostonCodeCampSessionTracker.Data
                 SpeakerPhone = speakerPhone,
                 SpeakerDayOfContact = dayOfContact
             };
-            context.Speakers.Add(newSpeaker);
-            context.SaveChanges();
+
+            ValidationResult results = validator.Validate(newSpeaker);
+            if (results.IsValid == false) 
+            {
+                return false;
+            }
+            else
+            {
+                context.Speakers.Add(newSpeaker);
+                context.SaveChanges();
+                return true;
+            }
+            
         }
 
         public void addRoom(int maxOccupancy, String roomName)
