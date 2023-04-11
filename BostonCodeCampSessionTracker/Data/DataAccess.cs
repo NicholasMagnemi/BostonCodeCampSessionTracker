@@ -16,7 +16,7 @@ namespace BostonCodeCampSessionTracker.Data
     public class DataAccess
     {
 
-        public bool addSpeaker(String fName, String lName, String eMail, String speakerPhone, String dayOfContact)
+        public bool addSpeaker(String fName, String lName, String eMail, String speakerPhone, String dayOfContact, String speakerBio, String speakerPastTalks)
         {
             SpeakerValidator validator = new SpeakerValidator();
 
@@ -28,9 +28,9 @@ namespace BostonCodeCampSessionTracker.Data
                 SpeakerLname = lName,
                 SpeakerEmail = eMail,
                 SpeakerPhone = speakerPhone,
-                SpeakerDayOfContact = dayOfContact
-                //SpeakerBio = speakerBio;
-                //SpeakerPastTalks = speakerPastTalks;
+                SpeakerDayOfContact = dayOfContact,
+                SpeakerBio = speakerBio,
+                SpeakerPastTalks = speakerPastTalks,
             };
 
             ValidationResult results = validator.Validate(newSpeaker);
