@@ -13,6 +13,7 @@ namespace BostonCodeCampSessionTracker.Validation
         public RoomValidator() 
         { 
             RuleFor(room => room.RoomMaxOcc).NotEmpty().GreaterThan(0);
+            RuleFor(room => room.RoomName).NotEmpty().MinimumLength(1).MaximumLength(25);
         }
 
     }

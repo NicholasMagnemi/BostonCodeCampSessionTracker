@@ -99,7 +99,7 @@
             txtBoxEndtimeOverview = new TextBox();
             txtBoxStartTimeOverview = new TextBox();
             lblTimeSlotOverview = new Label();
-            cmbBoxSessionOverview = new ComboBox();
+            cmbBoxSessionNameOverview = new ComboBox();
             lblSessionOverview = new Label();
             cmbBoxSpeakerNameOverview = new ComboBox();
             lblSpeakerNameOverview = new Label();
@@ -790,7 +790,7 @@
             tabOverview.Controls.Add(txtBoxEndtimeOverview);
             tabOverview.Controls.Add(txtBoxStartTimeOverview);
             tabOverview.Controls.Add(lblTimeSlotOverview);
-            tabOverview.Controls.Add(cmbBoxSessionOverview);
+            tabOverview.Controls.Add(cmbBoxSessionNameOverview);
             tabOverview.Controls.Add(lblSessionOverview);
             tabOverview.Controls.Add(cmbBoxSpeakerNameOverview);
             tabOverview.Controls.Add(lblSpeakerNameOverview);
@@ -898,15 +898,15 @@
             lblTimeSlotOverview.TabIndex = 34;
             lblTimeSlotOverview.Text = "Time Slot:";
             // 
-            // cmbBoxSessionOverview
+            // cmbBoxSessionNameOverview
             // 
-            cmbBoxSessionOverview.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbBoxSessionOverview.FormattingEnabled = true;
-            cmbBoxSessionOverview.Location = new Point(9, 123);
-            cmbBoxSessionOverview.Margin = new Padding(3, 2, 3, 2);
-            cmbBoxSessionOverview.Name = "cmbBoxSessionOverview";
-            cmbBoxSessionOverview.Size = new Size(133, 23);
-            cmbBoxSessionOverview.TabIndex = 30;
+            cmbBoxSessionNameOverview.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbBoxSessionNameOverview.FormattingEnabled = true;
+            cmbBoxSessionNameOverview.Location = new Point(9, 123);
+            cmbBoxSessionNameOverview.Margin = new Padding(3, 2, 3, 2);
+            cmbBoxSessionNameOverview.Name = "cmbBoxSessionNameOverview";
+            cmbBoxSessionNameOverview.Size = new Size(133, 23);
+            cmbBoxSessionNameOverview.TabIndex = 30;
             // 
             // lblSessionOverview
             // 
@@ -1035,7 +1035,7 @@
         private TextBox txtBoxEndtimeOverview;
         private TextBox txtBoxStartTimeOverview;
         private Label lblTimeSlotOverview;
-        private ComboBox cmbBoxSessionOverview;
+        private ComboBox cmbBoxSessionNameOverview;
         private Label lblSessionOverview;
         private ComboBox cmbBoxSpeakerNameOverview;
         private Label lblSpeakerNameOverview;
