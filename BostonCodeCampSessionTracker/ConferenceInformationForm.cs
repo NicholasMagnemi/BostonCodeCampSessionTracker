@@ -25,6 +25,8 @@ namespace BostonCodeCampSessionTracker
             DataAccess db = new DataAccess();
 
             db.addRoom(Convert.ToInt32(txtBoxMaxCapacity.Text), txtBoxRoomID.Text);
+
+            update
         }
 
         private void btnSaveTimeSlot_Click(object sender, EventArgs e)
@@ -94,5 +96,7 @@ namespace BostonCodeCampSessionTracker
         {
 
         }
+
+
     }
 }

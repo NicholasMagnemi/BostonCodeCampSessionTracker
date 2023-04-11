@@ -44,8 +44,8 @@ namespace BostonCodeCampSessionTracker.Data
             }
             else
             {
-                context.Speakers.Add(newSpeaker);
-                context.SaveChanges();
+                //context.Speakers.Add(newSpeaker);
+                //context.SaveChanges();
                 return true;
             }
 
