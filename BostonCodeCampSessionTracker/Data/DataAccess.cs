@@ -1,15 +1,15 @@
-﻿using BostonCodeCampSessionTracker.Models;
-using BostonCodeCampSessionTracker.Data;
+﻿using BostonCodeCampSessionTracker.Data;
+using BostonCodeCampSessionTracker.Models;
+using BostonCodeCampSessionTracker.Validation;
+using BostonCodeCampSessionTracker.Validations;
+using FluentValidation;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
-using BostonCodeCampSessionTracker.Validations;
-using FluentValidation.Results;
-using BostonCodeCampSessionTracker.Validation;
-using FluentValidation;
 
 namespace BostonCodeCampSessionTracker.Data
 {
@@ -35,7 +35,7 @@ namespace BostonCodeCampSessionTracker.Data
 
             ValidationResult results = validator.Validate(newSpeaker);
 
-            if (results.IsValid == false) 
+            if (results.IsValid == false)
             {
                 return false;
             }
@@ -45,7 +45,7 @@ namespace BostonCodeCampSessionTracker.Data
                 context.SaveChanges();
                 return true;
             }
-            
+
         }
 
         public bool addRoom(int maxOccupancy, String roomName)
@@ -152,14 +152,14 @@ namespace BostonCodeCampSessionTracker.Data
 
             var speakers = context.Speakers.ToList();
 
-            foreach ( var speaker in speakers ) 
+            foreach (var speaker in speakers)
             {
                 speakersFullNames.Add(speaker.SpeakerFname + " " + speaker.SpeakerLname);
             }
             return speakersFullNames;
         }
 
-        public List<String> retrieveRoomNames() 
+        public List<String> retrieveRoomNames()
         {
             using CodeCampAppContext context = new CodeCampAppContext();
 

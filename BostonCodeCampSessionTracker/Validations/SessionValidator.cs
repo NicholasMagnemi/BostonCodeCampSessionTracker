@@ -1,4 +1,4 @@
-﻿using BostonCodeCampSessionTracker.Models;
+﻿/*using BostonCodeCampSessionTracker.Models;
 using FluentValidation;
 using Microsoft.Identity.Client;
 using System;
@@ -20,4 +20,4 @@ namespace BostonCodeCampSessionTracker.Validations
 
         }
     }
-}
+}*/

@@ -11,5 +11,7 @@ public partial class TimeSlot
 
     public TimeSpan TimeEnd { get; set; }
 
-    public decimal? TimeDuration { get; set; }
+    public TimeSpan? TimeDuration { get; set; }
+
+    public virtual ICollection<Session> Sessions { get; } = new List<Session>();
 }

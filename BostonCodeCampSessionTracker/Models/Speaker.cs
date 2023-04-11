@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace BostonCodeCampSessionTracker.Models;
 
@@ -17,4 +16,12 @@ public partial class Speaker
     public string? SpeakerPhone { get; set; }
 
     public string SpeakerDayOfContact { get; set; } = null!;
+
+    public string SpeakerBio { get; set; } = null!;
+
+    public string SpeakerPastTalks { get; set; } = null!;
+
+    public virtual ICollection<SessionSpeaker> SessionSpeakers { get; } = new List<SessionSpeaker>();
+
+    public virtual ICollection<Session> Sessions { get; } = new List<Session>();
 }
