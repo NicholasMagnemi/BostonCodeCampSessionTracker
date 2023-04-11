@@ -35,6 +35,9 @@ namespace BostonCodeCampSessionTracker.Data
 
             ValidationResult results = validator.Validate(newSpeaker);
 
+            context.Speakers.Add(newSpeaker);
+            context.SaveChanges();
+
             if (results.IsValid == false)
             {
                 return false;
@@ -116,7 +119,7 @@ namespace BostonCodeCampSessionTracker.Data
             };
         }
 
-        public bool addTimeSlot(TimeSpan timeBegin, TimeSpan timeEnd, decimal timeDuration)
+        public bool addTimeSlot(TimeSpan timeBegin, TimeSpan timeEnd, TimeSpan timeDuration)
         {
             TimeSlotValidator validator = new TimeSlotValidator();
 

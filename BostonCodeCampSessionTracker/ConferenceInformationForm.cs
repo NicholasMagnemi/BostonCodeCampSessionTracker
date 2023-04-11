@@ -1,4 +1,3 @@
-/*
 using BostonCodeCampSessionTracker;
 using BostonCodeCampSessionTracker.Data;
 using BostonCodeCampSessionTracker.Models;
@@ -97,4 +96,3 @@ namespace BostonCodeCampSessionTracker
         }
     }
 }
-*/

@@ -1,5 +1,4 @@
-﻿/*
-namespace BostonCodeCampSessionTracker
+﻿namespace BostonCodeCampSessionTracker
 {
     partial class ConferenceInformationForm
     {
@@ -1053,4 +1052,3 @@ namespace BostonCodeCampSessionTracker
         private ComboBox cmbSessionStartTime;
     }
 }
-*/

@@ -1,5 +1,4 @@
-﻿/*
-using BostonCodeCampSessionTracker.Models;
+﻿using BostonCodeCampSessionTracker.Models;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
@@ -19,11 +18,10 @@ namespace BostonCodeCampSessionTracker.Validations
             RuleFor(speaker => speaker.SpeakerEmail).EmailAddress();
             RuleFor(speaker => speaker.SpeakerPhone).MinimumLength(10).MaximumLength(20).Matches(new Regex(@"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}"));
             RuleFor(speaker => speaker.SpeakerDayOfContact).MinimumLength(10).MaximumLength(20).Matches(new Regex(@"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}"));
-            //RuleFor(speaker => speaker.SpeakerBio).Length(1, 500);
-            //RuleFor(speaker => speaker.SpeakerPastTalks).Length(1, 500);
+            RuleFor(speaker => speaker.SpeakerBio).Length(0, 500);
+            RuleFor(speaker => speaker.SpeakerPastTalks).Length(0, 500);
 
 
         }
     }
 }
-*/
