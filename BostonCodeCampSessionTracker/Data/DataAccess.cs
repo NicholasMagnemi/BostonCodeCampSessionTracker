@@ -11,8 +11,6 @@ using FluentValidation.Results;
 using BostonCodeCampSessionTracker.Validation;
 using FluentValidation;
 
-//  using CodeCampAppContext context = new CodeCampAppContext();
-
 namespace BostonCodeCampSessionTracker.Data
 {
     public class DataAccess
