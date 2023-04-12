@@ -33,7 +33,7 @@ namespace BostonCodeCampSessionTracker
         {
             DataAccess db = new DataAccess();
 
-            db.addTimeSlot(TimeSpan.Parse(lblStartTime.Text), TimeSpan.Parse(lblEndTime.Text), decimal.Parse(lblDurationSession.Text));
+            db.addTimeSlot(TimeSpan.Parse(lblStartTime.Text), TimeSpan.Parse(lblEndTime.Text), TimeSpane.Parse(lblDurationSession.Text));
         }
 
         private void btnSaveSession_Click(object sender, EventArgs e)
@@ -69,7 +69,7 @@ namespace BostonCodeCampSessionTracker
 
         private void btnNewTimeSlot_Click(object sender, EventArgs e)
         {
-            timePickerStartTime.Text = "12:00 AM";
+            tmprStartTime.Text = "12:00 AM";
             timePickerEndTime.Text = "12:00 AM";
             datePickerSessionDate.Text = "";
         }

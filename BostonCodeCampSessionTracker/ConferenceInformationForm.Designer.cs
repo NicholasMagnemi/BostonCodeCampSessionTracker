@@ -68,7 +68,7 @@
             datePickerSessionDate = new DateTimePicker();
             timePickerEndTime = new DateTimePicker();
             lblEndTime = new Label();
-            timePickerStartTime = new DateTimePicker();
+            tmprStartTime = new DateTimePicker();
             lblStartTime = new Label();
             lblTimeSlotForm = new Label();
             tabSessionInfo = new TabPage();
@@ -462,7 +462,7 @@
             tabTimeSlotInfo.Controls.Add(datePickerSessionDate);
             tabTimeSlotInfo.Controls.Add(timePickerEndTime);
             tabTimeSlotInfo.Controls.Add(lblEndTime);
-            tabTimeSlotInfo.Controls.Add(timePickerStartTime);
+            tabTimeSlotInfo.Controls.Add(tmprStartTime);
             tabTimeSlotInfo.Controls.Add(lblStartTime);
             tabTimeSlotInfo.Controls.Add(lblTimeSlotForm);
             tabTimeSlotInfo.Location = new Point(4, 24);
@@ -562,18 +562,18 @@
             lblEndTime.TabIndex = 24;
             lblEndTime.Text = "End Time:";
             // 
-            // timePickerStartTime
+            // tmprStartTime
             // 
-            timePickerStartTime.CalendarFont = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            timePickerStartTime.CustomFormat = "hh:mm tt";
-            timePickerStartTime.Format = DateTimePickerFormat.Custom;
-            timePickerStartTime.Location = new Point(9, 62);
-            timePickerStartTime.Margin = new Padding(3, 2, 3, 2);
-            timePickerStartTime.Name = "timePickerStartTime";
-            timePickerStartTime.ShowUpDown = true;
-            timePickerStartTime.Size = new Size(92, 23);
-            timePickerStartTime.TabIndex = 23;
-            timePickerStartTime.Value = new DateTime(2023, 3, 4, 0, 0, 0, 0);
+            tmprStartTime.CalendarFont = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            tmprStartTime.CustomFormat = "hh:mm tt";
+            tmprStartTime.Format = DateTimePickerFormat.Custom;
+            tmprStartTime.Location = new Point(9, 62);
+            tmprStartTime.Margin = new Padding(3, 2, 3, 2);
+            tmprStartTime.Name = "tmprStartTime";
+            tmprStartTime.ShowUpDown = true;
+            tmprStartTime.Size = new Size(92, 23);
+            tmprStartTime.TabIndex = 23;
+            tmprStartTime.Value = new DateTime(2023, 3, 4, 0, 0, 0, 0);
             // 
             // lblStartTime
             // 
@@ -1010,7 +1010,7 @@
         private Label lblTimeSlotForm;
         private DateTimePicker timePickerEndTime;
         private Label lblEndTime;
-        private DateTimePicker timePickerStartTime;
+        private DateTimePicker tmprStartTime;
         private Button btnRemoveTimeSlot;
         private Button btnSaveTimeSlot;
         private Button btnNewTimeSlot;
