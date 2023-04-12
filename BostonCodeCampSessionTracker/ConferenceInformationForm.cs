@@ -26,14 +26,14 @@ namespace BostonCodeCampSessionTracker
 
             db.addRoom(Convert.ToInt32(txtBoxMaxCapacity.Text), txtBoxRoomID.Text);
 
-            update
+            updateRoomComboBoxes();
         }
 
         private void btnSaveTimeSlot_Click(object sender, EventArgs e)
         {
-            //DataAccess db = new DataAccess();
+            DataAccess db = new DataAccess();
 
-            //db.addTimeSlot(TimeSpan.Parse(lblStartTime.Text), TimeSpan.Parse(lblEndTime.Text), decimal.Parse(lblDurationSession.Text));
+            db.addTimeSlot(TimeSpan.Parse(lblStartTime.Text), TimeSpan.Parse(lblEndTime.Text), decimal.Parse(lblDurationSession.Text));
         }
 
         private void btnSaveSession_Click(object sender, EventArgs e)
@@ -90,6 +90,20 @@ namespace BostonCodeCampSessionTracker
             {
                 cmbBoxSpeakerName.Items.Add(speakerName);
             }
+        }
+
+        private void updateRoomComboBoxes()
+        {
+            DataAccess db = new DataAccess();
+
+            List<String> rooms = db.retrieveRoomNames();
+            cmbBoxRoomName.Items.Clear();
+
+            foreach (String room in rooms)
+            {
+                cmbBoxSpeakerName.Items.Add(room);
+            }
+
         }
 
         private void updateComboBoxes()

@@ -35,20 +35,16 @@ namespace BostonCodeCampSessionTracker.Data
 
             ValidationResult results = validator.Validate(newSpeaker);
 
-            context.Speakers.Add(newSpeaker);
-            context.SaveChanges();
-
             if (results.IsValid == false)
             {
                 return false;
             }
             else
             {
-                //context.Speakers.Add(newSpeaker);
-                //context.SaveChanges();
+                context.Speakers.Add(newSpeaker);
+                context.SaveChanges();
                 return true;
             }
-
         }
 
         public bool addRoom(int maxOccupancy, String roomName)
@@ -75,8 +71,6 @@ namespace BostonCodeCampSessionTracker.Data
                 context.SaveChanges();
                 return true;
             }
-
-
         }
 
         public bool addSession(String sessionTitle, int roomId, int SpeakerId, int timeId)
@@ -91,6 +85,7 @@ namespace BostonCodeCampSessionTracker.Data
                 RoomId = roomId,
                 SpeakerId = SpeakerId,
                 TimeId = timeId,
+                
             };
 
             ValidationResult results = validator.Validate(newSession);
