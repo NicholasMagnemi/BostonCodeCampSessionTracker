@@ -65,10 +65,7 @@
             btnSaveTimeSlot = new Button();
             btnNewTimeSlot = new Button();
             lblSessionDate = new Label();
-            datePickerSessionDate = new DateTimePicker();
-            timePickerEndTime = new DateTimePicker();
             lblEndTime = new Label();
-            tmprStartTime = new DateTimePicker();
             lblStartTime = new Label();
             lblTimeSlotForm = new Label();
             tabSessionInfo = new TabPage();
@@ -104,871 +101,1508 @@
             cmbBoxSpeakerNameOverview = new ComboBox();
             lblSpeakerNameOverview = new Label();
             lblOverview = new Label();
-            tabControl1.SuspendLayout();
-            tabSpeakerInfo.SuspendLayout();
-            tabRoomInfo.SuspendLayout();
-            tabTimeSlotInfo.SuspendLayout();
-            tabSessionInfo.SuspendLayout();
-            tabOverview.SuspendLayout();
+            dprSessionDate = new DateTimePicker();
+            tmprEndTime = new DateTimePicker();
+            tmprStartTime = new DateTimePicker();
+            dpSessionDate = new DateTimePicker();
+            tmpEndTime = new DateTimePicker();
+            tmpStartTime = new DateTimePicker();
+            tbcSessionTracker = new TabControl();
+            tbSpeakerInfo = new TabPage();
+            label28 = new Label();
+            lblOptionalNotice = new Label();
+            lblRequiredFieldsNotice = new Label();
+            button5 = new Button();
+            button6 = new Button();
+            btnCreateSpeaker = new Button();
+            btnClearSpeakerFields = new Button();
+            textBox1 = new TextBox();
+            label1 = new Label();
+            textBox2 = new TextBox();
+            label2 = new Label();
+            label3 = new Label();
+            textBox3 = new TextBox();
+            label4 = new Label();
+            textBox4 = new TextBox();
+            textBox5 = new TextBox();
+            label5 = new Label();
+            textBox6 = new TextBox();
+            label6 = new Label();
+            textBox7 = new TextBox();
+            label7 = new Label();
+            lblSpeakersForm = new Label();
+            tbRoomInfo = new TabPage();
+            btnClearRoomFields = new Button();
+            button9 = new Button();
+            textBox8 = new TextBox();
+            label9 = new Label();
+            textBox9 = new TextBox();
+            label10 = new Label();
+            button10 = new Button();
+            btnCreateRoom = new Button();
+            label11 = new Label();
+            tbTimeSlotInfo = new TabPage();
+            button13 = new Button();
+            button14 = new Button();
+            btnCreateTimeSlot = new Button();
+            button16 = new Button();
+            label12 = new Label();
+            label13 = new Label();
+            label14 = new Label();
+            label15 = new Label();
+            tbSessionInfo = new TabPage();
+            btnClearSessionFields = new Button();
+            cmbTimeSlots = new ComboBox();
+            textBox10 = new TextBox();
+            button17 = new Button();
+            button18 = new Button();
+            btnCreateSession = new Button();
+            label16 = new Label();
+            textBox11 = new TextBox();
+            label17 = new Label();
+            label18 = new Label();
+            comboBox3 = new ComboBox();
+            comboBox4 = new ComboBox();
+            label19 = new Label();
+            label20 = new Label();
+            label21 = new Label();
+            tbOverview = new TabPage();
+            button21 = new Button();
+            button22 = new Button();
+            button23 = new Button();
+            textBox12 = new TextBox();
+            label22 = new Label();
+            textBox13 = new TextBox();
+            label23 = new Label();
+            textBox14 = new TextBox();
+            textBox15 = new TextBox();
+            label24 = new Label();
+            comboBox5 = new ComboBox();
+            label25 = new Label();
+            comboBox6 = new ComboBox();
+            label26 = new Label();
+            label27 = new Label();
+            tbcSessionTracker.SuspendLayout();
+            tbSpeakerInfo.SuspendLayout();
+            tbRoomInfo.SuspendLayout();
+            tbTimeSlotInfo.SuspendLayout();
+            tbSessionInfo.SuspendLayout();
+            tbOverview.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
             // 
-            tabControl1.Controls.Add(tabSpeakerInfo);
-            tabControl1.Controls.Add(tabRoomInfo);
-            tabControl1.Controls.Add(tabTimeSlotInfo);
-            tabControl1.Controls.Add(tabSessionInfo);
-            tabControl1.Controls.Add(tabOverview);
-            tabControl1.Location = new Point(-1, 0);
-            tabControl1.Margin = new Padding(3, 2, 3, 2);
+            tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(515, 398);
-            tabControl1.TabIndex = 0;
+            tabControl1.Size = new Size(200, 100);
+            tabControl1.TabIndex = 2;
             // 
             // tabSpeakerInfo
             // 
-            tabSpeakerInfo.Controls.Add(button3);
-            tabSpeakerInfo.Controls.Add(btnRemoveSpeaker);
-            tabSpeakerInfo.Controls.Add(btnSaveSpeaker);
-            tabSpeakerInfo.Controls.Add(btnNewSpeaker);
-            tabSpeakerInfo.Controls.Add(txtBoxShortBio);
-            tabSpeakerInfo.Controls.Add(lblShortBio);
-            tabSpeakerInfo.Controls.Add(txtBoxPastTalksGiven);
-            tabSpeakerInfo.Controls.Add(lblPastTalksGiven);
-            tabSpeakerInfo.Controls.Add(lblEmail);
-            tabSpeakerInfo.Controls.Add(txtBoxEmail);
-            tabSpeakerInfo.Controls.Add(lblDayOfContact);
-            tabSpeakerInfo.Controls.Add(txtBoxDayOfContact);
-            tabSpeakerInfo.Controls.Add(txtBoxPhoneNumber);
-            tabSpeakerInfo.Controls.Add(lblPhoneNumber);
-            tabSpeakerInfo.Controls.Add(txtBoxLastName);
-            tabSpeakerInfo.Controls.Add(lblLastName);
-            tabSpeakerInfo.Controls.Add(txtBoxFirstName);
-            tabSpeakerInfo.Controls.Add(lblFirstName);
-            tabSpeakerInfo.Controls.Add(lblSpeakerForm);
-            tabSpeakerInfo.Location = new Point(4, 24);
-            tabSpeakerInfo.Margin = new Padding(3, 2, 3, 2);
+            tabSpeakerInfo.Location = new Point(0, 0);
             tabSpeakerInfo.Name = "tabSpeakerInfo";
-            tabSpeakerInfo.Padding = new Padding(3, 2, 3, 2);
-            tabSpeakerInfo.Size = new Size(507, 370);
+            tabSpeakerInfo.Size = new Size(200, 100);
             tabSpeakerInfo.TabIndex = 0;
-            tabSpeakerInfo.Text = "Speaker Info";
-            tabSpeakerInfo.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            button3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button3.Location = new Point(9, 340);
-            button3.Margin = new Padding(3, 2, 3, 2);
+            button3.Location = new Point(0, 0);
             button3.Name = "button3";
-            button3.Size = new Size(130, 26);
-            button3.TabIndex = 38;
-            button3.Text = "Exit Application";
-            button3.UseVisualStyleBackColor = true;
+            button3.Size = new Size(75, 23);
+            button3.TabIndex = 0;
             // 
             // btnRemoveSpeaker
             // 
-            btnRemoveSpeaker.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnRemoveSpeaker.Location = new Point(335, 335);
-            btnRemoveSpeaker.Margin = new Padding(3, 2, 3, 2);
+            btnRemoveSpeaker.Location = new Point(0, 0);
             btnRemoveSpeaker.Name = "btnRemoveSpeaker";
-            btnRemoveSpeaker.Size = new Size(130, 26);
-            btnRemoveSpeaker.TabIndex = 17;
-            btnRemoveSpeaker.Text = "Remove Speaker";
-            btnRemoveSpeaker.UseVisualStyleBackColor = true;
+            btnRemoveSpeaker.Size = new Size(75, 23);
+            btnRemoveSpeaker.TabIndex = 0;
             // 
             // btnSaveSpeaker
             // 
-            btnSaveSpeaker.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSaveSpeaker.Location = new Point(335, 302);
-            btnSaveSpeaker.Margin = new Padding(3, 2, 3, 2);
+            btnSaveSpeaker.Location = new Point(0, 0);
             btnSaveSpeaker.Name = "btnSaveSpeaker";
-            btnSaveSpeaker.Size = new Size(130, 29);
-            btnSaveSpeaker.TabIndex = 16;
-            btnSaveSpeaker.Text = "Save Speaker";
-            btnSaveSpeaker.UseVisualStyleBackColor = true;
-            btnSaveSpeaker.Click += btnSaveSpeaker_Click;
+            btnSaveSpeaker.Size = new Size(75, 23);
+            btnSaveSpeaker.TabIndex = 0;
             // 
             // btnNewSpeaker
             // 
-            btnNewSpeaker.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnNewSpeaker.Location = new Point(335, 269);
-            btnNewSpeaker.Margin = new Padding(3, 2, 3, 2);
+            btnNewSpeaker.Location = new Point(0, 0);
             btnNewSpeaker.Name = "btnNewSpeaker";
-            btnNewSpeaker.Size = new Size(130, 29);
-            btnNewSpeaker.TabIndex = 15;
-            btnNewSpeaker.Text = "New Speaker";
-            btnNewSpeaker.UseVisualStyleBackColor = true;
-            btnNewSpeaker.Click += btnNewSpeaker_Click;
+            btnNewSpeaker.Size = new Size(75, 23);
+            btnNewSpeaker.TabIndex = 0;
             // 
             // txtBoxShortBio
             // 
-            txtBoxShortBio.Location = new Point(9, 222);
-            txtBoxShortBio.Margin = new Padding(3, 2, 3, 2);
-            txtBoxShortBio.Multiline = true;
+            txtBoxShortBio.Location = new Point(0, 0);
             txtBoxShortBio.Name = "txtBoxShortBio";
-            txtBoxShortBio.Size = new Size(126, 66);
-            txtBoxShortBio.TabIndex = 14;
+            txtBoxShortBio.Size = new Size(100, 23);
+            txtBoxShortBio.TabIndex = 0;
             // 
             // lblShortBio
             // 
-            lblShortBio.AutoSize = true;
-            lblShortBio.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblShortBio.Location = new Point(9, 199);
+            lblShortBio.Location = new Point(0, 0);
             lblShortBio.Name = "lblShortBio";
-            lblShortBio.Size = new Size(74, 21);
-            lblShortBio.TabIndex = 13;
-            lblShortBio.Text = "Short Bio";
+            lblShortBio.Size = new Size(100, 23);
+            lblShortBio.TabIndex = 0;
             // 
             // txtBoxPastTalksGiven
             // 
-            txtBoxPastTalksGiven.Location = new Point(335, 168);
-            txtBoxPastTalksGiven.Margin = new Padding(3, 2, 3, 2);
-            txtBoxPastTalksGiven.Multiline = true;
+            txtBoxPastTalksGiven.Location = new Point(0, 0);
             txtBoxPastTalksGiven.Name = "txtBoxPastTalksGiven";
-            txtBoxPastTalksGiven.Size = new Size(126, 53);
-            txtBoxPastTalksGiven.TabIndex = 12;
+            txtBoxPastTalksGiven.Size = new Size(100, 23);
+            txtBoxPastTalksGiven.TabIndex = 0;
             // 
             // lblPastTalksGiven
             // 
-            lblPastTalksGiven.AutoSize = true;
-            lblPastTalksGiven.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblPastTalksGiven.Location = new Point(335, 145);
+            lblPastTalksGiven.Location = new Point(0, 0);
             lblPastTalksGiven.Name = "lblPastTalksGiven";
-            lblPastTalksGiven.Size = new Size(119, 21);
-            lblPastTalksGiven.TabIndex = 11;
-            lblPastTalksGiven.Text = "Past Talks Given";
+            lblPastTalksGiven.Size = new Size(100, 23);
+            lblPastTalksGiven.TabIndex = 0;
             // 
             // lblEmail
             // 
-            lblEmail.AutoSize = true;
-            lblEmail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblEmail.Location = new Point(9, 145);
+            lblEmail.Location = new Point(0, 0);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(48, 21);
-            lblEmail.TabIndex = 10;
-            lblEmail.Text = "Email";
+            lblEmail.Size = new Size(100, 23);
+            lblEmail.TabIndex = 0;
             // 
             // txtBoxEmail
             // 
-            txtBoxEmail.Location = new Point(9, 168);
-            txtBoxEmail.Margin = new Padding(3, 2, 3, 2);
+            txtBoxEmail.Location = new Point(0, 0);
             txtBoxEmail.Name = "txtBoxEmail";
-            txtBoxEmail.Size = new Size(126, 23);
-            txtBoxEmail.TabIndex = 9;
+            txtBoxEmail.Size = new Size(100, 23);
+            txtBoxEmail.TabIndex = 0;
             // 
             // lblDayOfContact
             // 
-            lblDayOfContact.AutoSize = true;
-            lblDayOfContact.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblDayOfContact.Location = new Point(335, 94);
+            lblDayOfContact.Location = new Point(0, 0);
             lblDayOfContact.Name = "lblDayOfContact";
-            lblDayOfContact.Size = new Size(118, 21);
-            lblDayOfContact.TabIndex = 8;
-            lblDayOfContact.Text = "Day Of Contact:";
+            lblDayOfContact.Size = new Size(100, 23);
+            lblDayOfContact.TabIndex = 0;
             // 
             // txtBoxDayOfContact
             // 
-            txtBoxDayOfContact.Location = new Point(335, 117);
-            txtBoxDayOfContact.Margin = new Padding(3, 2, 3, 2);
+            txtBoxDayOfContact.Location = new Point(0, 0);
             txtBoxDayOfContact.Name = "txtBoxDayOfContact";
-            txtBoxDayOfContact.Size = new Size(126, 23);
-            txtBoxDayOfContact.TabIndex = 7;
+            txtBoxDayOfContact.Size = new Size(100, 23);
+            txtBoxDayOfContact.TabIndex = 0;
             // 
             // txtBoxPhoneNumber
             // 
-            txtBoxPhoneNumber.Location = new Point(335, 62);
-            txtBoxPhoneNumber.Margin = new Padding(3, 2, 3, 2);
+            txtBoxPhoneNumber.Location = new Point(0, 0);
             txtBoxPhoneNumber.Name = "txtBoxPhoneNumber";
-            txtBoxPhoneNumber.Size = new Size(126, 23);
-            txtBoxPhoneNumber.TabIndex = 6;
+            txtBoxPhoneNumber.Size = new Size(100, 23);
+            txtBoxPhoneNumber.TabIndex = 0;
             // 
             // lblPhoneNumber
             // 
-            lblPhoneNumber.AutoSize = true;
-            lblPhoneNumber.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblPhoneNumber.Location = new Point(335, 39);
+            lblPhoneNumber.Location = new Point(0, 0);
             lblPhoneNumber.Name = "lblPhoneNumber";
-            lblPhoneNumber.Size = new Size(119, 21);
-            lblPhoneNumber.TabIndex = 5;
-            lblPhoneNumber.Text = "Phone Number:";
+            lblPhoneNumber.Size = new Size(100, 23);
+            lblPhoneNumber.TabIndex = 0;
             // 
             // txtBoxLastName
             // 
-            txtBoxLastName.Location = new Point(9, 117);
-            txtBoxLastName.Margin = new Padding(3, 2, 3, 2);
+            txtBoxLastName.Location = new Point(0, 0);
             txtBoxLastName.Name = "txtBoxLastName";
-            txtBoxLastName.Size = new Size(126, 23);
-            txtBoxLastName.TabIndex = 4;
+            txtBoxLastName.Size = new Size(100, 23);
+            txtBoxLastName.TabIndex = 0;
             // 
             // lblLastName
             // 
-            lblLastName.AutoSize = true;
-            lblLastName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblLastName.Location = new Point(9, 94);
+            lblLastName.Location = new Point(0, 0);
             lblLastName.Name = "lblLastName";
-            lblLastName.Size = new Size(83, 21);
-            lblLastName.TabIndex = 3;
-            lblLastName.Text = "LastName:";
+            lblLastName.Size = new Size(100, 23);
+            lblLastName.TabIndex = 0;
             // 
             // txtBoxFirstName
             // 
-            txtBoxFirstName.Location = new Point(9, 62);
-            txtBoxFirstName.Margin = new Padding(3, 2, 3, 2);
+            txtBoxFirstName.Location = new Point(0, 0);
             txtBoxFirstName.Name = "txtBoxFirstName";
-            txtBoxFirstName.Size = new Size(126, 23);
-            txtBoxFirstName.TabIndex = 2;
+            txtBoxFirstName.Size = new Size(100, 23);
+            txtBoxFirstName.TabIndex = 0;
             // 
             // lblFirstName
             // 
-            lblFirstName.AutoSize = true;
-            lblFirstName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFirstName.Location = new Point(9, 39);
+            lblFirstName.Location = new Point(0, 0);
             lblFirstName.Name = "lblFirstName";
-            lblFirstName.Size = new Size(85, 21);
-            lblFirstName.TabIndex = 1;
-            lblFirstName.Text = "FirstName:";
+            lblFirstName.Size = new Size(100, 23);
+            lblFirstName.TabIndex = 0;
             // 
             // lblSpeakerForm
             // 
-            lblSpeakerForm.AutoSize = true;
-            lblSpeakerForm.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            lblSpeakerForm.Location = new Point(176, 2);
+            lblSpeakerForm.Location = new Point(0, 0);
             lblSpeakerForm.Name = "lblSpeakerForm";
-            lblSpeakerForm.Size = new Size(161, 32);
+            lblSpeakerForm.Size = new Size(100, 23);
             lblSpeakerForm.TabIndex = 0;
-            lblSpeakerForm.Text = "Speaker Form";
             // 
             // tabRoomInfo
             // 
-            tabRoomInfo.Controls.Add(button1);
-            tabRoomInfo.Controls.Add(txtBoxMaxCapacity);
-            tabRoomInfo.Controls.Add(lblMaxCapacity);
-            tabRoomInfo.Controls.Add(txtBoxRoomID);
-            tabRoomInfo.Controls.Add(lblRoomID);
-            tabRoomInfo.Controls.Add(btnRemoveRoom);
-            tabRoomInfo.Controls.Add(btnSaveRoom);
-            tabRoomInfo.Controls.Add(btnNewRoom);
-            tabRoomInfo.Controls.Add(lblRoomForm);
-            tabRoomInfo.Location = new Point(4, 24);
-            tabRoomInfo.Margin = new Padding(3, 2, 3, 2);
+            tabRoomInfo.Location = new Point(0, 0);
             tabRoomInfo.Name = "tabRoomInfo";
-            tabRoomInfo.Padding = new Padding(3, 2, 3, 2);
-            tabRoomInfo.Size = new Size(507, 370);
-            tabRoomInfo.TabIndex = 1;
-            tabRoomInfo.Text = "Room Info";
-            tabRoomInfo.UseVisualStyleBackColor = true;
+            tabRoomInfo.Size = new Size(200, 100);
+            tabRoomInfo.TabIndex = 0;
             // 
             // button1
             // 
-            button1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(9, 333);
-            button1.Margin = new Padding(3, 2, 3, 2);
+            button1.Location = new Point(0, 0);
             button1.Name = "button1";
-            button1.Size = new Size(130, 26);
-            button1.TabIndex = 38;
-            button1.Text = "Exit Application";
-            button1.UseVisualStyleBackColor = true;
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 0;
             // 
             // txtBoxMaxCapacity
             // 
-            txtBoxMaxCapacity.Location = new Point(9, 122);
-            txtBoxMaxCapacity.Margin = new Padding(3, 2, 3, 2);
+            txtBoxMaxCapacity.Location = new Point(0, 0);
             txtBoxMaxCapacity.Name = "txtBoxMaxCapacity";
-            txtBoxMaxCapacity.Size = new Size(126, 23);
-            txtBoxMaxCapacity.TabIndex = 24;
+            txtBoxMaxCapacity.Size = new Size(100, 23);
+            txtBoxMaxCapacity.TabIndex = 0;
             // 
             // lblMaxCapacity
             // 
-            lblMaxCapacity.AutoSize = true;
-            lblMaxCapacity.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblMaxCapacity.Location = new Point(9, 99);
+            lblMaxCapacity.Location = new Point(0, 0);
             lblMaxCapacity.Name = "lblMaxCapacity";
-            lblMaxCapacity.Size = new Size(102, 21);
-            lblMaxCapacity.TabIndex = 23;
-            lblMaxCapacity.Text = "Max Capacity";
+            lblMaxCapacity.Size = new Size(100, 23);
+            lblMaxCapacity.TabIndex = 0;
             // 
             // txtBoxRoomID
             // 
-            txtBoxRoomID.Location = new Point(9, 74);
-            txtBoxRoomID.Margin = new Padding(3, 2, 3, 2);
+            txtBoxRoomID.Location = new Point(0, 0);
             txtBoxRoomID.Name = "txtBoxRoomID";
-            txtBoxRoomID.Size = new Size(126, 23);
-            txtBoxRoomID.TabIndex = 22;
+            txtBoxRoomID.Size = new Size(100, 23);
+            txtBoxRoomID.TabIndex = 0;
             // 
             // lblRoomID
             // 
-            lblRoomID.AutoSize = true;
-            lblRoomID.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblRoomID.Location = new Point(9, 51);
+            lblRoomID.Location = new Point(0, 0);
             lblRoomID.Name = "lblRoomID";
-            lblRoomID.Size = new Size(74, 21);
-            lblRoomID.TabIndex = 21;
-            lblRoomID.Text = "Room ID:";
+            lblRoomID.Size = new Size(100, 23);
+            lblRoomID.TabIndex = 0;
             // 
             // btnRemoveRoom
             // 
-            btnRemoveRoom.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnRemoveRoom.Location = new Point(374, 339);
-            btnRemoveRoom.Margin = new Padding(3, 2, 3, 2);
+            btnRemoveRoom.Location = new Point(0, 0);
             btnRemoveRoom.Name = "btnRemoveRoom";
-            btnRemoveRoom.Size = new Size(130, 26);
-            btnRemoveRoom.TabIndex = 20;
-            btnRemoveRoom.Text = "Remove Room";
-            btnRemoveRoom.UseVisualStyleBackColor = true;
+            btnRemoveRoom.Size = new Size(75, 23);
+            btnRemoveRoom.TabIndex = 0;
             // 
             // btnSaveRoom
             // 
-            btnSaveRoom.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSaveRoom.Location = new Point(374, 309);
-            btnSaveRoom.Margin = new Padding(3, 2, 3, 2);
+            btnSaveRoom.Location = new Point(0, 0);
             btnSaveRoom.Name = "btnSaveRoom";
-            btnSaveRoom.Size = new Size(130, 26);
-            btnSaveRoom.TabIndex = 19;
-            btnSaveRoom.Text = "Save Room";
-            btnSaveRoom.UseVisualStyleBackColor = true;
-            btnSaveRoom.Click += btnSaveRoom_Click;
+            btnSaveRoom.Size = new Size(75, 23);
+            btnSaveRoom.TabIndex = 0;
             // 
             // btnNewRoom
             // 
-            btnNewRoom.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnNewRoom.Location = new Point(374, 279);
-            btnNewRoom.Margin = new Padding(3, 2, 3, 2);
+            btnNewRoom.Location = new Point(0, 0);
             btnNewRoom.Name = "btnNewRoom";
-            btnNewRoom.Size = new Size(130, 26);
-            btnNewRoom.TabIndex = 18;
-            btnNewRoom.Text = "New Room";
-            btnNewRoom.UseVisualStyleBackColor = true;
-            btnNewRoom.Click += btnNewRoom_Click;
+            btnNewRoom.Size = new Size(75, 23);
+            btnNewRoom.TabIndex = 0;
             // 
             // lblRoomForm
             // 
-            lblRoomForm.AutoSize = true;
-            lblRoomForm.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            lblRoomForm.Location = new Point(192, 2);
+            lblRoomForm.Location = new Point(0, 0);
             lblRoomForm.Name = "lblRoomForm";
-            lblRoomForm.Size = new Size(138, 32);
-            lblRoomForm.TabIndex = 1;
-            lblRoomForm.Text = "Room Form";
+            lblRoomForm.Size = new Size(100, 23);
+            lblRoomForm.TabIndex = 0;
             // 
             // tabTimeSlotInfo
             // 
-            tabTimeSlotInfo.Controls.Add(button2);
-            tabTimeSlotInfo.Controls.Add(btnRemoveTimeSlot);
-            tabTimeSlotInfo.Controls.Add(btnSaveTimeSlot);
-            tabTimeSlotInfo.Controls.Add(btnNewTimeSlot);
-            tabTimeSlotInfo.Controls.Add(lblSessionDate);
-            tabTimeSlotInfo.Controls.Add(datePickerSessionDate);
-            tabTimeSlotInfo.Controls.Add(timePickerEndTime);
-            tabTimeSlotInfo.Controls.Add(lblEndTime);
-            tabTimeSlotInfo.Controls.Add(tmprStartTime);
-            tabTimeSlotInfo.Controls.Add(lblStartTime);
-            tabTimeSlotInfo.Controls.Add(lblTimeSlotForm);
-            tabTimeSlotInfo.Location = new Point(4, 24);
-            tabTimeSlotInfo.Margin = new Padding(3, 2, 3, 2);
+            tabTimeSlotInfo.Location = new Point(0, 0);
             tabTimeSlotInfo.Name = "tabTimeSlotInfo";
-            tabTimeSlotInfo.Size = new Size(507, 370);
-            tabTimeSlotInfo.TabIndex = 2;
-            tabTimeSlotInfo.Text = "Time Slot Info";
-            tabTimeSlotInfo.UseVisualStyleBackColor = true;
+            tabTimeSlotInfo.Size = new Size(200, 100);
+            tabTimeSlotInfo.TabIndex = 0;
             // 
             // button2
             // 
-            button2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.Location = new Point(9, 336);
-            button2.Margin = new Padding(3, 2, 3, 2);
+            button2.Location = new Point(0, 0);
             button2.Name = "button2";
-            button2.Size = new Size(130, 26);
-            button2.TabIndex = 38;
-            button2.Text = "Exit Application";
-            button2.UseVisualStyleBackColor = true;
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 0;
             // 
             // btnRemoveTimeSlot
             // 
-            btnRemoveTimeSlot.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnRemoveTimeSlot.Location = new Point(368, 336);
-            btnRemoveTimeSlot.Margin = new Padding(3, 2, 3, 2);
+            btnRemoveTimeSlot.Location = new Point(0, 0);
             btnRemoveTimeSlot.Name = "btnRemoveTimeSlot";
-            btnRemoveTimeSlot.Size = new Size(130, 26);
-            btnRemoveTimeSlot.TabIndex = 32;
-            btnRemoveTimeSlot.Text = "Remove Time Slot";
-            btnRemoveTimeSlot.UseVisualStyleBackColor = true;
+            btnRemoveTimeSlot.Size = new Size(75, 23);
+            btnRemoveTimeSlot.TabIndex = 0;
             // 
             // btnSaveTimeSlot
             // 
-            btnSaveTimeSlot.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSaveTimeSlot.Location = new Point(368, 306);
-            btnSaveTimeSlot.Margin = new Padding(3, 2, 3, 2);
+            btnSaveTimeSlot.Location = new Point(0, 0);
             btnSaveTimeSlot.Name = "btnSaveTimeSlot";
-            btnSaveTimeSlot.Size = new Size(130, 26);
-            btnSaveTimeSlot.TabIndex = 31;
-            btnSaveTimeSlot.Text = "Save Time Slot";
-            btnSaveTimeSlot.UseVisualStyleBackColor = true;
-            btnSaveTimeSlot.Click += btnSaveTimeSlot_Click;
+            btnSaveTimeSlot.Size = new Size(75, 23);
+            btnSaveTimeSlot.TabIndex = 0;
             // 
             // btnNewTimeSlot
             // 
-            btnNewTimeSlot.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnNewTimeSlot.Location = new Point(368, 276);
-            btnNewTimeSlot.Margin = new Padding(3, 2, 3, 2);
+            btnNewTimeSlot.Location = new Point(0, 0);
             btnNewTimeSlot.Name = "btnNewTimeSlot";
-            btnNewTimeSlot.Size = new Size(130, 26);
-            btnNewTimeSlot.TabIndex = 30;
-            btnNewTimeSlot.Text = "New Time Slot";
-            btnNewTimeSlot.UseVisualStyleBackColor = true;
-            btnNewTimeSlot.Click += btnNewTimeSlot_Click;
+            btnNewTimeSlot.Size = new Size(75, 23);
+            btnNewTimeSlot.TabIndex = 0;
             // 
             // lblSessionDate
             // 
-            lblSessionDate.AutoSize = true;
-            lblSessionDate.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblSessionDate.Location = new Point(9, 167);
+            lblSessionDate.Location = new Point(0, 0);
             lblSessionDate.Name = "lblSessionDate";
-            lblSessionDate.Size = new Size(102, 21);
-            lblSessionDate.TabIndex = 29;
-            lblSessionDate.Text = "Session Date:";
-            // 
-            // datePickerSessionDate
-            // 
-            datePickerSessionDate.CustomFormat = "dd/mm/yyyy";
-            datePickerSessionDate.Format = DateTimePickerFormat.Custom;
-            datePickerSessionDate.Location = new Point(9, 191);
-            datePickerSessionDate.Margin = new Padding(3, 2, 3, 2);
-            datePickerSessionDate.Name = "datePickerSessionDate";
-            datePickerSessionDate.Size = new Size(219, 23);
-            datePickerSessionDate.TabIndex = 28;
-            // 
-            // timePickerEndTime
-            // 
-            timePickerEndTime.CalendarFont = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            timePickerEndTime.CustomFormat = "hh:mm tt";
-            timePickerEndTime.Format = DateTimePickerFormat.Custom;
-            timePickerEndTime.Location = new Point(9, 129);
-            timePickerEndTime.Margin = new Padding(3, 2, 3, 2);
-            timePickerEndTime.Name = "timePickerEndTime";
-            timePickerEndTime.ShowUpDown = true;
-            timePickerEndTime.Size = new Size(92, 23);
-            timePickerEndTime.TabIndex = 25;
-            timePickerEndTime.Value = new DateTime(2023, 3, 4, 0, 0, 0, 0);
+            lblSessionDate.Size = new Size(100, 23);
+            lblSessionDate.TabIndex = 0;
             // 
             // lblEndTime
             // 
-            lblEndTime.AutoSize = true;
-            lblEndTime.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblEndTime.Location = new Point(9, 106);
+            lblEndTime.Location = new Point(0, 0);
             lblEndTime.Name = "lblEndTime";
-            lblEndTime.Size = new Size(77, 21);
-            lblEndTime.TabIndex = 24;
-            lblEndTime.Text = "End Time:";
-            // 
-            // tmprStartTime
-            // 
-            tmprStartTime.CalendarFont = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            tmprStartTime.CustomFormat = "hh:mm tt";
-            tmprStartTime.Format = DateTimePickerFormat.Custom;
-            tmprStartTime.Location = new Point(9, 62);
-            tmprStartTime.Margin = new Padding(3, 2, 3, 2);
-            tmprStartTime.Name = "tmprStartTime";
-            tmprStartTime.ShowUpDown = true;
-            tmprStartTime.Size = new Size(92, 23);
-            tmprStartTime.TabIndex = 23;
-            tmprStartTime.Value = new DateTime(2023, 3, 4, 0, 0, 0, 0);
+            lblEndTime.Size = new Size(100, 23);
+            lblEndTime.TabIndex = 0;
             // 
             // lblStartTime
             // 
-            lblStartTime.AutoSize = true;
-            lblStartTime.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblStartTime.Location = new Point(9, 39);
+            lblStartTime.Location = new Point(0, 0);
             lblStartTime.Name = "lblStartTime";
-            lblStartTime.Size = new Size(83, 21);
-            lblStartTime.TabIndex = 22;
-            lblStartTime.Text = "Start Time:";
+            lblStartTime.Size = new Size(100, 23);
+            lblStartTime.TabIndex = 0;
             // 
             // lblTimeSlotForm
             // 
-            lblTimeSlotForm.AutoSize = true;
-            lblTimeSlotForm.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            lblTimeSlotForm.Location = new Point(175, 0);
+            lblTimeSlotForm.Location = new Point(0, 0);
             lblTimeSlotForm.Name = "lblTimeSlotForm";
-            lblTimeSlotForm.Size = new Size(177, 32);
-            lblTimeSlotForm.TabIndex = 2;
-            lblTimeSlotForm.Text = "Time Slot Form";
+            lblTimeSlotForm.Size = new Size(100, 23);
+            lblTimeSlotForm.TabIndex = 0;
             // 
             // tabSessionInfo
             // 
-            tabSessionInfo.Controls.Add(cmbSessionEndTime);
-            tabSessionInfo.Controls.Add(cmbSessionStartTime);
-            tabSessionInfo.Controls.Add(txtBoxSessionName);
-            tabSessionInfo.Controls.Add(btnExitApplication);
-            tabSessionInfo.Controls.Add(btnRemoveSession);
-            tabSessionInfo.Controls.Add(btnSaveSession);
-            tabSessionInfo.Controls.Add(btnNewSession);
-            tabSessionInfo.Controls.Add(lblTimeSlotSession);
-            tabSessionInfo.Controls.Add(txtBoxDurationOfSession);
-            tabSessionInfo.Controls.Add(lblDurationSession);
-            tabSessionInfo.Controls.Add(lblRoomName);
-            tabSessionInfo.Controls.Add(cmbBoxRoomName);
-            tabSessionInfo.Controls.Add(cmbBoxSpeakerName);
-            tabSessionInfo.Controls.Add(lblSpeakerName);
-            tabSessionInfo.Controls.Add(lblSessionName);
-            tabSessionInfo.Controls.Add(lblSessionForm);
-            tabSessionInfo.Location = new Point(4, 24);
-            tabSessionInfo.Margin = new Padding(3, 2, 3, 2);
+            tabSessionInfo.Location = new Point(0, 0);
             tabSessionInfo.Name = "tabSessionInfo";
-            tabSessionInfo.Size = new Size(507, 370);
-            tabSessionInfo.TabIndex = 3;
-            tabSessionInfo.Text = "Session Info";
-            tabSessionInfo.UseVisualStyleBackColor = true;
+            tabSessionInfo.Size = new Size(200, 100);
+            tabSessionInfo.TabIndex = 0;
             // 
             // cmbSessionEndTime
             // 
-            cmbSessionEndTime.FormattingEnabled = true;
-            cmbSessionEndTime.Location = new Point(68, 218);
+            cmbSessionEndTime.Location = new Point(0, 0);
             cmbSessionEndTime.Name = "cmbSessionEndTime";
-            cmbSessionEndTime.Size = new Size(56, 23);
-            cmbSessionEndTime.TabIndex = 40;
+            cmbSessionEndTime.Size = new Size(121, 23);
+            cmbSessionEndTime.TabIndex = 0;
             // 
             // cmbSessionStartTime
             // 
-            cmbSessionStartTime.FormattingEnabled = true;
-            cmbSessionStartTime.Location = new Point(9, 218);
+            cmbSessionStartTime.Location = new Point(0, 0);
             cmbSessionStartTime.Name = "cmbSessionStartTime";
-            cmbSessionStartTime.Size = new Size(56, 23);
-            cmbSessionStartTime.TabIndex = 39;
+            cmbSessionStartTime.Size = new Size(121, 23);
+            cmbSessionStartTime.TabIndex = 0;
             // 
             // txtBoxSessionName
             // 
-            txtBoxSessionName.Location = new Point(9, 65);
+            txtBoxSessionName.Location = new Point(0, 0);
             txtBoxSessionName.Name = "txtBoxSessionName";
             txtBoxSessionName.Size = new Size(100, 23);
-            txtBoxSessionName.TabIndex = 38;
+            txtBoxSessionName.TabIndex = 0;
             // 
             // btnExitApplication
             // 
-            btnExitApplication.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnExitApplication.Location = new Point(9, 333);
-            btnExitApplication.Margin = new Padding(3, 2, 3, 2);
+            btnExitApplication.Location = new Point(0, 0);
             btnExitApplication.Name = "btnExitApplication";
-            btnExitApplication.Size = new Size(130, 26);
-            btnExitApplication.TabIndex = 37;
-            btnExitApplication.Text = "Exit Application";
-            btnExitApplication.UseVisualStyleBackColor = true;
+            btnExitApplication.Size = new Size(75, 23);
+            btnExitApplication.TabIndex = 0;
             // 
             // btnRemoveSession
             // 
-            btnRemoveSession.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnRemoveSession.Location = new Point(368, 333);
-            btnRemoveSession.Margin = new Padding(3, 2, 3, 2);
+            btnRemoveSession.Location = new Point(0, 0);
             btnRemoveSession.Name = "btnRemoveSession";
-            btnRemoveSession.Size = new Size(130, 26);
-            btnRemoveSession.TabIndex = 36;
-            btnRemoveSession.Text = "Remove Session";
-            btnRemoveSession.UseVisualStyleBackColor = true;
+            btnRemoveSession.Size = new Size(75, 23);
+            btnRemoveSession.TabIndex = 0;
             // 
             // btnSaveSession
             // 
-            btnSaveSession.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSaveSession.Location = new Point(368, 303);
-            btnSaveSession.Margin = new Padding(3, 2, 3, 2);
+            btnSaveSession.Location = new Point(0, 0);
             btnSaveSession.Name = "btnSaveSession";
-            btnSaveSession.Size = new Size(130, 26);
-            btnSaveSession.TabIndex = 35;
-            btnSaveSession.Text = "Save Session";
-            btnSaveSession.UseVisualStyleBackColor = true;
-            btnSaveSession.Click += btnSaveSession_Click;
+            btnSaveSession.Size = new Size(75, 23);
+            btnSaveSession.TabIndex = 0;
             // 
             // btnNewSession
             // 
-            btnNewSession.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnNewSession.Location = new Point(368, 273);
-            btnNewSession.Margin = new Padding(3, 2, 3, 2);
+            btnNewSession.Location = new Point(0, 0);
             btnNewSession.Name = "btnNewSession";
-            btnNewSession.Size = new Size(130, 26);
-            btnNewSession.TabIndex = 34;
-            btnNewSession.Text = "New Session";
-            btnNewSession.UseVisualStyleBackColor = true;
-            btnNewSession.Click += btnNewSession_Click;
+            btnNewSession.Size = new Size(75, 23);
+            btnNewSession.TabIndex = 0;
             // 
             // lblTimeSlotSession
             // 
-            lblTimeSlotSession.AutoSize = true;
-            lblTimeSlotSession.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblTimeSlotSession.Location = new Point(9, 194);
+            lblTimeSlotSession.Location = new Point(0, 0);
             lblTimeSlotSession.Name = "lblTimeSlotSession";
-            lblTimeSlotSession.Size = new Size(78, 21);
-            lblTimeSlotSession.TabIndex = 31;
-            lblTimeSlotSession.Text = "Time Slot:";
+            lblTimeSlotSession.Size = new Size(100, 23);
+            lblTimeSlotSession.TabIndex = 0;
             // 
             // txtBoxDurationOfSession
             // 
-            txtBoxDurationOfSession.Location = new Point(281, 170);
-            txtBoxDurationOfSession.Margin = new Padding(3, 2, 3, 2);
+            txtBoxDurationOfSession.Location = new Point(0, 0);
             txtBoxDurationOfSession.Name = "txtBoxDurationOfSession";
-            txtBoxDurationOfSession.Size = new Size(219, 23);
-            txtBoxDurationOfSession.TabIndex = 30;
+            txtBoxDurationOfSession.Size = new Size(100, 23);
+            txtBoxDurationOfSession.TabIndex = 0;
             // 
             // lblDurationSession
             // 
-            lblDurationSession.AutoSize = true;
-            lblDurationSession.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblDurationSession.Location = new Point(281, 147);
+            lblDurationSession.Location = new Point(0, 0);
             lblDurationSession.Name = "lblDurationSession";
-            lblDurationSession.Size = new Size(149, 21);
-            lblDurationSession.TabIndex = 29;
-            lblDurationSession.Text = "Duration of Session:";
+            lblDurationSession.Size = new Size(100, 23);
+            lblDurationSession.TabIndex = 0;
             // 
             // lblRoomName
             // 
-            lblRoomName.AutoSize = true;
-            lblRoomName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblRoomName.Location = new Point(281, 80);
+            lblRoomName.Location = new Point(0, 0);
             lblRoomName.Name = "lblRoomName";
-            lblRoomName.Size = new Size(101, 21);
-            lblRoomName.TabIndex = 28;
-            lblRoomName.Text = "Room Name:";
+            lblRoomName.Size = new Size(100, 23);
+            lblRoomName.TabIndex = 0;
             // 
             // cmbBoxRoomName
             // 
-            cmbBoxRoomName.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbBoxRoomName.FormattingEnabled = true;
-            cmbBoxRoomName.Location = new Point(281, 104);
-            cmbBoxRoomName.Margin = new Padding(3, 2, 3, 2);
+            cmbBoxRoomName.Location = new Point(0, 0);
             cmbBoxRoomName.Name = "cmbBoxRoomName";
-            cmbBoxRoomName.Size = new Size(133, 23);
-            cmbBoxRoomName.TabIndex = 27;
+            cmbBoxRoomName.Size = new Size(121, 23);
+            cmbBoxRoomName.TabIndex = 0;
             // 
             // cmbBoxSpeakerName
             // 
-            cmbBoxSpeakerName.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbBoxSpeakerName.FormattingEnabled = true;
-            cmbBoxSpeakerName.Location = new Point(9, 131);
-            cmbBoxSpeakerName.Margin = new Padding(3, 2, 3, 2);
+            cmbBoxSpeakerName.Location = new Point(0, 0);
             cmbBoxSpeakerName.Name = "cmbBoxSpeakerName";
-            cmbBoxSpeakerName.Size = new Size(133, 23);
-            cmbBoxSpeakerName.TabIndex = 26;
+            cmbBoxSpeakerName.Size = new Size(121, 23);
+            cmbBoxSpeakerName.TabIndex = 0;
             // 
             // lblSpeakerName
             // 
-            lblSpeakerName.AutoSize = true;
-            lblSpeakerName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblSpeakerName.Location = new Point(9, 108);
+            lblSpeakerName.Location = new Point(0, 0);
             lblSpeakerName.Name = "lblSpeakerName";
-            lblSpeakerName.Size = new Size(115, 21);
-            lblSpeakerName.TabIndex = 25;
-            lblSpeakerName.Text = "Speaker Name:";
+            lblSpeakerName.Size = new Size(100, 23);
+            lblSpeakerName.TabIndex = 0;
             // 
             // lblSessionName
             // 
-            lblSessionName.AutoSize = true;
-            lblSessionName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblSessionName.Location = new Point(9, 41);
+            lblSessionName.Location = new Point(0, 0);
             lblSessionName.Name = "lblSessionName";
-            lblSessionName.Size = new Size(112, 21);
-            lblSessionName.TabIndex = 23;
-            lblSessionName.Text = "Session Name:";
+            lblSessionName.Size = new Size(100, 23);
+            lblSessionName.TabIndex = 0;
             // 
             // lblSessionForm
             // 
-            lblSessionForm.AutoSize = true;
-            lblSessionForm.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            lblSessionForm.Location = new Point(176, 0);
+            lblSessionForm.Location = new Point(0, 0);
             lblSessionForm.Name = "lblSessionForm";
-            lblSessionForm.Size = new Size(156, 32);
-            lblSessionForm.TabIndex = 3;
-            lblSessionForm.Text = "Session Form";
+            lblSessionForm.Size = new Size(100, 23);
+            lblSessionForm.TabIndex = 0;
             // 
             // tabOverview
             // 
-            tabOverview.Controls.Add(button4);
-            tabOverview.Controls.Add(btnNewSessionOverview);
-            tabOverview.Controls.Add(btnNewSpeakerOverview);
-            tabOverview.Controls.Add(txtBoxRoomOverview);
-            tabOverview.Controls.Add(lblRoomOverview);
-            tabOverview.Controls.Add(txtBoxDurationOverview);
-            tabOverview.Controls.Add(lblDurationOverview);
-            tabOverview.Controls.Add(txtBoxEndtimeOverview);
-            tabOverview.Controls.Add(txtBoxStartTimeOverview);
-            tabOverview.Controls.Add(lblTimeSlotOverview);
-            tabOverview.Controls.Add(cmbBoxSessionNameOverview);
-            tabOverview.Controls.Add(lblSessionOverview);
-            tabOverview.Controls.Add(cmbBoxSpeakerNameOverview);
-            tabOverview.Controls.Add(lblSpeakerNameOverview);
-            tabOverview.Controls.Add(lblOverview);
-            tabOverview.Location = new Point(4, 24);
-            tabOverview.Margin = new Padding(3, 2, 3, 2);
+            tabOverview.Location = new Point(0, 0);
             tabOverview.Name = "tabOverview";
-            tabOverview.Size = new Size(507, 370);
-            tabOverview.TabIndex = 4;
-            tabOverview.Text = "Overview";
-            tabOverview.UseVisualStyleBackColor = true;
+            tabOverview.Size = new Size(200, 100);
+            tabOverview.TabIndex = 0;
             // 
             // button4
             // 
-            button4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button4.Location = new Point(12, 336);
-            button4.Margin = new Padding(3, 2, 3, 2);
+            button4.Location = new Point(0, 0);
             button4.Name = "button4";
-            button4.Size = new Size(130, 26);
-            button4.TabIndex = 44;
-            button4.Text = "Exit Application";
-            button4.UseVisualStyleBackColor = true;
+            button4.Size = new Size(75, 23);
+            button4.TabIndex = 0;
             // 
             // btnNewSessionOverview
             // 
-            btnNewSessionOverview.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnNewSessionOverview.Location = new Point(368, 336);
-            btnNewSessionOverview.Margin = new Padding(3, 2, 3, 2);
+            btnNewSessionOverview.Location = new Point(0, 0);
             btnNewSessionOverview.Name = "btnNewSessionOverview";
-            btnNewSessionOverview.Size = new Size(130, 26);
-            btnNewSessionOverview.TabIndex = 43;
-            btnNewSessionOverview.Text = "New Session";
-            btnNewSessionOverview.UseVisualStyleBackColor = true;
+            btnNewSessionOverview.Size = new Size(75, 23);
+            btnNewSessionOverview.TabIndex = 0;
             // 
             // btnNewSpeakerOverview
             // 
-            btnNewSpeakerOverview.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnNewSpeakerOverview.Location = new Point(368, 306);
-            btnNewSpeakerOverview.Margin = new Padding(3, 2, 3, 2);
+            btnNewSpeakerOverview.Location = new Point(0, 0);
             btnNewSpeakerOverview.Name = "btnNewSpeakerOverview";
-            btnNewSpeakerOverview.Size = new Size(130, 26);
-            btnNewSpeakerOverview.TabIndex = 42;
-            btnNewSpeakerOverview.Text = "New Speaker";
-            btnNewSpeakerOverview.UseVisualStyleBackColor = true;
+            btnNewSpeakerOverview.Size = new Size(75, 23);
+            btnNewSpeakerOverview.TabIndex = 0;
             // 
             // txtBoxRoomOverview
             // 
-            txtBoxRoomOverview.Location = new Point(9, 294);
-            txtBoxRoomOverview.Margin = new Padding(3, 2, 3, 2);
+            txtBoxRoomOverview.Location = new Point(0, 0);
             txtBoxRoomOverview.Name = "txtBoxRoomOverview";
-            txtBoxRoomOverview.Size = new Size(126, 23);
-            txtBoxRoomOverview.TabIndex = 41;
+            txtBoxRoomOverview.Size = new Size(100, 23);
+            txtBoxRoomOverview.TabIndex = 0;
             // 
             // lblRoomOverview
             // 
-            lblRoomOverview.AutoSize = true;
-            lblRoomOverview.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblRoomOverview.Location = new Point(9, 271);
+            lblRoomOverview.Location = new Point(0, 0);
             lblRoomOverview.Name = "lblRoomOverview";
-            lblRoomOverview.Size = new Size(52, 21);
-            lblRoomOverview.TabIndex = 40;
-            lblRoomOverview.Text = "Room";
+            lblRoomOverview.Size = new Size(100, 23);
+            lblRoomOverview.TabIndex = 0;
             // 
             // txtBoxDurationOverview
             // 
-            txtBoxDurationOverview.Location = new Point(9, 238);
-            txtBoxDurationOverview.Margin = new Padding(3, 2, 3, 2);
+            txtBoxDurationOverview.Location = new Point(0, 0);
             txtBoxDurationOverview.Name = "txtBoxDurationOverview";
-            txtBoxDurationOverview.Size = new Size(219, 23);
-            txtBoxDurationOverview.TabIndex = 39;
+            txtBoxDurationOverview.Size = new Size(100, 23);
+            txtBoxDurationOverview.TabIndex = 0;
             // 
             // lblDurationOverview
             // 
-            lblDurationOverview.AutoSize = true;
-            lblDurationOverview.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblDurationOverview.Location = new Point(9, 215);
+            lblDurationOverview.Location = new Point(0, 0);
             lblDurationOverview.Name = "lblDurationOverview";
-            lblDurationOverview.Size = new Size(74, 21);
-            lblDurationOverview.TabIndex = 38;
-            lblDurationOverview.Text = "Duration:";
+            lblDurationOverview.Size = new Size(100, 23);
+            lblDurationOverview.TabIndex = 0;
             // 
             // txtBoxEndtimeOverview
             // 
-            txtBoxEndtimeOverview.Location = new Point(72, 181);
-            txtBoxEndtimeOverview.Margin = new Padding(3, 2, 3, 2);
+            txtBoxEndtimeOverview.Location = new Point(0, 0);
             txtBoxEndtimeOverview.Name = "txtBoxEndtimeOverview";
-            txtBoxEndtimeOverview.Size = new Size(63, 23);
-            txtBoxEndtimeOverview.TabIndex = 36;
+            txtBoxEndtimeOverview.Size = new Size(100, 23);
+            txtBoxEndtimeOverview.TabIndex = 0;
             // 
             // txtBoxStartTimeOverview
             // 
-            txtBoxStartTimeOverview.Location = new Point(9, 181);
-            txtBoxStartTimeOverview.Margin = new Padding(3, 2, 3, 2);
+            txtBoxStartTimeOverview.Location = new Point(0, 0);
             txtBoxStartTimeOverview.Name = "txtBoxStartTimeOverview";
-            txtBoxStartTimeOverview.Size = new Size(63, 23);
-            txtBoxStartTimeOverview.TabIndex = 35;
+            txtBoxStartTimeOverview.Size = new Size(100, 23);
+            txtBoxStartTimeOverview.TabIndex = 0;
             // 
             // lblTimeSlotOverview
             // 
-            lblTimeSlotOverview.AutoSize = true;
-            lblTimeSlotOverview.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblTimeSlotOverview.Location = new Point(9, 158);
+            lblTimeSlotOverview.Location = new Point(0, 0);
             lblTimeSlotOverview.Name = "lblTimeSlotOverview";
-            lblTimeSlotOverview.Size = new Size(78, 21);
-            lblTimeSlotOverview.TabIndex = 34;
-            lblTimeSlotOverview.Text = "Time Slot:";
+            lblTimeSlotOverview.Size = new Size(100, 23);
+            lblTimeSlotOverview.TabIndex = 0;
             // 
             // cmbBoxSessionNameOverview
             // 
-            cmbBoxSessionNameOverview.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbBoxSessionNameOverview.FormattingEnabled = true;
-            cmbBoxSessionNameOverview.Location = new Point(9, 123);
-            cmbBoxSessionNameOverview.Margin = new Padding(3, 2, 3, 2);
+            cmbBoxSessionNameOverview.Location = new Point(0, 0);
             cmbBoxSessionNameOverview.Name = "cmbBoxSessionNameOverview";
-            cmbBoxSessionNameOverview.Size = new Size(133, 23);
-            cmbBoxSessionNameOverview.TabIndex = 30;
+            cmbBoxSessionNameOverview.Size = new Size(121, 23);
+            cmbBoxSessionNameOverview.TabIndex = 0;
             // 
             // lblSessionOverview
             // 
-            lblSessionOverview.AutoSize = true;
-            lblSessionOverview.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblSessionOverview.Location = new Point(9, 99);
+            lblSessionOverview.Location = new Point(0, 0);
             lblSessionOverview.Name = "lblSessionOverview";
-            lblSessionOverview.Size = new Size(66, 21);
-            lblSessionOverview.TabIndex = 29;
-            lblSessionOverview.Text = "Session:";
+            lblSessionOverview.Size = new Size(100, 23);
+            lblSessionOverview.TabIndex = 0;
             // 
             // cmbBoxSpeakerNameOverview
             // 
-            cmbBoxSpeakerNameOverview.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbBoxSpeakerNameOverview.FormattingEnabled = true;
-            cmbBoxSpeakerNameOverview.Location = new Point(9, 62);
-            cmbBoxSpeakerNameOverview.Margin = new Padding(3, 2, 3, 2);
+            cmbBoxSpeakerNameOverview.Location = new Point(0, 0);
             cmbBoxSpeakerNameOverview.Name = "cmbBoxSpeakerNameOverview";
-            cmbBoxSpeakerNameOverview.Size = new Size(133, 23);
-            cmbBoxSpeakerNameOverview.TabIndex = 28;
+            cmbBoxSpeakerNameOverview.Size = new Size(121, 23);
+            cmbBoxSpeakerNameOverview.TabIndex = 0;
             // 
             // lblSpeakerNameOverview
             // 
-            lblSpeakerNameOverview.AutoSize = true;
-            lblSpeakerNameOverview.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblSpeakerNameOverview.Location = new Point(9, 39);
+            lblSpeakerNameOverview.Location = new Point(0, 0);
             lblSpeakerNameOverview.Name = "lblSpeakerNameOverview";
-            lblSpeakerNameOverview.Size = new Size(115, 21);
-            lblSpeakerNameOverview.TabIndex = 27;
-            lblSpeakerNameOverview.Text = "Speaker Name:";
+            lblSpeakerNameOverview.Size = new Size(100, 23);
+            lblSpeakerNameOverview.TabIndex = 0;
             // 
             // lblOverview
             // 
-            lblOverview.AutoSize = true;
-            lblOverview.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            lblOverview.Location = new Point(163, 0);
+            lblOverview.Location = new Point(0, 0);
             lblOverview.Name = "lblOverview";
-            lblOverview.Size = new Size(175, 32);
-            lblOverview.TabIndex = 4;
-            lblOverview.Text = "Overview Form";
+            lblOverview.Size = new Size(100, 23);
+            lblOverview.TabIndex = 0;
+            // 
+            // dprSessionDate
+            // 
+            dprSessionDate.Location = new Point(0, 0);
+            dprSessionDate.Name = "dprSessionDate";
+            dprSessionDate.Size = new Size(200, 23);
+            dprSessionDate.TabIndex = 0;
+            // 
+            // tmprEndTime
+            // 
+            tmprEndTime.Location = new Point(0, 0);
+            tmprEndTime.Name = "tmprEndTime";
+            tmprEndTime.Size = new Size(200, 23);
+            tmprEndTime.TabIndex = 0;
+            // 
+            // tmprStartTime
+            // 
+            tmprStartTime.Location = new Point(0, 0);
+            tmprStartTime.Name = "tmprStartTime";
+            tmprStartTime.Size = new Size(200, 23);
+            tmprStartTime.TabIndex = 0;
+            // 
+            // dpSessionDate
+            // 
+            dpSessionDate.CustomFormat = "dd/mm/yyyy";
+            dpSessionDate.Format = DateTimePickerFormat.Custom;
+            dpSessionDate.Location = new Point(9, 191);
+            dpSessionDate.Margin = new Padding(3, 2, 3, 2);
+            dpSessionDate.Name = "dpSessionDate";
+            dpSessionDate.Size = new Size(219, 23);
+            dpSessionDate.TabIndex = 28;
+            // 
+            // tmpEndTime
+            // 
+            tmpEndTime.CalendarFont = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            tmpEndTime.CustomFormat = "hh:mm tt";
+            tmpEndTime.Format = DateTimePickerFormat.Custom;
+            tmpEndTime.Location = new Point(9, 129);
+            tmpEndTime.Margin = new Padding(3, 2, 3, 2);
+            tmpEndTime.Name = "tmpEndTime";
+            tmpEndTime.ShowUpDown = true;
+            tmpEndTime.Size = new Size(92, 23);
+            tmpEndTime.TabIndex = 25;
+            tmpEndTime.Value = new DateTime(2023, 3, 4, 0, 0, 0, 0);
+            // 
+            // tmpStartTime
+            // 
+            tmpStartTime.CalendarFont = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            tmpStartTime.CustomFormat = "hh:mm tt";
+            tmpStartTime.Format = DateTimePickerFormat.Custom;
+            tmpStartTime.Location = new Point(9, 62);
+            tmpStartTime.Margin = new Padding(3, 2, 3, 2);
+            tmpStartTime.Name = "tmpStartTime";
+            tmpStartTime.ShowUpDown = true;
+            tmpStartTime.Size = new Size(92, 23);
+            tmpStartTime.TabIndex = 23;
+            tmpStartTime.Value = new DateTime(2023, 3, 4, 0, 0, 0, 0);
+            // 
+            // tbcSessionTracker
+            // 
+            tbcSessionTracker.Controls.Add(tbSpeakerInfo);
+            tbcSessionTracker.Controls.Add(tbRoomInfo);
+            tbcSessionTracker.Controls.Add(tbTimeSlotInfo);
+            tbcSessionTracker.Controls.Add(tbSessionInfo);
+            tbcSessionTracker.Controls.Add(tbOverview);
+            tbcSessionTracker.Location = new Point(-1, -2);
+            tbcSessionTracker.Margin = new Padding(3, 2, 3, 2);
+            tbcSessionTracker.Name = "tbcSessionTracker";
+            tbcSessionTracker.SelectedIndex = 0;
+            tbcSessionTracker.Size = new Size(515, 398);
+            tbcSessionTracker.TabIndex = 1;
+            // 
+            // tbSpeakerInfo
+            // 
+            tbSpeakerInfo.Controls.Add(label28);
+            tbSpeakerInfo.Controls.Add(lblOptionalNotice);
+            tbSpeakerInfo.Controls.Add(lblRequiredFieldsNotice);
+            tbSpeakerInfo.Controls.Add(button5);
+            tbSpeakerInfo.Controls.Add(button6);
+            tbSpeakerInfo.Controls.Add(btnCreateSpeaker);
+            tbSpeakerInfo.Controls.Add(btnClearSpeakerFields);
+            tbSpeakerInfo.Controls.Add(textBox1);
+            tbSpeakerInfo.Controls.Add(label1);
+            tbSpeakerInfo.Controls.Add(textBox2);
+            tbSpeakerInfo.Controls.Add(label2);
+            tbSpeakerInfo.Controls.Add(label3);
+            tbSpeakerInfo.Controls.Add(textBox3);
+            tbSpeakerInfo.Controls.Add(label4);
+            tbSpeakerInfo.Controls.Add(textBox4);
+            tbSpeakerInfo.Controls.Add(textBox5);
+            tbSpeakerInfo.Controls.Add(label5);
+            tbSpeakerInfo.Controls.Add(textBox6);
+            tbSpeakerInfo.Controls.Add(label6);
+            tbSpeakerInfo.Controls.Add(textBox7);
+            tbSpeakerInfo.Controls.Add(label7);
+            tbSpeakerInfo.Controls.Add(lblSpeakersForm);
+            tbSpeakerInfo.Location = new Point(4, 24);
+            tbSpeakerInfo.Margin = new Padding(3, 2, 3, 2);
+            tbSpeakerInfo.Name = "tbSpeakerInfo";
+            tbSpeakerInfo.Padding = new Padding(3, 2, 3, 2);
+            tbSpeakerInfo.Size = new Size(507, 370);
+            tbSpeakerInfo.TabIndex = 0;
+            tbSpeakerInfo.Text = "Speaker Info";
+            tbSpeakerInfo.UseVisualStyleBackColor = true;
+            // 
+            // label28
+            // 
+            label28.AutoSize = true;
+            label28.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            label28.Location = new Point(133, 241);
+            label28.Name = "label28";
+            label28.Size = new Size(59, 13);
+            label28.TabIndex = 41;
+            label28.Text = "(Optional)";
+            // 
+            // lblOptionalNotice
+            // 
+            lblOptionalNotice.AutoSize = true;
+            lblOptionalNotice.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lblOptionalNotice.Location = new Point(439, 153);
+            lblOptionalNotice.Name = "lblOptionalNotice";
+            lblOptionalNotice.Size = new Size(59, 13);
+            lblOptionalNotice.TabIndex = 40;
+            lblOptionalNotice.Text = "(Optional)";
+            // 
+            // lblRequiredFieldsNotice
+            // 
+            lblRequiredFieldsNotice.AutoSize = true;
+            lblRequiredFieldsNotice.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            lblRequiredFieldsNotice.Location = new Point(6, 44);
+            lblRequiredFieldsNotice.Name = "lblRequiredFieldsNotice";
+            lblRequiredFieldsNotice.Size = new Size(300, 19);
+            lblRequiredFieldsNotice.TabIndex = 39;
+            lblRequiredFieldsNotice.Text = "(All fields are required unless stated as optional)";
+            // 
+            // button5
+            // 
+            button5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button5.Location = new Point(6, 335);
+            button5.Margin = new Padding(3, 2, 3, 2);
+            button5.Name = "button5";
+            button5.Size = new Size(186, 30);
+            button5.TabIndex = 38;
+            button5.Text = "Exit Application";
+            button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            button6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button6.Location = new Point(316, 335);
+            button6.Margin = new Padding(3, 2, 3, 2);
+            button6.Name = "button6";
+            button6.Size = new Size(186, 30);
+            button6.TabIndex = 17;
+            button6.Text = "Remove Speaker";
+            button6.UseVisualStyleBackColor = true;
+            // 
+            // btnCreateSpeaker
+            // 
+            btnCreateSpeaker.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCreateSpeaker.Location = new Point(316, 302);
+            btnCreateSpeaker.Margin = new Padding(3, 2, 3, 2);
+            btnCreateSpeaker.Name = "btnCreateSpeaker";
+            btnCreateSpeaker.Size = new Size(186, 30);
+            btnCreateSpeaker.TabIndex = 16;
+            btnCreateSpeaker.Text = "Create Speaker";
+            btnCreateSpeaker.UseVisualStyleBackColor = true;
+            btnCreateSpeaker.Click += btnCreateSpeaker_Click;
+            // 
+            // btnClearSpeakerFields
+            // 
+            btnClearSpeakerFields.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnClearSpeakerFields.Location = new Point(316, 269);
+            btnClearSpeakerFields.Margin = new Padding(3, 2, 3, 2);
+            btnClearSpeakerFields.Name = "btnClearSpeakerFields";
+            btnClearSpeakerFields.Size = new Size(186, 30);
+            btnClearSpeakerFields.TabIndex = 15;
+            btnClearSpeakerFields.Text = "Clear Fields";
+            btnClearSpeakerFields.UseVisualStyleBackColor = true;
+            btnClearSpeakerFields.Click += btnClearSpeakerFields_Click;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(6, 256);
+            textBox1.Margin = new Padding(3, 2, 3, 2);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(186, 75);
+            textBox1.TabIndex = 14;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(9, 235);
+            label1.Name = "label1";
+            label1.Size = new Size(77, 21);
+            label1.TabIndex = 13;
+            label1.Text = "Short Bio:";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(316, 168);
+            textBox2.Margin = new Padding(3, 2, 3, 2);
+            textBox2.Multiline = true;
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(186, 75);
+            textBox2.TabIndex = 12;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(319, 147);
+            label2.Name = "label2";
+            label2.Size = new Size(122, 21);
+            label2.TabIndex = 11;
+            label2.Text = "Past Talks Given:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(9, 181);
+            label3.Name = "label3";
+            label3.Size = new Size(51, 21);
+            label3.TabIndex = 10;
+            label3.Text = "Email:";
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(6, 202);
+            textBox3.Margin = new Padding(3, 2, 3, 2);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(186, 23);
+            textBox3.TabIndex = 9;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(319, 96);
+            label4.Name = "label4";
+            label4.Size = new Size(180, 21);
+            label4.TabIndex = 8;
+            label4.Text = "Day Of Contact Number:";
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(316, 117);
+            textBox4.Margin = new Padding(3, 2, 3, 2);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(186, 23);
+            textBox4.TabIndex = 7;
+            // 
+            // textBox5
+            // 
+            textBox5.Location = new Point(316, 62);
+            textBox5.Margin = new Padding(3, 2, 3, 2);
+            textBox5.Name = "textBox5";
+            textBox5.Size = new Size(186, 23);
+            textBox5.TabIndex = 6;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(319, 41);
+            label5.Name = "label5";
+            label5.Size = new Size(119, 21);
+            label5.TabIndex = 5;
+            label5.Text = "Phone Number:";
+            // 
+            // textBox6
+            // 
+            textBox6.Location = new Point(6, 151);
+            textBox6.Margin = new Padding(3, 2, 3, 2);
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(186, 23);
+            textBox6.TabIndex = 4;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Location = new Point(9, 130);
+            label6.Name = "label6";
+            label6.Size = new Size(83, 21);
+            label6.TabIndex = 3;
+            label6.Text = "LastName:";
+            // 
+            // textBox7
+            // 
+            textBox7.Location = new Point(6, 96);
+            textBox7.Margin = new Padding(3, 2, 3, 2);
+            textBox7.Name = "textBox7";
+            textBox7.Size = new Size(186, 23);
+            textBox7.TabIndex = 2;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(9, 75);
+            label7.Name = "label7";
+            label7.Size = new Size(85, 21);
+            label7.TabIndex = 1;
+            label7.Text = "FirstName:";
+            // 
+            // lblSpeakersForm
+            // 
+            lblSpeakersForm.AutoSize = true;
+            lblSpeakersForm.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            lblSpeakersForm.Location = new Point(176, 2);
+            lblSpeakersForm.Name = "lblSpeakersForm";
+            lblSpeakersForm.Size = new Size(161, 32);
+            lblSpeakersForm.TabIndex = 0;
+            lblSpeakersForm.Text = "Speaker Form";
+            // 
+            // tbRoomInfo
+            // 
+            tbRoomInfo.Controls.Add(btnClearRoomFields);
+            tbRoomInfo.Controls.Add(button9);
+            tbRoomInfo.Controls.Add(textBox8);
+            tbRoomInfo.Controls.Add(label9);
+            tbRoomInfo.Controls.Add(textBox9);
+            tbRoomInfo.Controls.Add(label10);
+            tbRoomInfo.Controls.Add(button10);
+            tbRoomInfo.Controls.Add(btnCreateRoom);
+            tbRoomInfo.Controls.Add(label11);
+            tbRoomInfo.Location = new Point(4, 24);
+            tbRoomInfo.Margin = new Padding(3, 2, 3, 2);
+            tbRoomInfo.Name = "tbRoomInfo";
+            tbRoomInfo.Padding = new Padding(3, 2, 3, 2);
+            tbRoomInfo.Size = new Size(507, 370);
+            tbRoomInfo.TabIndex = 1;
+            tbRoomInfo.Text = "Room Info";
+            tbRoomInfo.UseVisualStyleBackColor = true;
+            // 
+            // btnClearRoomFields
+            // 
+            btnClearRoomFields.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnClearRoomFields.Location = new Point(318, 274);
+            btnClearRoomFields.Name = "btnClearRoomFields";
+            btnClearRoomFields.Size = new Size(186, 30);
+            btnClearRoomFields.TabIndex = 39;
+            btnClearRoomFields.Text = "Clear Fields";
+            btnClearRoomFields.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            button9.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button9.Location = new Point(9, 333);
+            button9.Margin = new Padding(3, 2, 3, 2);
+            button9.Name = "button9";
+            button9.Size = new Size(186, 30);
+            button9.TabIndex = 38;
+            button9.Text = "Exit Application";
+            button9.UseVisualStyleBackColor = true;
+            // 
+            // textBox8
+            // 
+            textBox8.Location = new Point(9, 122);
+            textBox8.Margin = new Padding(3, 2, 3, 2);
+            textBox8.Name = "textBox8";
+            textBox8.Size = new Size(186, 23);
+            textBox8.TabIndex = 24;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.Location = new Point(12, 101);
+            label9.Name = "label9";
+            label9.Size = new Size(102, 21);
+            label9.TabIndex = 23;
+            label9.Text = "Max Capacity";
+            // 
+            // textBox9
+            // 
+            textBox9.Location = new Point(9, 74);
+            textBox9.Margin = new Padding(3, 2, 3, 2);
+            textBox9.Name = "textBox9";
+            textBox9.Size = new Size(186, 23);
+            textBox9.TabIndex = 22;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.Location = new Point(12, 53);
+            label10.Name = "label10";
+            label10.Size = new Size(74, 21);
+            label10.TabIndex = 21;
+            label10.Text = "Room ID:";
+            // 
+            // button10
+            // 
+            button10.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button10.Location = new Point(318, 337);
+            button10.Margin = new Padding(3, 2, 3, 2);
+            button10.Name = "button10";
+            button10.Size = new Size(186, 30);
+            button10.TabIndex = 20;
+            button10.Text = "Remove Room";
+            button10.UseVisualStyleBackColor = true;
+            // 
+            // btnCreateRoom
+            // 
+            btnCreateRoom.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCreateRoom.Location = new Point(318, 305);
+            btnCreateRoom.Margin = new Padding(3, 2, 3, 2);
+            btnCreateRoom.Name = "btnCreateRoom";
+            btnCreateRoom.Size = new Size(186, 30);
+            btnCreateRoom.TabIndex = 19;
+            btnCreateRoom.Text = "Create Room";
+            btnCreateRoom.UseVisualStyleBackColor = true;
+            btnCreateRoom.Click += btnCreateRoom_Click;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label11.Location = new Point(195, 4);
+            label11.Name = "label11";
+            label11.Size = new Size(138, 32);
+            label11.TabIndex = 1;
+            label11.Text = "Room Form";
+            // 
+            // tbTimeSlotInfo
+            // 
+            tbTimeSlotInfo.Controls.Add(button13);
+            tbTimeSlotInfo.Controls.Add(button14);
+            tbTimeSlotInfo.Controls.Add(btnCreateTimeSlot);
+            tbTimeSlotInfo.Controls.Add(button16);
+            tbTimeSlotInfo.Controls.Add(label12);
+            tbTimeSlotInfo.Controls.Add(dpSessionDate);
+            tbTimeSlotInfo.Controls.Add(tmpEndTime);
+            tbTimeSlotInfo.Controls.Add(label13);
+            tbTimeSlotInfo.Controls.Add(tmpStartTime);
+            tbTimeSlotInfo.Controls.Add(label14);
+            tbTimeSlotInfo.Controls.Add(label15);
+            tbTimeSlotInfo.Location = new Point(4, 24);
+            tbTimeSlotInfo.Margin = new Padding(3, 2, 3, 2);
+            tbTimeSlotInfo.Name = "tbTimeSlotInfo";
+            tbTimeSlotInfo.Size = new Size(507, 370);
+            tbTimeSlotInfo.TabIndex = 2;
+            tbTimeSlotInfo.Text = "Time Slot Info";
+            tbTimeSlotInfo.UseVisualStyleBackColor = true;
+            // 
+            // button13
+            // 
+            button13.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button13.Location = new Point(9, 336);
+            button13.Margin = new Padding(3, 2, 3, 2);
+            button13.Name = "button13";
+            button13.Size = new Size(130, 26);
+            button13.TabIndex = 38;
+            button13.Text = "Exit Application";
+            button13.UseVisualStyleBackColor = true;
+            // 
+            // button14
+            // 
+            button14.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button14.Location = new Point(335, 336);
+            button14.Margin = new Padding(3, 2, 3, 2);
+            button14.Name = "button14";
+            button14.Size = new Size(163, 26);
+            button14.TabIndex = 32;
+            button14.Text = "Remove Time Slot";
+            button14.UseVisualStyleBackColor = true;
+            // 
+            // btnCreateTimeSlot
+            // 
+            btnCreateTimeSlot.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCreateTimeSlot.Location = new Point(335, 306);
+            btnCreateTimeSlot.Margin = new Padding(3, 2, 3, 2);
+            btnCreateTimeSlot.Name = "btnCreateTimeSlot";
+            btnCreateTimeSlot.Size = new Size(163, 26);
+            btnCreateTimeSlot.TabIndex = 31;
+            btnCreateTimeSlot.Text = "Create Time Slot";
+            btnCreateTimeSlot.UseVisualStyleBackColor = true;
+            btnCreateTimeSlot.Click += btnCreateTimeSlot_Click;
+            // 
+            // button16
+            // 
+            button16.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button16.Location = new Point(335, 276);
+            button16.Margin = new Padding(3, 2, 3, 2);
+            button16.Name = "button16";
+            button16.Size = new Size(163, 26);
+            button16.TabIndex = 30;
+            button16.Text = "New Time Slot";
+            button16.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label12.Location = new Point(9, 167);
+            label12.Name = "label12";
+            label12.Size = new Size(102, 21);
+            label12.TabIndex = 29;
+            label12.Text = "Session Date:";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label13.Location = new Point(9, 106);
+            label13.Name = "label13";
+            label13.Size = new Size(77, 21);
+            label13.TabIndex = 24;
+            label13.Text = "End Time:";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label14.Location = new Point(9, 39);
+            label14.Name = "label14";
+            label14.Size = new Size(83, 21);
+            label14.TabIndex = 22;
+            label14.Text = "Start Time:";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label15.Location = new Point(175, 0);
+            label15.Name = "label15";
+            label15.Size = new Size(177, 32);
+            label15.TabIndex = 2;
+            label15.Text = "Time Slot Form";
+            // 
+            // tbSessionInfo
+            // 
+            tbSessionInfo.Controls.Add(btnClearSessionFields);
+            tbSessionInfo.Controls.Add(cmbTimeSlots);
+            tbSessionInfo.Controls.Add(textBox10);
+            tbSessionInfo.Controls.Add(button17);
+            tbSessionInfo.Controls.Add(button18);
+            tbSessionInfo.Controls.Add(btnCreateSession);
+            tbSessionInfo.Controls.Add(label16);
+            tbSessionInfo.Controls.Add(textBox11);
+            tbSessionInfo.Controls.Add(label17);
+            tbSessionInfo.Controls.Add(label18);
+            tbSessionInfo.Controls.Add(comboBox3);
+            tbSessionInfo.Controls.Add(comboBox4);
+            tbSessionInfo.Controls.Add(label19);
+            tbSessionInfo.Controls.Add(label20);
+            tbSessionInfo.Controls.Add(label21);
+            tbSessionInfo.Location = new Point(4, 24);
+            tbSessionInfo.Margin = new Padding(3, 2, 3, 2);
+            tbSessionInfo.Name = "tbSessionInfo";
+            tbSessionInfo.Size = new Size(507, 370);
+            tbSessionInfo.TabIndex = 3;
+            tbSessionInfo.Text = "Session Info";
+            tbSessionInfo.UseVisualStyleBackColor = true;
+            // 
+            // btnClearSessionFields
+            // 
+            btnClearSessionFields.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnClearSessionFields.Location = new Point(357, 274);
+            btnClearSessionFields.Margin = new Padding(3, 2, 3, 2);
+            btnClearSessionFields.Name = "btnClearSessionFields";
+            btnClearSessionFields.Size = new Size(141, 26);
+            btnClearSessionFields.TabIndex = 41;
+            btnClearSessionFields.Text = "Clear Fields";
+            btnClearSessionFields.UseVisualStyleBackColor = true;
+            btnClearSessionFields.Click += btnANewSession_Click;
+            // 
+            // cmbTimeSlots
+            // 
+            cmbTimeSlots.FormattingEnabled = true;
+            cmbTimeSlots.Location = new Point(9, 208);
+            cmbTimeSlots.Name = "cmbTimeSlots";
+            cmbTimeSlots.Size = new Size(186, 23);
+            cmbTimeSlots.TabIndex = 39;
+            cmbTimeSlots.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
+            // 
+            // textBox10
+            // 
+            textBox10.Location = new Point(9, 90);
+            textBox10.Name = "textBox10";
+            textBox10.Size = new Size(186, 23);
+            textBox10.TabIndex = 38;
+            // 
+            // button17
+            // 
+            button17.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button17.Location = new Point(9, 333);
+            button17.Margin = new Padding(3, 2, 3, 2);
+            button17.Name = "button17";
+            button17.Size = new Size(130, 26);
+            button17.TabIndex = 37;
+            button17.Text = "Exit Application";
+            button17.UseVisualStyleBackColor = true;
+            // 
+            // button18
+            // 
+            button18.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button18.Location = new Point(357, 333);
+            button18.Margin = new Padding(3, 2, 3, 2);
+            button18.Name = "button18";
+            button18.Size = new Size(141, 26);
+            button18.TabIndex = 36;
+            button18.Text = "Remove Session";
+            button18.UseVisualStyleBackColor = true;
+            // 
+            // btnCreateSession
+            // 
+            btnCreateSession.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCreateSession.Location = new Point(357, 303);
+            btnCreateSession.Margin = new Padding(3, 2, 3, 2);
+            btnCreateSession.Name = "btnCreateSession";
+            btnCreateSession.Size = new Size(141, 26);
+            btnCreateSession.TabIndex = 35;
+            btnCreateSession.Text = "Create Session";
+            btnCreateSession.UseVisualStyleBackColor = true;
+            btnCreateSession.Click += btnCreateSession_Click;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label16.Location = new Point(9, 184);
+            label16.Name = "label16";
+            label16.Size = new Size(78, 21);
+            label16.TabIndex = 31;
+            label16.Text = "Time Slot:";
+            // 
+            // textBox11
+            // 
+            textBox11.Location = new Point(316, 152);
+            textBox11.Margin = new Padding(3, 2, 3, 2);
+            textBox11.Name = "textBox11";
+            textBox11.Size = new Size(186, 23);
+            textBox11.TabIndex = 30;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label17.Location = new Point(316, 129);
+            label17.Name = "label17";
+            label17.Size = new Size(149, 21);
+            label17.TabIndex = 29;
+            label17.Text = "Duration of Session:";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label18.Location = new Point(316, 66);
+            label18.Name = "label18";
+            label18.Size = new Size(101, 21);
+            label18.TabIndex = 28;
+            label18.Text = "Room Name:";
+            // 
+            // comboBox3
+            // 
+            comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Location = new Point(316, 90);
+            comboBox3.Margin = new Padding(3, 2, 3, 2);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(186, 23);
+            comboBox3.TabIndex = 27;
+            // 
+            // comboBox4
+            // 
+            comboBox4.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox4.FormattingEnabled = true;
+            comboBox4.Location = new Point(9, 144);
+            comboBox4.Margin = new Padding(3, 2, 3, 2);
+            comboBox4.Name = "comboBox4";
+            comboBox4.Size = new Size(186, 23);
+            comboBox4.TabIndex = 26;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label19.Location = new Point(9, 121);
+            label19.Name = "label19";
+            label19.Size = new Size(115, 21);
+            label19.TabIndex = 25;
+            label19.Text = "Speaker Name:";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label20.Location = new Point(9, 66);
+            label20.Name = "label20";
+            label20.Size = new Size(112, 21);
+            label20.TabIndex = 23;
+            label20.Text = "Session Name:";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label21.Location = new Point(176, 0);
+            label21.Name = "label21";
+            label21.Size = new Size(156, 32);
+            label21.TabIndex = 3;
+            label21.Text = "Session Form";
+            // 
+            // tbOverview
+            // 
+            tbOverview.Controls.Add(button21);
+            tbOverview.Controls.Add(button22);
+            tbOverview.Controls.Add(button23);
+            tbOverview.Controls.Add(textBox12);
+            tbOverview.Controls.Add(label22);
+            tbOverview.Controls.Add(textBox13);
+            tbOverview.Controls.Add(label23);
+            tbOverview.Controls.Add(textBox14);
+            tbOverview.Controls.Add(textBox15);
+            tbOverview.Controls.Add(label24);
+            tbOverview.Controls.Add(comboBox5);
+            tbOverview.Controls.Add(label25);
+            tbOverview.Controls.Add(comboBox6);
+            tbOverview.Controls.Add(label26);
+            tbOverview.Controls.Add(label27);
+            tbOverview.Location = new Point(4, 24);
+            tbOverview.Margin = new Padding(3, 2, 3, 2);
+            tbOverview.Name = "tbOverview";
+            tbOverview.Size = new Size(507, 370);
+            tbOverview.TabIndex = 4;
+            tbOverview.Text = "Overview";
+            tbOverview.UseVisualStyleBackColor = true;
+            // 
+            // button21
+            // 
+            button21.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button21.Location = new Point(12, 336);
+            button21.Margin = new Padding(3, 2, 3, 2);
+            button21.Name = "button21";
+            button21.Size = new Size(130, 26);
+            button21.TabIndex = 44;
+            button21.Text = "Exit Application";
+            button21.UseVisualStyleBackColor = true;
+            // 
+            // button22
+            // 
+            button22.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button22.Location = new Point(368, 336);
+            button22.Margin = new Padding(3, 2, 3, 2);
+            button22.Name = "button22";
+            button22.Size = new Size(130, 26);
+            button22.TabIndex = 43;
+            button22.Text = "New Session";
+            button22.UseVisualStyleBackColor = true;
+            // 
+            // button23
+            // 
+            button23.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button23.Location = new Point(368, 306);
+            button23.Margin = new Padding(3, 2, 3, 2);
+            button23.Name = "button23";
+            button23.Size = new Size(130, 26);
+            button23.TabIndex = 42;
+            button23.Text = "New Speaker";
+            button23.UseVisualStyleBackColor = true;
+            // 
+            // textBox12
+            // 
+            textBox12.Location = new Point(9, 294);
+            textBox12.Margin = new Padding(3, 2, 3, 2);
+            textBox12.Name = "textBox12";
+            textBox12.Size = new Size(126, 23);
+            textBox12.TabIndex = 41;
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label22.Location = new Point(9, 271);
+            label22.Name = "label22";
+            label22.Size = new Size(52, 21);
+            label22.TabIndex = 40;
+            label22.Text = "Room";
+            // 
+            // textBox13
+            // 
+            textBox13.Location = new Point(9, 238);
+            textBox13.Margin = new Padding(3, 2, 3, 2);
+            textBox13.Name = "textBox13";
+            textBox13.Size = new Size(219, 23);
+            textBox13.TabIndex = 39;
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label23.Location = new Point(9, 215);
+            label23.Name = "label23";
+            label23.Size = new Size(74, 21);
+            label23.TabIndex = 38;
+            label23.Text = "Duration:";
+            // 
+            // textBox14
+            // 
+            textBox14.Location = new Point(72, 181);
+            textBox14.Margin = new Padding(3, 2, 3, 2);
+            textBox14.Name = "textBox14";
+            textBox14.Size = new Size(63, 23);
+            textBox14.TabIndex = 36;
+            // 
+            // textBox15
+            // 
+            textBox15.Location = new Point(9, 181);
+            textBox15.Margin = new Padding(3, 2, 3, 2);
+            textBox15.Name = "textBox15";
+            textBox15.Size = new Size(63, 23);
+            textBox15.TabIndex = 35;
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label24.Location = new Point(9, 158);
+            label24.Name = "label24";
+            label24.Size = new Size(78, 21);
+            label24.TabIndex = 34;
+            label24.Text = "Time Slot:";
+            // 
+            // comboBox5
+            // 
+            comboBox5.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox5.FormattingEnabled = true;
+            comboBox5.Location = new Point(9, 123);
+            comboBox5.Margin = new Padding(3, 2, 3, 2);
+            comboBox5.Name = "comboBox5";
+            comboBox5.Size = new Size(133, 23);
+            comboBox5.TabIndex = 30;
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label25.Location = new Point(9, 99);
+            label25.Name = "label25";
+            label25.Size = new Size(66, 21);
+            label25.TabIndex = 29;
+            label25.Text = "Session:";
+            // 
+            // comboBox6
+            // 
+            comboBox6.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox6.FormattingEnabled = true;
+            comboBox6.Location = new Point(9, 62);
+            comboBox6.Margin = new Padding(3, 2, 3, 2);
+            comboBox6.Name = "comboBox6";
+            comboBox6.Size = new Size(186, 23);
+            comboBox6.TabIndex = 28;
+            // 
+            // label26
+            // 
+            label26.AutoSize = true;
+            label26.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label26.Location = new Point(9, 39);
+            label26.Name = "label26";
+            label26.Size = new Size(115, 21);
+            label26.TabIndex = 27;
+            label26.Text = "Speaker Name:";
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label27.Location = new Point(163, 0);
+            label27.Name = "label27";
+            label27.Size = new Size(175, 32);
+            label27.TabIndex = 4;
+            label27.Text = "Overview Form";
             // 
             // ConferenceInformationForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(513, 394);
+            Controls.Add(tbcSessionTracker);
             Controls.Add(tabControl1);
             Margin = new Padding(3, 2, 3, 2);
             Name = "ConferenceInformationForm";
             Text = "Boston Code Camp Session Tracker";
             Load += ConferenceInformationForm_Load;
-            tabControl1.ResumeLayout(false);
-            tabSpeakerInfo.ResumeLayout(false);
-            tabSpeakerInfo.PerformLayout();
-            tabRoomInfo.ResumeLayout(false);
-            tabRoomInfo.PerformLayout();
-            tabTimeSlotInfo.ResumeLayout(false);
-            tabTimeSlotInfo.PerformLayout();
-            tabSessionInfo.ResumeLayout(false);
-            tabSessionInfo.PerformLayout();
-            tabOverview.ResumeLayout(false);
-            tabOverview.PerformLayout();
+            tbcSessionTracker.ResumeLayout(false);
+            tbSpeakerInfo.ResumeLayout(false);
+            tbSpeakerInfo.PerformLayout();
+            tbRoomInfo.ResumeLayout(false);
+            tbRoomInfo.PerformLayout();
+            tbTimeSlotInfo.ResumeLayout(false);
+            tbTimeSlotInfo.PerformLayout();
+            tbSessionInfo.ResumeLayout(false);
+            tbSessionInfo.PerformLayout();
+            tbOverview.ResumeLayout(false);
+            tbOverview.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1008,14 +1642,14 @@
         private Button btnNewRoom;
         private Label lblStartTime;
         private Label lblTimeSlotForm;
-        private DateTimePicker timePickerEndTime;
+        private DateTimePicker tmprEndTime;
         private Label lblEndTime;
         private DateTimePicker tmprStartTime;
         private Button btnRemoveTimeSlot;
         private Button btnSaveTimeSlot;
         private Button btnNewTimeSlot;
         private Label lblSessionDate;
-        private DateTimePicker datePickerSessionDate;
+        private DateTimePicker dprSessionDate;
         private Label lblSessionName;
         private Label lblSessionForm;
         private Button btnRemoveSession;
@@ -1050,5 +1684,83 @@
         private TextBox txtBoxSessionName;
         private ComboBox cmbSessionEndTime;
         private ComboBox cmbSessionStartTime;
+        private DateTimePicker dpSessionDate;
+        private DateTimePicker tmpEndTime;
+        private DateTimePicker tmpStartTime;
+        private TabControl tbcSessionTracker;
+        private TabPage tbSpeakerInfo;
+        private Button button5;
+        private Button button6;
+        private Button btnCreateSpeaker;
+        private Button btnClearSpeakerFields;
+        private TextBox textBox1;
+        private Label label1;
+        private TextBox textBox2;
+        private Label label2;
+        private Label label3;
+        private TextBox textBox3;
+        private Label label4;
+        private TextBox textBox4;
+        private TextBox textBox5;
+        private Label label5;
+        private TextBox textBox6;
+        private Label label6;
+        private TextBox textBox7;
+        private Label label7;
+        private Label lblSpeakersForm;
+        private TabPage tbRoomInfo;
+        private Button button9;
+        private TextBox textBox8;
+        private Label label9;
+        private TextBox textBox9;
+        private Label label10;
+        private Button button10;
+        private Button btnCreateRoom;
+        private Label label11;
+        private TabPage tbTimeSlotInfo;
+        private Button button13;
+        private Button button14;
+        private Button btnCreateTimeSlot;
+        private Button button16;
+        private Label label12;
+        private Label label13;
+        private Label label14;
+        private Label label15;
+        private TabPage tbOverview;
+        private Button button21;
+        private Button button22;
+        private Button button23;
+        private TextBox textBox12;
+        private Label label22;
+        private TextBox textBox13;
+        private Label label23;
+        private TextBox textBox14;
+        private TextBox textBox15;
+        private Label label24;
+        private ComboBox comboBox5;
+        private Label label25;
+        private ComboBox comboBox6;
+        private Label label26;
+        private Label label27;
+        private Label lblRequiredFieldsNotice;
+        private Label lblOptionalNotice;
+        private Label label28;
+        private Button btnClearRoomFields;
+        private TabPage tbSessionInfo;
+        private Button btnClearSessionFields;
+        private ComboBox cmbTimeSlots;
+        private TextBox textBox10;
+        private Button button17;
+        private Button button18;
+        private Button btnCreateSession;
+        private Label label16;
+        private TextBox textBox11;
+        private Label label17;
+        private Label label18;
+        private ComboBox comboBox3;
+        private ComboBox comboBox4;
+        private Label label19;
+        private Label label20;
+        private Label label21;
     }
 }

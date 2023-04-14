@@ -73,7 +73,7 @@ namespace BostonCodeCampSessionTracker.Data
             }
         }
 
-        public bool addSession(String sessionTitle, int roomId, int SpeakerId, int timeId)
+        public bool addSession(String sessionTitle, String roomName, String speakerName, String timeSlot)
         {
             SessionValidator validator = new SessionValidator();
 
@@ -82,9 +82,9 @@ namespace BostonCodeCampSessionTracker.Data
             Session newSession = new Session()
             {
                 SessionTitle = sessionTitle,
-                RoomId = roomId,
-                SpeakerId = SpeakerId,
-                TimeId = timeId,
+                RoomId = retrieveRoomId(roomName),
+                SpeakerId = retrieveSpeakerId(speakerName),
+                TimeId = retrieveTimeId(timeSlot),
                 
             };
 
@@ -157,6 +157,22 @@ namespace BostonCodeCampSessionTracker.Data
             return speakersFullNames;
         }
 
+        public int retrieveSpeakerId(String speakerName)
+        {
+            using CodeCampAppContext context = new CodeCampAppContext();
+            
+            var speakers = context.Speakers.ToList();
+
+            foreach (var speaker in speakers)
+            {
+                if (speaker.SpeakerFname + " " + speaker.SpeakerLname == speakerName)
+                {
+                    return speaker.SpeakerId;
+                }
+            }
+            return 0;
+        }
+
         public List<String> retrieveRoomNames()
         {
             using CodeCampAppContext context = new CodeCampAppContext();
@@ -170,6 +186,22 @@ namespace BostonCodeCampSessionTracker.Data
                 roomNames.Add(room.RoomName);
             }
             return roomNames;
+        }
+
+        public int retrieveRoomId(String roomName)
+        {
+            using CodeCampAppContext context = new CodeCampAppContext();
+
+            var rooms = context.Rooms.ToList();
+
+            foreach (var room in rooms)
+            {
+                if (room.RoomName == roomName)
+                {
+                    return room.RoomId;
+                }
+            }
+            return 0;
         }
 
         public List<String> retrieveStartingTimeSlots()
@@ -200,8 +232,37 @@ namespace BostonCodeCampSessionTracker.Data
                 timeSlots.Add(time.TimeEnd.ToString());
             }
             return timeSlots;
+        }
 
+        public List<String> retrieveAFullTimeSlot()
+        {
+            using CodeCampAppContext context = new CodeCampAppContext();
 
+            List<string> timeSlots = new List<string>();
+
+            var times = context.TimeSlots.ToList();
+
+            foreach (var time in times)
+            {
+                timeSlots.Add(time.TimeBegin.ToString() + " - " + time.TimeEnd.ToString());
+            }
+            return timeSlots;
+        }
+
+        public int retrieveTimeId(String timeSlot)
+        {
+            using CodeCampAppContext context = new CodeCampAppContext();
+
+            var times = context.TimeSlots.ToList();
+
+            foreach (var time in times)
+            {
+                if (time.TimeBegin.ToString() + " - " + time.TimeEnd.ToString() == timeSlot)
+                {
+                    return time.TimeId;
+                }
+            }
+            return 0;            
         }
     }
 }
