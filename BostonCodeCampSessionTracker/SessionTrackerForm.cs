@@ -22,7 +22,7 @@ namespace BostonCodeCampSessionTracker
         {
             DataAccess db = new DataAccess();
 
-            db.addSpeaker(txtBoxFirstName.Text, txtBoxLastName.Text, txtBoxEmail.Text, txtBoxPhoneNumber.Text, txtBoxDayOfContact.Text, txtBoxShortBio.Text, txtBoxPastTalksGiven.Text);
+            db.addSpeaker(txtBoxFirstName.Text, txtBoxLastName.Text, txtBoxEmail.Text, txtBoxPhoneNumber.Text, txtBoxDayOfContactPhoneNumber.Text, txtBoxShortBio.Text, txtBoxPastTalksGiven.Text);
 
             updateSpeakerComboBoxes();
         }
@@ -81,6 +81,7 @@ namespace BostonCodeCampSessionTracker
             DataAccess db = new DataAccess();
 
             List<String> rooms = db.retrieveRoomNames();
+
             cmbSessionRoomName.Items.Clear();
 
             foreach (String room in rooms)
@@ -110,7 +111,9 @@ namespace BostonCodeCampSessionTracker
         {
             DataAccess db = new DataAccess();
 
-            db.addTimeSlot(TimeSpan.Parse(tmpStartTime.Text), TimeSpan.Parse(tmpEndTime.Text), TimeSpan.Parse(dpSessionDate.Text));
+
+            db.addTimeSlot(tmpStartTime.Value, tmpEndTime.Value);
+            updateTimeSlotComboBoxes();
         }
 
         private void updateTimeSlotComboBoxes()
@@ -118,11 +121,11 @@ namespace BostonCodeCampSessionTracker
             DataAccess db = new DataAccess();
 
             List<String> times = db.retrieveAFullTimeSlot();
-            cmbTimeSlots.Items.Clear();
+            cmbSessionTimeSlots.Items.Clear();
 
             foreach (String time in times)
             {
-                cmbTimeSlots.Items.Add(time);
+                cmbSessionTimeSlots.Items.Add(time);
             }
         }
 
@@ -134,6 +137,45 @@ namespace BostonCodeCampSessionTracker
         private void btnTimeSlotExitApplication_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnClearSessionFields_Click(object sender, EventArgs e)
+        {
+            txtBoxSessionName.Text = "";
+            cmbSpeakerName.Text = "";
+            cmbSessionRoomName.Text = "";
+            cmbSessionTimeSlots.Text = "";
+            txtSessionTimeDuration.Text = "";
+        }
+
+        private void btnCreateSession_Click(object sender, EventArgs e)
+        {
+            DataAccess db = new DataAccess();
+
+            db.addSession(txtBoxSessionName.Text, cmbSessionRoomName.Text, cmbSpeakerName.Text, cmbSessionTimeSlots.Text);
+        }
+
+        private void btnRemoveSession_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSessionExitApplication_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void UpdateComboBoxes()
+        {
+            updateSpeakerComboBoxes();
+            updateRoomComboBoxes();
+            updateTimeSlotComboBoxes();
+
+        }
+
+        private void tbcSessionTracker_Click(object sender, EventArgs e)
+        {
+            UpdateComboBoxes();
         }
     }
 }

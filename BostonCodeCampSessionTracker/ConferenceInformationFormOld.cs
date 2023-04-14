@@ -103,7 +103,7 @@ namespace BostonCodeCampSessionTracker
         {
             DataAccess db = new DataAccess();
 
-            db.addTimeSlot(TimeSpan.Parse(tmpStartTime.Text), TimeSpan.Parse(tmpEndTime.Text), TimeSpan.Parse(dpSessionDate.Text));
+            //db.addTimeSlot(TimeSpan.Parse(tmpStartTime.Text), TimeSpan.Parse(tmpEndTime.Text), TimeSpan.Parse(dpSessionDate.Text));
         }
 
         private void btnCreateSession_Click(object sender, EventArgs e)

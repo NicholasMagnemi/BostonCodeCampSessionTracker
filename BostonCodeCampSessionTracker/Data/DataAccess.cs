@@ -114,7 +114,7 @@ namespace BostonCodeCampSessionTracker.Data
             };
         }
 
-        public bool addTimeSlot(TimeSpan timeBegin, TimeSpan timeEnd, TimeSpan timeDuration)
+        public bool addTimeSlot(DateTime timeBegin, DateTime timeEnd)
         {
             TimeSlotValidator validator = new TimeSlotValidator();
 
@@ -122,9 +122,9 @@ namespace BostonCodeCampSessionTracker.Data
 
             TimeSlot newTimeSlot = new TimeSlot()
             {
-                TimeBegin = timeBegin,
-                TimeEnd = timeEnd,
-                TimeDuration = timeDuration
+                TimeBegin = timeBegin.TimeOfDay,
+                TimeEnd = timeEnd.TimeOfDay,
+                TimeDuration = timeEnd.TimeOfDay - timeBegin.TimeOfDay,
             };
 
             ValidationResult results = validator.Validate(newTimeSlot);
