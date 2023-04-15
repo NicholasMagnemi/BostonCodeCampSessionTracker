@@ -13,7 +13,7 @@ namespace BostonCodeCampSessionTracker.Validations
     {
         public SessionValidator() 
         { 
-            RuleFor(session => session.SessionTitle).NotEmpty();
+            RuleFor(session => session.SessionTitle).NotEmpty().MaximumLength(15);
             RuleFor(session => session.RoomId).NotEmpty();
             RuleFor(session => session.SpeakerId).NotEmpty();
             RuleFor(session => session.TimeId).NotEmpty();
