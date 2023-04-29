@@ -532,10 +532,10 @@ namespace BostonCodeCampSessionTracker
             tbcSessionTracker.SelectTab(tbSessionInfo);
         }
 
-        private void textBox6_TextChanged(object sender, EventArgs e)
+        /*private void textBox6_TextChanged(object sender, EventArgs e)
         {
             txtPassword.PasswordChar = '*';
-        }
+        }*/
 
         private void btnSaveCount_Click(object sender, EventArgs e)
         {
