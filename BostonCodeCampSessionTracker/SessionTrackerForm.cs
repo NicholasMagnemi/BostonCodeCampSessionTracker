@@ -1,4 +1,4 @@
-﻿using BostonCodeCampSessionTracker.Data;
+﻿/*using BostonCodeCampSessionTracker.Data;
 using System.Text.RegularExpressions;
 
 namespace BostonCodeCampSessionTracker
@@ -351,6 +351,11 @@ namespace BostonCodeCampSessionTracker
                 e.Handled = false;
             }
 
+            if (e.KeyChar >= 0 ||e.KeyChar <= 9 )
+            {
+                e.Handled= false;
+            }
+
             if (e.KeyChar == '\u0008')
             {
                 e.Handled = false;
@@ -532,4 +537,4 @@ namespace BostonCodeCampSessionTracker
             txtPassword.PasswordChar = '*';
         }
     }
-}
+}*/

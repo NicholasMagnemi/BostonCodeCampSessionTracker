@@ -14,7 +14,7 @@ namespace BostonCodeCampSessionTracker
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new ConferenceInformationFormOld());
-            Application.Run(new SessionTrackerForm());
+            //Application.Run(new SessionTrackerForm());
         }
     }
 }

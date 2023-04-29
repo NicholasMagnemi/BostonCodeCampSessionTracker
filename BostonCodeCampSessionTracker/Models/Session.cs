@@ -17,7 +17,7 @@ public partial class Session
 
     public virtual Room Room { get; set; } = null!;
 
-    public virtual ICollection<SessionSpeaker> SessionSpeakers { get; } = new List<SessionSpeaker>();
+    public virtual ICollection<SessionSpeaker> SessionSpeakers { get; set; } = new List<SessionSpeaker>();
 
     public virtual Speaker Speaker { get; set; } = null!;
 

@@ -13,5 +13,5 @@ public partial class TimeSlot
 
     public TimeSpan? TimeDuration { get; set; }
 
-    public virtual ICollection<Session> Sessions { get; } = new List<Session>();
+    public virtual ICollection<Session> Sessions { get; set; } = new List<Session>();
 }

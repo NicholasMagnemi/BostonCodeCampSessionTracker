@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using BostonCodeCampSessionTracker.Models;
 using Microsoft.EntityFrameworkCore;
-
 
 namespace BostonCodeCampSessionTracker.Data;
 
@@ -18,6 +16,8 @@ public partial class CodeCampAppContext : DbContext
     {
     }
 
+    public virtual DbSet<Count> Counts { get; set; }
+
     public virtual DbSet<Room> Rooms { get; set; }
 
     public virtual DbSet<Session> Sessions { get; set; }
@@ -29,12 +29,19 @@ public partial class CodeCampAppContext : DbContext
     public virtual DbSet<TimeSlot> TimeSlots { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["CodeCampAppDatabase"].ConnectionString);
-    }
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("Server=tcp:currybostoncodecamp-app.database.windows.net,1433;Initial Catalog=Code_Camp_App;Persist Security Info=False;User ID=CurryTeam;Password=AzureSoftwareEngineering2023!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Count>(entity =>
+        {
+            entity.Property(e => e.CountId).HasColumnName("countID");
+            entity.Property(e => e.BeginningCount).HasColumnName("beginning_count");
+            entity.Property(e => e.EndingCount).HasColumnName("ending_count");
+            entity.Property(e => e.MiddleCount).HasColumnName("middle_count");
+        });
+
         modelBuilder.Entity<Room>(entity =>
         {
             entity.HasKey(e => e.RoomId).HasName("PK__tmp_ms_x__32863919DEC92F2D");
@@ -99,9 +106,11 @@ public partial class CodeCampAppContext : DbContext
 
         modelBuilder.Entity<Speaker>(entity =>
         {
+            entity.HasKey(e => e.SpeakerId).HasName("PK__tmp_ms_x__79E7573944388911");
+
             entity.ToTable("Speaker");
 
-            entity.Property(e => e.SpeakerId).ValueGeneratedOnAdd();
+            entity.Property(e => e.SpeakerId).HasColumnName("SpeakerID");
             entity.Property(e => e.SpeakerBio)
                 .HasColumnType("text")
                 .HasColumnName("Speaker_Bio");

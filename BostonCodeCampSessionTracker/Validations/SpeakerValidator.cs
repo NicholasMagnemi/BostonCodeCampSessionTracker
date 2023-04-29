@@ -1,4 +1,4 @@
-﻿using BostonCodeCampSessionTracker.Models;
+﻿/*using BostonCodeCampSessionTracker.Models;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
@@ -24,4 +24,4 @@ namespace BostonCodeCampSessionTracker.Validations
 
         }
     }
-}
+}*/

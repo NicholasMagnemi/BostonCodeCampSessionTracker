@@ -11,5 +11,5 @@ public partial class Room
 
     public string RoomName { get; set; } = null!;
 
-    public virtual ICollection<Session> Sessions { get; } = new List<Session>();
+    public virtual ICollection<Session> Sessions { get; set; } = new List<Session>();
 }
