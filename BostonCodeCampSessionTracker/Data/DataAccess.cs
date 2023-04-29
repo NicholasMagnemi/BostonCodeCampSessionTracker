@@ -19,6 +19,32 @@ namespace BostonCodeCampSessionTracker.Data
     public class DataAccess
     {
 
+        public bool addCount(String startingCount, String MiddleCount, String EndingCount)
+        {
+            CountValidator validator = new CountValidator();
+            using CodeCampAppContext context = new CodeCampAppContext();
+            {
+                Count newCount = new Count()
+                {
+                    BeginningCount = Convert.ToInt32(startingCount),
+                    MiddleCount = Convert.ToInt32(MiddleCount),
+                    EndingCount = Convert.ToInt32(EndingCount)
+                };
+
+                ValidationResult results = validator.Validate(newCount);
+                if (results.IsValid == false)
+                {
+                    return false;
+                }
+                else
+                {
+                    context.Counts.Add(newCount);
+                    context.SaveChanges();
+                    return true;
+                }
+            }
+        }
+
         public bool addSpeaker(String fName, String lName, String eMail, String speakerPhone, String dayOfContact, String speakerBio, String speakerPastTalks)
         {
             SpeakerValidator validator = new SpeakerValidator();

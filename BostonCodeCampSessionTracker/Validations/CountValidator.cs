@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace BostonCodeCampSessionTracker.Validations
 {
-     class AttendanceValidator : AbstractValidator<Count>
+     class CountValidator : AbstractValidator<Count>
     {
-        public AttendanceValidator()
+        public CountValidator()
         {
             RuleFor(count => count.BeginningCount).NotEmpty().GreaterThan(0);
             RuleFor(count => count.MiddleCount).NotEmpty().GreaterThan(0); ;

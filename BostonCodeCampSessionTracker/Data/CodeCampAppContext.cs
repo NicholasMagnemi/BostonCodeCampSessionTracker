@@ -108,8 +108,6 @@ public partial class CodeCampAppContext : DbContext
 
         modelBuilder.Entity<Speaker>(entity =>
         {
-            entity.HasKey(e => e.SpeakerId).HasName("PK__tmp_ms_x__79E7573944388911");
-
             entity.ToTable("Speaker");
 
             entity.Property(e => e.SpeakerId).HasColumnName("SpeakerID");

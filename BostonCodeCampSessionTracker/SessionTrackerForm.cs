@@ -351,9 +351,9 @@ namespace BostonCodeCampSessionTracker
                 e.Handled = false;
             }
 
-            if (e.KeyChar >= 0 ||e.KeyChar <= 9 )
+            if (e.KeyChar >= 0 || e.KeyChar <= 9)
             {
-                e.Handled= false;
+                e.Handled = false;
             }
 
             if (e.KeyChar == '\u0008')
@@ -535,6 +535,15 @@ namespace BostonCodeCampSessionTracker
         private void textBox6_TextChanged(object sender, EventArgs e)
         {
             txtPassword.PasswordChar = '*';
+        }
+
+        private void btnSaveCount_Click(object sender, EventArgs e)
+        {
+            DataAccess db = new DataAccess();
+
+            db.addCount(txtBeginningCount.Text, txtMiddleCount.Text, txtEndingCount.Text);
+
+            MessageBox.Show("Count Saved");
         }
     }
 }
