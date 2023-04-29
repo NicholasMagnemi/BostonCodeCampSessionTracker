@@ -1,4 +1,4 @@
-﻿/*using BostonCodeCampSessionTracker.Models;
+﻿using BostonCodeCampSessionTracker.Models;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
@@ -8,16 +8,14 @@ using System.Threading.Tasks;
 
 namespace BostonCodeCampSessionTracker.Validations
 {
-     class AttendanceValidator : AbstractValidator<Attendance>
+     class AttendanceValidator : AbstractValidator<Count>
     {
         public AttendanceValidator()
         {
-            RuleFor(Attendance => Attendance.SessionId).NotEmpty().GreaterThan(0);
-            RuleFor(Attendance => Attendance.roomName).NotEmpty().MinimumLength(1).MaximumLength(25);
-            RuleFor(Attendance => Attendance.beforeCount).NotEmpty();
-            RuleFor(Attendance => Attendance.duringCount).NotEmpty();
-            RuleFor(Attendance => Attendance.afterCount).NotEmpty();
+            RuleFor(count => count.BeginningCount).NotEmpty().GreaterThan(0);
+            RuleFor(count => count.MiddleCount).NotEmpty().GreaterThan(0); ;
+            RuleFor(count => count.EndingCount).NotEmpty();
         }
         
     }
-}*/
+}

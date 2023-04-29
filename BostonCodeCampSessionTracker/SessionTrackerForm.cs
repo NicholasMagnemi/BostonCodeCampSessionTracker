@@ -1,4 +1,4 @@
-﻿/*using BostonCodeCampSessionTracker.Data;
+﻿using BostonCodeCampSessionTracker.Data;
 using System.Text.RegularExpressions;
 
 namespace BostonCodeCampSessionTracker
@@ -537,4 +537,4 @@ namespace BostonCodeCampSessionTracker
             txtPassword.PasswordChar = '*';
         }
     }
-}*/
+}

@@ -1,4 +1,4 @@
-﻿/*namespace BostonCodeCampSessionTracker
+﻿namespace BostonCodeCampSessionTracker
 {
     partial class SessionTrackerForm
     {
@@ -1239,4 +1239,4 @@
         private Label label2;
         private Label label1;
     }
-}*/
+}
