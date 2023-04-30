@@ -1,4 +1,5 @@
 ﻿using BostonCodeCampSessionTracker.Data;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Text.RegularExpressions;
 
 namespace BostonCodeCampSessionTracker
@@ -179,6 +180,7 @@ namespace BostonCodeCampSessionTracker
             updateRoomComboBoxes();
             updateTimeSlotComboBoxes();
             updateOverviewSpeakerNamesComboBox();
+            updateCountRoomNamesComboBox();
         }
 
         private void tbcSessionTracker_Click(object sender, EventArgs e)
@@ -213,9 +215,24 @@ namespace BostonCodeCampSessionTracker
 
             List<String> speakerSessions = db.retrieveSpeakersSessions(speakerId);
 
+            cmbOverviewSpeakerName.Items.Clear();
+
             foreach (String speakerSession in speakerSessions)
             {
                 cmbOverviewSessionNames.Items.Add(speakerSession);
+            }
+        }
+
+        private void updateCountRoomNamesComboBox()
+        {
+            DataAccess db = new DataAccess();
+            List<String> roomNames = db.retrieveRoomNames();
+
+            cmbAttendanceSessionNames.Items.Clear();
+
+            foreach (String roomName in roomNames)
+            {
+                cmbAttendanceSessionNames.Items.Add(roomName);
             }
         }
 
@@ -226,6 +243,8 @@ namespace BostonCodeCampSessionTracker
             int sessionId = db.retrieveSessionId(cmbOverviewSessionNames.Text);
 
             List<String> sessionTimeSlots = db.retrieveSpeakersTimeSlots(sessionId);
+
+            cmbOverviewTimeSlots.Items.Clear();
 
             foreach (String sessionTimeSlot in sessionTimeSlots)
             {
@@ -335,23 +354,11 @@ namespace BostonCodeCampSessionTracker
             {
                 e.Handled = true;
             }
-
-
         }
 
         private void txtBoxEmail_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-
             if (char.IsLetter(e.KeyChar) || e.KeyChar == '.' || e.KeyChar == '@')
-            {
-                e.Handled = false;
-            }
-
-            if (e.KeyChar >= 0 || e.KeyChar <= 9)
             {
                 e.Handled = false;
             }
@@ -360,7 +367,7 @@ namespace BostonCodeCampSessionTracker
             {
                 e.Handled = false;
             }
-            else if (txtBoxEmail.Text.Length == 25)
+            else if (txtBoxEmail.Text.Length == 40)
             {
                 e.Handled = true;
             }
@@ -372,8 +379,6 @@ namespace BostonCodeCampSessionTracker
             {
                 e.Handled = true;
             }
-
-
 
             if (char.IsLetter(e.KeyChar) || e.KeyChar == '.')
             {
@@ -392,35 +397,33 @@ namespace BostonCodeCampSessionTracker
 
         private void txtBoxPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == '\u0008')
+            if (e.KeyChar >= 0 || e.KeyChar <= 9)
             {
                 e.Handled = false;
             }
-            else if (!Regex.IsMatch(txtBoxPhoneNumber.Text, @"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}"))
+
+            if (txtBoxPhoneNumber.Text.Length == 20)
             {
-                e.Handled = false;
+                e.Handled = true;
             }
             else
             {
                 e.Handled = true;
             }
+
+            
         }
 
         private void txtBoxDayOfContactPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == '\u0008')
-            {
-                e.Handled = false;
-            }
-            else if (!Regex.IsMatch(txtBoxDayOfContactPhoneNumber.Text, @"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}"))
+            if (e.KeyChar >= 0 || e.KeyChar <= 9)
             {
                 e.Handled = false;
             }
             else
             {
-                e.Handled = true;
+                e.Handled= true;
             }
-
         }
 
         private void txtBoxPastTalksGiven_KeyPress(object sender, KeyPressEventArgs e)

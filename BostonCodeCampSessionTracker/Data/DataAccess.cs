@@ -66,6 +66,14 @@ namespace BostonCodeCampSessionTracker.Data
 
                 if (results.IsValid == false)
                 {
+                    String validationFailureMessage = "";
+
+                    foreach (ValidationFailure failure in results.Errors)
+                    {
+                        validationFailureMessage += failure.ErrorMessage + "\n";
+                    }
+
+                    MessageBox.Show(validationFailureMessage);
                     return false;
                 }
                 else
@@ -112,6 +120,14 @@ namespace BostonCodeCampSessionTracker.Data
 
                 if (results.IsValid == false)
                 {
+                    String validationFailureMessage = "";
+
+                    foreach (ValidationFailure failure in results.Errors)
+                    {
+                        validationFailureMessage += failure.ErrorMessage + "\n";
+                    }
+
+                    MessageBox.Show(validationFailureMessage);
                     return false;
                 }
                 else
@@ -160,6 +176,14 @@ namespace BostonCodeCampSessionTracker.Data
 
                 if (results.IsValid == false)
                 {
+                    String validationFailureMessage = "";
+
+                    foreach (ValidationFailure failure in results.Errors)
+                    {
+                        validationFailureMessage += failure.ErrorMessage + "\n";
+                    }
+
+                    MessageBox.Show(validationFailureMessage);
                     return false;
                 }
                 else
