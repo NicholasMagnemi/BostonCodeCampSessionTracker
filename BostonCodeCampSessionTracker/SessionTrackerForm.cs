@@ -1,4 +1,4 @@
-﻿/*using BostonCodeCampSessionTracker.Data;
+﻿using BostonCodeCampSessionTracker.Data;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Text.RegularExpressions;
 
@@ -542,5 +542,5 @@ namespace BostonCodeCampSessionTracker
             MessageBox.Show("Count Saved");
         }
     }
-}/*
-*/
+}
+

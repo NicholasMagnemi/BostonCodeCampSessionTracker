@@ -1,4 +1,4 @@
-﻿/*using BostonCodeCampSessionTracker.Models;
+﻿using BostonCodeCampSessionTracker.Models;
 using FluentValidation;
 using Microsoft.Identity.Client;
 using System;
@@ -18,4 +18,4 @@ namespace BostonCodeCampSessionTracker.Validations
             RuleFor(timeSlot => timeSlot.TimeBegin).LessThan(TimeSlot => TimeSlot.TimeEnd).WithMessage("Start Time must be before End Time");
         }
     }
-}*/
+}
