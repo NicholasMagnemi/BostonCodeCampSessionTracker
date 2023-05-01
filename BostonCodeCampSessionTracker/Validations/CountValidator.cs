@@ -12,9 +12,9 @@ namespace BostonCodeCampSessionTracker.Validations
     {
         public CountValidator()
         {
-            RuleFor(count => count.BeginningCount).NotEmpty().GreaterThan(0);
-            RuleFor(count => count.MiddleCount).NotEmpty().GreaterThan(0); ;
-            RuleFor(count => count.EndingCount).NotEmpty();
+            RuleFor(count => count.BeginningCount).NotEmpty().GreaterThan(0).WithMessage("The beginning count is invalid");
+            RuleFor(count => count.MiddleCount).NotEmpty().GreaterThan(0).WithMessage("The middle count is invalid");
+            RuleFor(count => count.EndingCount).NotEmpty().GreaterThan(0).WithMessage("The ending count is invalid");
         }
         
     }

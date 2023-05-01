@@ -144,7 +144,7 @@
             tbOverview.Location = new Point(4, 24);
             tbOverview.Margin = new Padding(3, 2, 3, 2);
             tbOverview.Name = "tbOverview";
-            tbOverview.Size = new Size(556, 370);
+            tbOverview.Size = new Size(522, 370);
             tbOverview.TabIndex = 4;
             tbOverview.Text = "Overview";
             tbOverview.UseVisualStyleBackColor = true;
@@ -321,7 +321,7 @@
             tbSessionInfo.Location = new Point(4, 24);
             tbSessionInfo.Margin = new Padding(3, 2, 3, 2);
             tbSessionInfo.Name = "tbSessionInfo";
-            tbSessionInfo.Size = new Size(556, 370);
+            tbSessionInfo.Size = new Size(522, 370);
             tbSessionInfo.TabIndex = 3;
             tbSessionInfo.Text = "Session Info";
             tbSessionInfo.UseVisualStyleBackColor = true;
@@ -488,7 +488,7 @@
             tbTimeSlotInfo.Location = new Point(4, 24);
             tbTimeSlotInfo.Margin = new Padding(3, 2, 3, 2);
             tbTimeSlotInfo.Name = "tbTimeSlotInfo";
-            tbTimeSlotInfo.Size = new Size(556, 370);
+            tbTimeSlotInfo.Size = new Size(522, 370);
             tbTimeSlotInfo.TabIndex = 2;
             tbTimeSlotInfo.Text = "Time Slot Info";
             tbTimeSlotInfo.UseVisualStyleBackColor = true;
@@ -622,7 +622,7 @@
             tbRoomInfo.Margin = new Padding(3, 2, 3, 2);
             tbRoomInfo.Name = "tbRoomInfo";
             tbRoomInfo.Padding = new Padding(3, 2, 3, 2);
-            tbRoomInfo.Size = new Size(556, 370);
+            tbRoomInfo.Size = new Size(522, 370);
             tbRoomInfo.TabIndex = 1;
             tbRoomInfo.Text = "Room Info";
             tbRoomInfo.UseVisualStyleBackColor = true;
@@ -760,7 +760,7 @@
             tbSpeakerInfo.Margin = new Padding(3, 2, 3, 2);
             tbSpeakerInfo.Name = "tbSpeakerInfo";
             tbSpeakerInfo.Padding = new Padding(3, 2, 3, 2);
-            tbSpeakerInfo.Size = new Size(556, 370);
+            tbSpeakerInfo.Size = new Size(522, 370);
             tbSpeakerInfo.TabIndex = 0;
             tbSpeakerInfo.Text = "Speaker Info";
             tbSpeakerInfo.UseVisualStyleBackColor = true;
@@ -1000,7 +1000,7 @@
             tbcSessionTracker.Margin = new Padding(3, 2, 3, 2);
             tbcSessionTracker.Name = "tbcSessionTracker";
             tbcSessionTracker.SelectedIndex = 0;
-            tbcSessionTracker.Size = new Size(564, 398);
+            tbcSessionTracker.Size = new Size(530, 398);
             tbcSessionTracker.TabIndex = 2;
             tbcSessionTracker.Click += tbcSessionTracker_Click;
             // 
@@ -1020,7 +1020,7 @@
             tabAttendance.Location = new Point(4, 24);
             tabAttendance.Margin = new Padding(3, 2, 3, 2);
             tabAttendance.Name = "tabAttendance";
-            tabAttendance.Size = new Size(556, 370);
+            tabAttendance.Size = new Size(522, 370);
             tabAttendance.TabIndex = 5;
             tabAttendance.Text = "Attendance";
             tabAttendance.UseVisualStyleBackColor = true;

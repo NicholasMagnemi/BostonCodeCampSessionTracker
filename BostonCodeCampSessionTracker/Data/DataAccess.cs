@@ -1,27 +1,19 @@
-﻿using BostonCodeCampSessionTracker.Data;
-using BostonCodeCampSessionTracker.Models;
+﻿using BostonCodeCampSessionTracker.Models;
 using BostonCodeCampSessionTracker.Validation;
 using BostonCodeCampSessionTracker.Validations;
 using FluentValidation;
 using FluentValidation.Results;
-using Microsoft.Extensions.Logging.Abstractions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Collections.Specialized.BitVector32;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace BostonCodeCampSessionTracker.Data
 {
     public class DataAccess
     {
+        public DataAccess() { }
 
         public bool addCount(String startingCount, String MiddleCount, String EndingCount)
         {
             CountValidator validator = new CountValidator();
+
             using CodeCampAppContext context = new CodeCampAppContext();
             {
                 Count newCount = new Count()
@@ -32,8 +24,17 @@ namespace BostonCodeCampSessionTracker.Data
                 };
 
                 ValidationResult results = validator.Validate(newCount);
+
                 if (results.IsValid == false)
                 {
+                    String validationFailureMessage = "";
+
+                    foreach (ValidationFailure failure in results.Errors)
+                    {
+                        validationFailureMessage += failure.ErrorMessage + "\n";
+                    }
+
+                    MessageBox.Show(validationFailureMessage);
                     return false;
                 }
                 else
@@ -242,6 +243,14 @@ namespace BostonCodeCampSessionTracker.Data
 
                 if (results.IsValid == false)
                 {
+                    String validationFailureMessage = "";
+
+                    foreach (ValidationFailure failure in results.Errors)
+                    {
+                        validationFailureMessage += failure.ErrorMessage + "\n";
+                    }
+
+                    MessageBox.Show(validationFailureMessage);
                     return false;
                 }
                 else
@@ -325,7 +334,7 @@ namespace BostonCodeCampSessionTracker.Data
             }
         }
 
-        public List<String> retrieveSpeakersTimeSlots(int aTimeId)
+        public List<String> retrieveSessionTimeSlots(int aTimeId)
         {
             using CodeCampAppContext context = new CodeCampAppContext();
             {
@@ -355,6 +364,23 @@ namespace BostonCodeCampSessionTracker.Data
                     if (session.SessionTitle == aSessionsName)
                     {
                         return session.SessionId;
+                    }
+                }
+                return 0;
+            }
+        }
+
+        public int retrieveSessionTimeSlotId(String aSessionsName)
+        {
+            using CodeCampAppContext context = new CodeCampAppContext();
+            {
+                var sessions = context.Sessions.ToList();
+
+                foreach (var session in sessions)
+                {
+                    if (session.SessionTitle == aSessionsName)
+                    {
+                        return session.TimeId;
                     }
                 }
                 return 0;

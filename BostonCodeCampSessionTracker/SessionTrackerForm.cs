@@ -197,9 +197,9 @@ namespace BostonCodeCampSessionTracker
         {
             DataAccess db = new DataAccess();
 
-            List<String> speakerNames = db.retrieveSpeakerNames();
-
             cmbOverviewSpeakerName.Items.Clear();
+
+            List<String> speakerNames = db.retrieveSpeakerNames();
 
             foreach (String speakerName in speakerNames)
             {
@@ -211,11 +211,11 @@ namespace BostonCodeCampSessionTracker
         {
             DataAccess db = new DataAccess();
 
+            cmbOverviewSessionNames.Items.Clear();
+
             int speakerId = db.retrieveSpeakerId(cmbOverviewSpeakerName.Text);
 
             List<String> speakerSessions = db.retrieveSpeakersSessions(speakerId);
-
-            cmbOverviewSpeakerName.Items.Clear();
 
             foreach (String speakerSession in speakerSessions)
             {
@@ -226,9 +226,8 @@ namespace BostonCodeCampSessionTracker
         private void updateCountRoomNamesComboBox()
         {
             DataAccess db = new DataAccess();
-            List<String> roomNames = db.retrieveRoomNames();
 
-            cmbAttendanceSessionNames.Items.Clear();
+            List<String> roomNames = db.retrieveRoomNames();
 
             foreach (String roomName in roomNames)
             {
@@ -240,15 +239,16 @@ namespace BostonCodeCampSessionTracker
         {
             DataAccess db = new DataAccess();
 
-            int sessionId = db.retrieveSessionId(cmbOverviewSessionNames.Text);
-
-            List<String> sessionTimeSlots = db.retrieveSpeakersTimeSlots(sessionId);
-
             cmbOverviewTimeSlots.Items.Clear();
+
+            int aTimeSlotId = db.retrieveSessionTimeSlotId(cmbOverviewSessionNames.Text);
+
+            List<String> sessionTimeSlots = db.retrieveSessionTimeSlots(aTimeSlotId);
 
             foreach (String sessionTimeSlot in sessionTimeSlots)
             {
                 cmbOverviewTimeSlots.Items.Add(sessionTimeSlot);
+                MessageBox.Show("test: "  + sessionTimeSlot);
             }
         }
 
@@ -267,9 +267,9 @@ namespace BostonCodeCampSessionTracker
         {
             DataAccess db = new DataAccess();
 
-            int sessionId = db.retrieveSessionId(cmbOverviewSessionNames.Text);
+            int roomId = db.retieveRoomId(cmbOverviewSessionNames.Text);
 
-            String roomName = db.retrieveSpeakersRoomName(sessionId);
+            String roomName = db.retrieveSpeakersRoomName(roomId);
 
             lblOverviewRoomName.Text = roomName;
         }
@@ -281,6 +281,7 @@ namespace BostonCodeCampSessionTracker
 
         private void cmbOverviewSession_SelectionChangeCommitted(object sender, EventArgs e)
         {
+
             updateOverviewTimeSlotsComboBox();
             updateOverviewRoomNamelbl();
         }
@@ -302,10 +303,6 @@ namespace BostonCodeCampSessionTracker
 
         private void txtBoxFirstName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
 
             if (e.KeyChar != ' ')
             {
@@ -330,11 +327,6 @@ namespace BostonCodeCampSessionTracker
 
         private void txtBoxLastName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-
             if (e.KeyChar != ' ')
             {
                 e.Handled = true;
@@ -358,7 +350,7 @@ namespace BostonCodeCampSessionTracker
 
         private void txtBoxEmail_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsLetter(e.KeyChar) || e.KeyChar == '.' || e.KeyChar == '@')
+            if (char.IsLetter(e.KeyChar) || e.KeyChar == '.' || e.KeyChar == '@' || e.KeyChar == (char)Keys.Back)
             {
                 e.Handled = false;
             }
@@ -375,17 +367,12 @@ namespace BostonCodeCampSessionTracker
 
         private void txtBoxShortBio_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
 
-            if (char.IsLetter(e.KeyChar) || e.KeyChar == '.')
+            if (char.IsLetter(e.KeyChar) || e.KeyChar == '.' || e.KeyChar == ' ' || e.KeyChar == (char)Keys.Back)
             {
                 e.Handled = false;
             }
-
-            if (e.KeyChar == '\u0008')
+            else if (e.KeyChar == '\u0008')
             {
                 e.Handled = false;
             }
@@ -393,36 +380,51 @@ namespace BostonCodeCampSessionTracker
             {
                 e.Handled = true;
             }
+            else
+            {
+                e.Handled = true;
+            }
         }
 
         private void txtBoxPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar >= 0 || e.KeyChar <= 9)
+            if (char.IsDigit(e.KeyChar))
             {
                 e.Handled = false;
-            }
-
-            if (txtBoxPhoneNumber.Text.Length == 20)
-            {
-                e.Handled = true;
             }
             else
             {
                 e.Handled = true;
             }
 
-            
+            if (e.KeyChar == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+            else if (txtBoxPhoneNumber.Text.Length == 20)
+            {
+                e.Handled = true;
+            }
         }
 
         private void txtBoxDayOfContactPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar >= 0 || e.KeyChar <= 9)
+            if (char.IsDigit(e.KeyChar))
             {
                 e.Handled = false;
             }
             else
             {
-                e.Handled= true;
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+            else if (txtBoxPhoneNumber.Text.Length == 20)
+            {
+                e.Handled = true;
             }
         }
 
@@ -433,7 +435,7 @@ namespace BostonCodeCampSessionTracker
                 e.Handled = true;
             }
 
-            if (char.IsLetter(e.KeyChar) || e.KeyChar == '.')
+            if (char.IsLetter(e.KeyChar) || e.KeyChar == '.' || e.KeyChar == ' ' || e.KeyChar == (char)Keys.Back)
             {
                 e.Handled = false;
             }
@@ -450,10 +452,6 @@ namespace BostonCodeCampSessionTracker
 
         private void txtBoxRoomID_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
 
             if (char.IsLetter(e.KeyChar))
             {
@@ -468,26 +466,22 @@ namespace BostonCodeCampSessionTracker
             {
                 e.Handled = true;
             }
+
         }
 
         private void txtBoxMaxCapacity_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
 
-            if (char.IsNumber(e.KeyChar))
+            if (char.IsNumber(e.KeyChar) || e.KeyChar == (char)Keys.Back)
             {
                 e.Handled = false;
             }
 
-            if (char.IsLetter(e.KeyChar))
+            if (e.KeyChar == (char)Keys.Back)
             {
-                e.Handled = true;
+                e.Handled = false;
             }
-
-            if (txtBoxMaxCapacity.Text.Length == 4)
+            else if (txtBoxMaxCapacity.Text.Length == 4)
             {
                 e.Handled = true;
             }
@@ -495,11 +489,6 @@ namespace BostonCodeCampSessionTracker
 
         private void txtBoxSessionName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-
             if (e.KeyChar != ' ')
             {
                 e.Handled = false;
