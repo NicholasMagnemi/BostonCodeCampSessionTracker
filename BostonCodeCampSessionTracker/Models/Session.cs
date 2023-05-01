@@ -15,6 +15,10 @@ public partial class Session
 
     public int TimeId { get; set; }
 
+    public int CountId { get; set; }
+
+    public virtual Count Count { get; set; } = null!;
+
     public virtual Room Room { get; set; } = null!;
 
     public virtual ICollection<SessionSpeaker> SessionSpeakers { get; set; } = new List<SessionSpeaker>();

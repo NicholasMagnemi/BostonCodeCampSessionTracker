@@ -1,4 +1,4 @@
-﻿namespace BostonCodeCampSessionTracker
+﻿/*namespace BostonCodeCampSessionTracker
 {
     partial class SessionTrackerForm
     {
@@ -1331,4 +1331,4 @@
         private Label lblOverviewBCount;
         private Label lblOverviewBeginningCount;
     }
-}
+}*/

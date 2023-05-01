@@ -12,4 +12,6 @@ public partial class Count
     public int? MiddleCount { get; set; }
 
     public int? EndingCount { get; set; }
+
+    public virtual ICollection<Session> Sessions { get; set; } = new List<Session>();
 }
