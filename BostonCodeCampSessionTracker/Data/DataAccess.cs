@@ -3,6 +3,7 @@ using BostonCodeCampSessionTracker.Validation;
 using BostonCodeCampSessionTracker.Validations;
 using FluentValidation;
 using FluentValidation.Results;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace BostonCodeCampSessionTracker.Data
 {
@@ -10,7 +11,7 @@ namespace BostonCodeCampSessionTracker.Data
     {
         public DataAccess() { }
 
-        public bool addCount(String startingCount, String MiddleCount, String EndingCount)
+        public bool addCount(String startingCount, String MiddleCount, String EndingCount, String sessionName)
         {
             CountValidator validator = new CountValidator();
 
@@ -21,6 +22,11 @@ namespace BostonCodeCampSessionTracker.Data
                     BeginningCount = Convert.ToInt32(startingCount),
                     MiddleCount = Convert.ToInt32(MiddleCount),
                     EndingCount = Convert.ToInt32(EndingCount)
+                };
+
+                Session newSession = new Session()
+                {
+                    CountId = retrieveSessionCountId(sessionName)
                 };
 
                 ValidationResult results = validator.Validate(newCount);
@@ -39,10 +45,98 @@ namespace BostonCodeCampSessionTracker.Data
                 }
                 else
                 {
-                    context.Counts.Add(newCount);
+                    context.Counts.Update(newCount);
                     context.SaveChanges();
                     return true;
                 }
+            }
+        }
+
+        public int createEmptyCountRow()
+        {
+            CountValidator validator = new CountValidator();
+
+            using CodeCampAppContext context = new CodeCampAppContext();
+            {
+                Count newCount = new Count()
+                {
+                    BeginningCount = 0,
+                    MiddleCount = 0,
+                    EndingCount = 0,
+                };
+
+                context.Counts.Add(newCount);
+                context.SaveChanges();
+                
+                return newCount.CountId;
+            }
+        }
+
+        public int retrieveSessionCountId(String aSessionsName)
+        {
+            using CodeCampAppContext context = new CodeCampAppContext();
+            {
+                var sessions = context.Sessions.ToList();
+
+                foreach (var session in sessions)
+                {
+                    if (session.SessionTitle == aSessionsName)
+                    {
+                        return session.CountId;
+                    }
+                }
+                return 0;
+            }
+        }
+
+        public int? retrieveBeginningCountID(int countId)
+        {
+            using CodeCampAppContext context = new CodeCampAppContext();
+            {
+                var counts = context.Counts.ToList();
+
+                foreach (var count in counts)
+                {
+                    if (count.CountId == countId)
+                    {
+                        return count.BeginningCount;
+                    }
+                }
+                return 0;
+            }
+        }
+
+        public int? retrieveMiddleCountID(int countId)
+        {
+            using CodeCampAppContext context = new CodeCampAppContext();
+            {
+                var counts = context.Counts.ToList();
+
+                foreach (var count in counts)
+                {
+                    if (count.CountId == countId)
+                    {
+                        return count.MiddleCount;
+                    }
+                }
+                return 0;
+            }
+        }
+
+        public int? retrieveEndingCountID(int countId)
+        {
+            using CodeCampAppContext context = new CodeCampAppContext();
+            {
+                var counts = context.Counts.ToList();
+
+                foreach (var count in counts)
+                {
+                    if (count.CountId == countId)
+                    {
+                        return count.EndingCount;
+                    }
+                }
+                return 0;
             }
         }
 
@@ -170,7 +264,7 @@ namespace BostonCodeCampSessionTracker.Data
                     RoomId = retrieveRoomId(roomName),
                     SpeakerId = retrieveSpeakerId(speakerName),
                     TimeId = retrieveTimeId(timeSlot),
-
+                    CountId = createEmptyCountRow()
                 };
 
                 ValidationResult results = validator.Validate(newSession);
@@ -293,6 +387,22 @@ namespace BostonCodeCampSessionTracker.Data
                     speakersFullNames.Add(speaker.SpeakerFname + " " + speaker.SpeakerLname);
                 }
                 return speakersFullNames;
+            }
+        }
+
+        public List<String> retrieveSessionNames()
+        {
+            using CodeCampAppContext context = new CodeCampAppContext();
+            {
+                List<string> sessionNames = new List<string>();
+
+                var sessions = context.Sessions.ToList();
+
+                foreach (var session in sessions)
+                {
+                    sessionNames.Add(session.SessionTitle);
+                }
+                return sessionNames;
             }
         }
 

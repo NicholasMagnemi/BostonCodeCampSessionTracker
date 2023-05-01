@@ -181,6 +181,7 @@ namespace BostonCodeCampSessionTracker
             updateTimeSlotComboBoxes();
             updateOverviewSpeakerNamesComboBox();
             updateCountRoomNamesComboBox();
+            updateCountSessionNamesComboBox();
         }
 
         private void tbcSessionTracker_Click(object sender, EventArgs e)
@@ -223,15 +224,31 @@ namespace BostonCodeCampSessionTracker
             }
         }
 
+        private void updateCountSessionNamesComboBox()
+        {
+            DataAccess db = new DataAccess();
+
+            cmbOverviewSessionNames.Items.Clear();
+
+            List<String> sessionNames = db.retrieveSessionNames();
+
+            foreach (String sessionName in sessionNames)
+            {
+                cmbAttendanceSessionNames.Items.Add(sessionName);
+            }
+        }
+
         private void updateCountRoomNamesComboBox()
         {
             DataAccess db = new DataAccess();
+
+            cmbOverviewSessionNames.Items.Clear();
 
             List<String> roomNames = db.retrieveRoomNames();
 
             foreach (String roomName in roomNames)
             {
-                cmbAttendanceSessionNames.Items.Add(roomName);
+                cmbAttendanceRoomName.Items.Add(roomName);
             }
         }
 
@@ -273,12 +290,25 @@ namespace BostonCodeCampSessionTracker
 
             lblOverviewRoomName.Text = roomName;
         }
-
+        
         private void updateOverviewCountLables()
         {
             DataAccess db = new DataAccess();
 
-            
+            int countId = db.retrieveSessionCountId(cmbOverviewSessionNames.Text);
+
+            int? beginningCount = db.retrieveBeginningCountID(countId);
+
+            int? middleCount = db.retrieveMiddleCountID(countId);
+
+            int? endingCount = db.retrieveEndingCountID(countId);
+
+            lblOverviewBCount.Text = beginningCount.ToString();
+
+            lblOverviewMCount.Text = middleCount.ToString();
+
+            lblOverviewECount.Text = endingCount.ToString();
+
         }
 
         private void cmbOverviewSpeakerName_SelectionChangeCommitted(object sender, EventArgs e)
@@ -288,9 +318,9 @@ namespace BostonCodeCampSessionTracker
 
         private void cmbOverviewSession_SelectionChangeCommitted(object sender, EventArgs e)
         {
-
             updateOverviewTimeSlotsComboBox();
             updateOverviewRoomNamelbl();
+            updateOverviewCountLables();
         }
 
         private void cmbOverviewTimeSlots_SelectionChangeCommitted(object sender, EventArgs e)
@@ -531,15 +561,25 @@ namespace BostonCodeCampSessionTracker
             tbcSessionTracker.SelectTab(tbSessionInfo);
         }
 
-        
-
         private void btnSaveCount_Click(object sender, EventArgs e)
         {
             DataAccess db = new DataAccess();
 
-            db.addCount(txtBeginningCount.Text, txtMiddleCount.Text, txtEndingCount.Text);
+            db.addCount(txtBeginningCount.Text, txtMiddleCount.Text, txtEndingCount.Text, cmbAttendanceSessionNames.Text);
 
             MessageBox.Show("Count Saved");
+        }
+
+        private void updatecmbAttendanceSessionNames()
+        {
+            DataAccess db = new DataAccess();
+
+            List<String> roomNames = db.retrieveSessionNames();
+
+            foreach (String roomName in roomNames)
+            {
+                cmbAttendanceSessionNames.Items.Add(roomName);
+            }
         }
     }
 }
