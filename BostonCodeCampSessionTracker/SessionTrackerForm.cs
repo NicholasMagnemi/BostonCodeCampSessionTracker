@@ -290,7 +290,7 @@ namespace BostonCodeCampSessionTracker
 
             lblOverviewRoomName.Text = roomName;
         }
-        
+
         private void updateOverviewCountLables()
         {
             DataAccess db = new DataAccess();
