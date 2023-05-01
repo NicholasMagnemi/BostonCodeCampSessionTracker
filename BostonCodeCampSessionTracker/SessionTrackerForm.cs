@@ -248,7 +248,7 @@ namespace BostonCodeCampSessionTracker
             foreach (String sessionTimeSlot in sessionTimeSlots)
             {
                 cmbOverviewTimeSlots.Items.Add(sessionTimeSlot);
-                MessageBox.Show("test: "  + sessionTimeSlot);
+                MessageBox.Show("test: " + sessionTimeSlot);
             }
         }
 
@@ -272,6 +272,13 @@ namespace BostonCodeCampSessionTracker
             String roomName = db.retrieveSpeakersRoomName(roomId);
 
             lblOverviewRoomName.Text = roomName;
+        }
+
+        private void updateOverviewCountLables()
+        {
+            DataAccess db = new DataAccess();
+
+            
         }
 
         private void cmbOverviewSpeakerName_SelectionChangeCommitted(object sender, EventArgs e)

@@ -116,6 +116,12 @@
             label3 = new Label();
             label2 = new Label();
             lblSessionAttendance = new Label();
+            lblOverviewBeginningCount = new Label();
+            lblOverviewBCount = new Label();
+            lblOverviewMCount = new Label();
+            lblOverviewMiddleCount = new Label();
+            lblOverviewECount = new Label();
+            lblOverviewEndingCount = new Label();
             tbOverview.SuspendLayout();
             tbSessionInfo.SuspendLayout();
             tbTimeSlotInfo.SuspendLayout();
@@ -127,6 +133,12 @@
             // 
             // tbOverview
             // 
+            tbOverview.Controls.Add(lblOverviewECount);
+            tbOverview.Controls.Add(lblOverviewEndingCount);
+            tbOverview.Controls.Add(lblOverviewMCount);
+            tbOverview.Controls.Add(lblOverviewMiddleCount);
+            tbOverview.Controls.Add(lblOverviewBCount);
+            tbOverview.Controls.Add(lblOverviewBeginningCount);
             tbOverview.Controls.Add(lblOverviewRoomName);
             tbOverview.Controls.Add(lblOverviewTimeDuration);
             tbOverview.Controls.Add(cmbOverviewTimeSlots);
@@ -1127,6 +1139,72 @@
             lblSessionAttendance.TabIndex = 0;
             lblSessionAttendance.Text = "Session:";
             // 
+            // lblOverviewBeginningCount
+            // 
+            lblOverviewBeginningCount.AutoSize = true;
+            lblOverviewBeginningCount.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblOverviewBeginningCount.Location = new Point(318, 44);
+            lblOverviewBeginningCount.Name = "lblOverviewBeginningCount";
+            lblOverviewBeginningCount.Size = new Size(129, 21);
+            lblOverviewBeginningCount.TabIndex = 48;
+            lblOverviewBeginningCount.Text = "Beginning Count:";
+            // 
+            // lblOverviewBCount
+            // 
+            lblOverviewBCount.BackColor = SystemColors.Window;
+            lblOverviewBCount.BorderStyle = BorderStyle.FixedSingle;
+            lblOverviewBCount.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblOverviewBCount.ForeColor = SystemColors.ControlText;
+            lblOverviewBCount.Location = new Point(318, 67);
+            lblOverviewBCount.Name = "lblOverviewBCount";
+            lblOverviewBCount.Size = new Size(186, 30);
+            lblOverviewBCount.TabIndex = 49;
+            lblOverviewBCount.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lblOverviewMCount
+            // 
+            lblOverviewMCount.BackColor = SystemColors.Window;
+            lblOverviewMCount.BorderStyle = BorderStyle.FixedSingle;
+            lblOverviewMCount.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblOverviewMCount.ForeColor = SystemColors.ControlText;
+            lblOverviewMCount.Location = new Point(318, 120);
+            lblOverviewMCount.Name = "lblOverviewMCount";
+            lblOverviewMCount.Size = new Size(186, 30);
+            lblOverviewMCount.TabIndex = 51;
+            lblOverviewMCount.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lblOverviewMiddleCount
+            // 
+            lblOverviewMiddleCount.AutoSize = true;
+            lblOverviewMiddleCount.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblOverviewMiddleCount.Location = new Point(318, 97);
+            lblOverviewMiddleCount.Name = "lblOverviewMiddleCount";
+            lblOverviewMiddleCount.Size = new Size(107, 21);
+            lblOverviewMiddleCount.TabIndex = 50;
+            lblOverviewMiddleCount.Text = "Middle Count:";
+            // 
+            // lblOverviewECount
+            // 
+            lblOverviewECount.BackColor = SystemColors.Window;
+            lblOverviewECount.BorderStyle = BorderStyle.FixedSingle;
+            lblOverviewECount.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblOverviewECount.ForeColor = SystemColors.ControlText;
+            lblOverviewECount.Location = new Point(318, 173);
+            lblOverviewECount.Name = "lblOverviewECount";
+            lblOverviewECount.Size = new Size(186, 30);
+            lblOverviewECount.TabIndex = 53;
+            lblOverviewECount.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lblOverviewEndingCount
+            // 
+            lblOverviewEndingCount.AutoSize = true;
+            lblOverviewEndingCount.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblOverviewEndingCount.Location = new Point(318, 150);
+            lblOverviewEndingCount.Name = "lblOverviewEndingCount";
+            lblOverviewEndingCount.Size = new Size(85, 21);
+            lblOverviewEndingCount.TabIndex = 52;
+            lblOverviewEndingCount.Text = "End Count:";
+            // 
             // SessionTrackerForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1246,5 +1324,11 @@
         private ComboBox cmbAttendanceSessionNames;
         private TextBox txtBeginningCount;
         private TextBox txtMiddleCount;
+        private Label lblOverviewECount;
+        private Label lblOverviewEndingCount;
+        private Label lblOverviewMCount;
+        private Label lblOverviewMiddleCount;
+        private Label lblOverviewBCount;
+        private Label lblOverviewBeginningCount;
     }
 }
