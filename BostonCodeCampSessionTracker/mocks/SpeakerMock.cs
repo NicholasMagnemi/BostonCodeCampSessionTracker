@@ -15,7 +15,6 @@ namespace BostonCodeCampSessionTracker.mocks
         CodeCampAppContext context;
 
         [OneTimeSetUp]
-
         public void setup()
         {
             context = new CodeCampAppContext(dbContextOptions);
@@ -26,7 +25,6 @@ namespace BostonCodeCampSessionTracker.mocks
         }
 
         [OneTimeTearDown]
-
         public void cleanUp()
         {
             context.Database.EnsureDeleted();
@@ -79,6 +77,8 @@ namespace BostonCodeCampSessionTracker.mocks
                 new TimeSlot() { TimeId = 1, TimeBegin = TimeSpan.Parse("10:00 "), TimeEnd = TimeSpan.Parse("11:00")},
             };
             context.Sessions.AddRange(sessions);
+
+            context.SaveChanges();
         }
 
     }
