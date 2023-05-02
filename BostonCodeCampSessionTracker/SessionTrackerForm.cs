@@ -303,11 +303,11 @@ namespace BostonCodeCampSessionTracker
 
             int? endingCount = db.retrieveEndingCountID(countId);
 
-            lblOverviewBCount.Text = beginningCount.ToString();
+            //lblOverviewBCount.Text = beginningCount.ToString();
 
-            lblOverviewMCount.Text = middleCount.ToString();
+            //lblOverviewMCount.Text = middleCount.ToString();
 
-            lblOverviewECount.Text = endingCount.ToString();
+            //lblOverviewECount.Text = endingCount.ToString();
 
         }
 
