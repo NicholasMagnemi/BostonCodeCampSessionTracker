@@ -5,6 +5,7 @@ using NUnit.Framework;
 
 namespace BostonCodeCampSessionTracker.mocks
 {
+    [TestFixture]
     public class SpeakerMock
     {
         private static DbContextOptions<CodeCampAppContext> dbContextOptions = new DbContextOptionsBuilder<CodeCampAppContext>()
