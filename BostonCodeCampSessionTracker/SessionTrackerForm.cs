@@ -566,7 +566,7 @@ namespace BostonCodeCampSessionTracker
         {
             DataAccess db = new DataAccess();
 
-            db.addCount(txtBeginningCount.Text, txtMiddleCount.Text, txtEndingCount.Text, cmbAttendanceSessionNames.Text);
+            //db.addCount(txtBeginningCount.Text, txtMiddleCount.Text, txtEndingCount.Text, cmbAttendanceSessionNames.Text);
 
             MessageBox.Show("Count Saved");
         }
