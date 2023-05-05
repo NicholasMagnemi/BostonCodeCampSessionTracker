@@ -253,7 +253,6 @@ namespace BostonCodeCampSessionTracker
             foreach (String sessionTimeSlot in sessionTimeSlots)
             {
                 cmbOverviewTimeSlots.Items.Add(sessionTimeSlot);
-                MessageBox.Show("test: " + sessionTimeSlot);
             }
         }
 
@@ -293,16 +292,6 @@ namespace BostonCodeCampSessionTracker
         private void cmbOverviewTimeSlots_SelectionChangeCommitted(object sender, EventArgs e)
         {
             updateOverviewTimeDurationlbl();
-        }
-
-        private void lblOverviewRoomName_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSessionTimeDuration_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void txtBoxFirstName_KeyPress(object sender, KeyPressEventArgs e)

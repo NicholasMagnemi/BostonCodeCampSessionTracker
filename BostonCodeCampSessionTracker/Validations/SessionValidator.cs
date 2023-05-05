@@ -17,6 +17,9 @@ namespace BostonCodeCampSessionTracker.Validations
             RuleFor(session => session.RoomId).NotEmpty().WithMessage("The Room ID is invalid");
             RuleFor(session => session.SpeakerId).NotEmpty();
             RuleFor(session => session.TimeId).NotEmpty();
+            RuleFor(session => session.AttendeeCountBegin).GreaterThanOrEqualTo(0);
+            RuleFor(session => session.AttendeeCountMid).GreaterThanOrEqualTo(0);
+            RuleFor(session => session.AttendeeCountEnd).GreaterThanOrEqualTo(0);
         }
     }
 }

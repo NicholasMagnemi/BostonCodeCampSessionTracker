@@ -168,7 +168,6 @@
             lblOverviewRoomName.Size = new Size(186, 30);
             lblOverviewRoomName.TabIndex = 47;
             lblOverviewRoomName.TextAlign = ContentAlignment.MiddleLeft;
-            lblOverviewRoomName.Click += lblOverviewRoomName_Click;
             // 
             // lblOverviewTimeDuration
             // 
