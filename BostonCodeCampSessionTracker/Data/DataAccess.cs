@@ -1,17 +1,18 @@
-﻿using BostonCodeCampSessionTracker.Models;
+﻿using BostonCodeCampSessionTracker.Data;
+using BostonCodeCampSessionTracker.Models;
 using BostonCodeCampSessionTracker.Validation;
 using BostonCodeCampSessionTracker.Validations;
 using FluentValidation;
 using FluentValidation.Results;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
-namespace BostonCodeCampSessionTracker.Data
+namespace temp.Data
 {
     public class DataAccess
     {
         public DataAccess() { }
 
-        public bool addCount(String startingCount, String MiddleCount, String EndingCount, String sessionName)
+        /*public bool addCount(String startingCount, String MiddleCount, String EndingCount, String sessionName)
         {
             CountValidator validator = new CountValidator();
 
@@ -67,7 +68,7 @@ namespace BostonCodeCampSessionTracker.Data
 
                 context.Counts.Add(newCount);
                 context.SaveChanges();
-                
+
                 return newCount.CountId;
             }
         }
@@ -138,7 +139,7 @@ namespace BostonCodeCampSessionTracker.Data
                 }
                 return 0;
             }
-        }
+        }*/
 
         public bool addSpeaker(String fName, String lName, String eMail, String speakerPhone, String dayOfContact, String speakerBio, String speakerPastTalks)
         {
@@ -252,7 +253,7 @@ namespace BostonCodeCampSessionTracker.Data
             }
         }
 
-        public bool addSession(String sessionTitle, String roomName, String speakerName, String timeSlot)
+        public bool addSession(String sessionTitle, String roomName, String speakerName, String timeSlot, String attendeeCountBegin, String attendeeCountMid, String attendeeCountEnd)
         {
             SessionValidator validator = new SessionValidator();
 
@@ -264,7 +265,9 @@ namespace BostonCodeCampSessionTracker.Data
                     RoomId = retrieveRoomId(roomName),
                     SpeakerId = retrieveSpeakerId(speakerName),
                     TimeId = retrieveTimeId(timeSlot),
-                    CountId = createEmptyCountRow()
+                    AttendeeCountBegin = Convert.ToInt32(attendeeCountBegin),
+                    AttendeeCountMid = Convert.ToInt32(attendeeCountMid),
+                    AttendeeCountEnd = Convert.ToInt32(attendeeCountEnd),
                 };
 
                 ValidationResult results = validator.Validate(newSession);
@@ -305,18 +308,6 @@ namespace BostonCodeCampSessionTracker.Data
                     context.SaveChanges();
                     return true;
                 }
-            }
-        }
-
-        public void addSessionSpeaker(int speakerId, int sessionId)
-        {
-            using CodeCampAppContext context = new CodeCampAppContext();
-            {
-                SessionSpeaker newSessionSpeaker = new SessionSpeaker()
-                {
-                    SpeakerId = speakerId,
-                    SessionId = sessionId,
-                };
             }
         }
 

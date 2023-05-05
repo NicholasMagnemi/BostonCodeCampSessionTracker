@@ -1,6 +1,7 @@
 ﻿using BostonCodeCampSessionTracker.Data;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Text.RegularExpressions;
+using temp.Data;
 
 namespace BostonCodeCampSessionTracker
 {
@@ -157,7 +158,7 @@ namespace BostonCodeCampSessionTracker
         {
             DataAccess db = new DataAccess();
 
-            db.addSession(txtBoxSessionName.Text, cmbSessionRoomName.Text, cmbSpeakerName.Text, cmbSessionTimeSlots.Text);
+            db.addSession(txtBoxSessionName.Text, cmbSessionRoomName.Text, cmbSpeakerName.Text, cmbSessionTimeSlots.Text, "0", "0", "0");
         }
 
         private void btnRemoveSession_Click(object sender, EventArgs e)
@@ -295,13 +296,13 @@ namespace BostonCodeCampSessionTracker
         {
             DataAccess db = new DataAccess();
 
-            int countId = db.retrieveSessionCountId(cmbOverviewSessionNames.Text);
+            //int countId = db.retrieveSessionCountId(cmbOverviewSessionNames.Text);
 
-            int? beginningCount = db.retrieveBeginningCountID(countId);
+            //int? beginningCount = db.retrieveBeginningCountID(countId);
 
-            int? middleCount = db.retrieveMiddleCountID(countId);
+            //int? middleCount = db.retrieveMiddleCountID(countId);
 
-            int? endingCount = db.retrieveEndingCountID(countId);
+            //int? endingCount = db.retrieveEndingCountID(countId);
 
             //lblOverviewBCount.Text = beginningCount.ToString();
 

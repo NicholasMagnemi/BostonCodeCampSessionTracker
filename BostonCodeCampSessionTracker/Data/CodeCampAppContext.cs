@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using BostonCodeCampSessionTracker.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,128 +16,87 @@ public partial class CodeCampAppContext : DbContext
     {
     }
 
-    public virtual DbSet<Count> Counts { get; set; }
-
     public virtual DbSet<Room> Rooms { get; set; }
 
     public virtual DbSet<Session> Sessions { get; set; }
-
-    public virtual DbSet<SessionSpeaker> SessionSpeakers { get; set; }
 
     public virtual DbSet<Speaker> Speakers { get; set; }
 
     public virtual DbSet<TimeSlot> TimeSlots { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["CodeCampAppDatabase"].ConnectionString);
-    }
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("Server=tcp:currybostoncodecamp-app.database.windows.net,1433;Initial Catalog=Code_Camp_App;Persist Security Info=False;User ID=CurryTeam;Password=AzureSoftwareEngineering2023!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Count>(entity =>
-        {
-            entity.Property(e => e.CountId).HasColumnName("countID");
-            entity.Property(e => e.BeginningCount).HasColumnName("beginning_count");
-            entity.Property(e => e.EndingCount).HasColumnName("ending_count");
-            entity.Property(e => e.MiddleCount).HasColumnName("middle_count");
-        });
-
         modelBuilder.Entity<Room>(entity =>
         {
-            entity.HasKey(e => e.RoomId).HasName("PK__tmp_ms_x__32863919DEC92F2D");
+            entity.HasKey(e => e.RoomId).HasName("PK__tmp_ms_x__32863919F1F07E0F");
 
             entity.Property(e => e.RoomId).HasColumnName("RoomID");
             entity.Property(e => e.RoomMaxOcc).HasColumnName("Room_MaxOcc");
             entity.Property(e => e.RoomName)
-                .HasColumnType("text")
+                .HasMaxLength(255)
                 .HasColumnName("Room_Name");
         });
 
         modelBuilder.Entity<Session>(entity =>
         {
-            entity.HasKey(e => e.SessionId).HasName("PK__tmp_ms_x__C9F492701D8A8BAF");
+            entity.HasKey(e => e.SessionId).HasName("PK__tmp_ms_x__C9F492703AC39CC7");
 
             entity.ToTable("Session");
 
             entity.Property(e => e.SessionId).HasColumnName("SessionID");
-            entity.Property(e => e.CountId).HasColumnName("CountID");
+            entity.Property(e => e.AttendeeCountBegin).HasColumnName("Attendee_Count_Begin");
+            entity.Property(e => e.AttendeeCountEnd).HasColumnName("Attendee_Count_End");
+            entity.Property(e => e.AttendeeCountMid).HasColumnName("Attendee_Count_Mid");
             entity.Property(e => e.RoomId).HasColumnName("RoomID");
             entity.Property(e => e.SessionTitle)
-                .HasColumnType("text")
+                .HasMaxLength(255)
                 .HasColumnName("Session_Title");
             entity.Property(e => e.SpeakerId).HasColumnName("SpeakerID");
             entity.Property(e => e.TimeId).HasColumnName("TimeID");
 
-            entity.HasOne(d => d.Count).WithMany(p => p.Sessions)
-                .HasForeignKey(d => d.CountId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Session__CountID__607251E5");
-
             entity.HasOne(d => d.Room).WithMany(p => p.Sessions)
                 .HasForeignKey(d => d.RoomId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Session__RoomID__2739D489");
+                .HasConstraintName("FK__Session__RoomID__7EF6D905");
 
             entity.HasOne(d => d.Speaker).WithMany(p => p.Sessions)
                 .HasForeignKey(d => d.SpeakerId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Session__Speaker__282DF8C2");
+                .HasConstraintName("FK__Session__Speaker__7C1A6C5A");
 
             entity.HasOne(d => d.Time).WithMany(p => p.Sessions)
                 .HasForeignKey(d => d.TimeId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Session__TimeID__2DE6D218");
-        });
-
-        modelBuilder.Entity<SessionSpeaker>(entity =>
-        {
-            entity.HasKey(e => e.SessionSpeakerId).HasName("PK__tmp_ms_x__9282E49C49F25259");
-
-            entity.ToTable("Session+Speaker");
-
-            entity.Property(e => e.SessionSpeakerId).HasColumnName("SessionSpeakerID");
-            entity.Property(e => e.SessionId).HasColumnName("SessionID");
-            entity.Property(e => e.SpeakerId).HasColumnName("SpeakerID");
-
-            entity.HasOne(d => d.Session).WithMany(p => p.SessionSpeakers)
-                .HasForeignKey(d => d.SessionId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Session+S__Sessi__2B0A656D");
-
-            entity.HasOne(d => d.Speaker).WithMany(p => p.SessionSpeakers)
-                .HasForeignKey(d => d.SpeakerId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Session+S__Speak__2A164134");
+                .HasConstraintName("FK__Session__TimeID__7755B73D");
         });
 
         modelBuilder.Entity<Speaker>(entity =>
         {
-            entity.HasKey(e => e.SpeakerId).HasName("PK__tmp_ms_x__79E7573944388911");
+            entity.HasKey(e => e.SpeakerId).HasName("PK__tmp_ms_x__79E7573981C31987");
 
             entity.ToTable("Speaker");
 
             entity.Property(e => e.SpeakerId).HasColumnName("SpeakerID");
-            entity.Property(e => e.SpeakerBio)
-                .HasColumnType("text")
-                .HasColumnName("Speaker_Bio");
+            entity.Property(e => e.SpeakerBio).HasColumnName("Speaker_Bio");
             entity.Property(e => e.SpeakerDayOfContact)
-                .HasColumnType("text")
+                .HasMaxLength(255)
                 .HasColumnName("Speaker_DayOfContact");
             entity.Property(e => e.SpeakerEmail)
-                .HasColumnType("text")
+                .HasMaxLength(255)
                 .HasColumnName("Speaker_Email");
             entity.Property(e => e.SpeakerFname)
-                .HasColumnType("text")
+                .HasMaxLength(255)
                 .HasColumnName("Speaker_FName");
             entity.Property(e => e.SpeakerLname)
-                .HasColumnType("text")
+                .HasMaxLength(255)
                 .HasColumnName("Speaker_LName");
-            entity.Property(e => e.SpeakerPastTalks)
-                .HasColumnType("text")
-                .HasColumnName("Speaker_PastTalks");
+            entity.Property(e => e.SpeakerPastTalks).HasColumnName("Speaker_PastTalks");
             entity.Property(e => e.SpeakerPhone)
-                .HasColumnType("text")
+                .HasMaxLength(50)
                 .HasColumnName("Speaker_Phone");
         });
 

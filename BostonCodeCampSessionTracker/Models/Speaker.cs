@@ -21,7 +21,5 @@ public partial class Speaker
 
     public string? SpeakerPastTalks { get; set; }
 
-    public virtual ICollection<SessionSpeaker> SessionSpeakers { get; set; } = new List<SessionSpeaker>();
-
     public virtual ICollection<Session> Sessions { get; set; } = new List<Session>();
 }
