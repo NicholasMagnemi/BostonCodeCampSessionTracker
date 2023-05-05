@@ -1,7 +1,9 @@
 ﻿using BostonCodeCampSessionTracker.Data;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using SemesterProjectTest;
+using System.Drawing.Printing;
 using System.Text.RegularExpressions;
-using temp.Data;
+using System.Windows.Forms;
 
 namespace BostonCodeCampSessionTracker
 {
@@ -181,7 +183,6 @@ namespace BostonCodeCampSessionTracker
             updateRoomComboBoxes();
             updateTimeSlotComboBoxes();
             updateOverviewSpeakerNamesComboBox();
-            updateCountRoomNamesComboBox();
             updateCountSessionNamesComboBox();
         }
 
@@ -239,20 +240,6 @@ namespace BostonCodeCampSessionTracker
             }
         }
 
-        private void updateCountRoomNamesComboBox()
-        {
-            DataAccess db = new DataAccess();
-
-            cmbOverviewSessionNames.Items.Clear();
-
-            List<String> roomNames = db.retrieveRoomNames();
-
-            foreach (String roomName in roomNames)
-            {
-                cmbAttendanceRoomName.Items.Add(roomName);
-            }
-        }
-
         private void updateOverviewTimeSlotsComboBox()
         {
             DataAccess db = new DataAccess();
@@ -292,26 +279,6 @@ namespace BostonCodeCampSessionTracker
             lblOverviewRoomName.Text = roomName;
         }
 
-        private void updateOverviewCountLables()
-        {
-            DataAccess db = new DataAccess();
-
-            //int countId = db.retrieveSessionCountId(cmbOverviewSessionNames.Text);
-
-            //int? beginningCount = db.retrieveBeginningCountID(countId);
-
-            //int? middleCount = db.retrieveMiddleCountID(countId);
-
-            //int? endingCount = db.retrieveEndingCountID(countId);
-
-            //lblOverviewBCount.Text = beginningCount.ToString();
-
-            //lblOverviewMCount.Text = middleCount.ToString();
-
-            //lblOverviewECount.Text = endingCount.ToString();
-
-        }
-
         private void cmbOverviewSpeakerName_SelectionChangeCommitted(object sender, EventArgs e)
         {
             updateOverviewSessionsComboBox();
@@ -321,7 +288,6 @@ namespace BostonCodeCampSessionTracker
         {
             updateOverviewTimeSlotsComboBox();
             updateOverviewRoomNamelbl();
-            updateOverviewCountLables();
         }
 
         private void cmbOverviewTimeSlots_SelectionChangeCommitted(object sender, EventArgs e)
@@ -565,10 +531,9 @@ namespace BostonCodeCampSessionTracker
         private void btnSaveCount_Click(object sender, EventArgs e)
         {
             DataAccess db = new DataAccess();
+            InputValidation validNumber = new InputValidation();
 
-            //db.addCount(txtBeginningCount.Text, txtMiddleCount.Text, txtEndingCount.Text, cmbAttendanceSessionNames.Text);
-
-            MessageBox.Show("Count Saved");
+            db.updateSessionCounts(db.retrieveSessionId(cmbAttendanceSessionNames.Text), txtBeginningCount.Text, txtMiddleCount.Text, txtEndingCount.Text);
         }
 
         private void updatecmbAttendanceSessionNames()
@@ -581,6 +546,127 @@ namespace BostonCodeCampSessionTracker
             {
                 cmbAttendanceSessionNames.Items.Add(roomName);
             }
+        }
+
+        private void cmbSessionTimeSlots_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBeginningCount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar) || e.KeyChar == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+
+            if (e.KeyChar == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+            else if (txtBoxMaxCapacity.Text.Length == 4)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtMiddleCount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar) || e.KeyChar == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+
+            if (e.KeyChar == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+            else if (txtBoxMaxCapacity.Text.Length == 4)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtEndingCount_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEndingCount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar) || e.KeyChar == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+
+            if (e.KeyChar == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+            else if (txtBoxMaxCapacity.Text.Length == 4)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void BtnAttendanceExitApp_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void tbcSessionTracker_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            DataAccess dataAccess = new DataAccess();
+
+            List<string> sessionInfoList = dataAccess.ListSessionsWithAttendanceCounts();
+
+            lbxSessionsWithAttendanceCount.DataSource = sessionInfoList;
+        }
+
+        private void tbcSessionTracker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataAccess dataAccess = new DataAccess();
+
+            List<string> sessionInfoList = dataAccess.ListSessionsWithAttendanceCounts();
+
+            lbxSessionsWithAttendanceCount.DataSource = sessionInfoList;
+        }
+
+        private void lblPrintAttendanceList_Click(object sender, EventArgs e)
+        {
+            PrintDocument printDocument = new PrintDocument();
+            printDocument.PrintPage += prntSessionsAttendance_PrintPage;
+
+            // Set the PrintPreviewDialog's Document property and show the dialog
+            prndPreviewPrint.Document = printDocument;
+            DialogResult result = prndPreviewPrint.ShowDialog();
+
+            // If the user clicks the Print button in the PrintPreviewDialog, then print the document
+            if (result == DialogResult.OK)
+            {
+                printDocument.Print();
+            }
+        }
+
+        private void prntSessionsAttendance_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Font font = new Font("Arial", 12);
+            float lineHeight = font.GetHeight(g);
+            float x = e.MarginBounds.Left;
+            float y = e.MarginBounds.Top;
+
+            for (int i = 0; i < lbxSessionsWithAttendanceCount.Items.Count; i++)
+            {
+                string line = lbxSessionsWithAttendanceCount.Items[i].ToString();
+                g.DrawString(line, font, Brushes.Black, x, y);
+                y += lineHeight;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

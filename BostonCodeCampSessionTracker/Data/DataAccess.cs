@@ -4,142 +4,15 @@ using BostonCodeCampSessionTracker.Validation;
 using BostonCodeCampSessionTracker.Validations;
 using FluentValidation;
 using FluentValidation.Results;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using SemesterProjectTest;
 
-namespace temp.Data
+namespace BostonCodeCampSessionTracker.Data
 {
     public class DataAccess
     {
         public DataAccess() { }
-
-        /*public bool addCount(String startingCount, String MiddleCount, String EndingCount, String sessionName)
-        {
-            CountValidator validator = new CountValidator();
-
-            using CodeCampAppContext context = new CodeCampAppContext();
-            {
-                Count newCount = new Count()
-                {
-                    BeginningCount = Convert.ToInt32(startingCount),
-                    MiddleCount = Convert.ToInt32(MiddleCount),
-                    EndingCount = Convert.ToInt32(EndingCount)
-                };
-
-                Session newSession = new Session()
-                {
-                    CountId = retrieveSessionCountId(sessionName)
-                };
-
-                ValidationResult results = validator.Validate(newCount);
-
-                if (results.IsValid == false)
-                {
-                    String validationFailureMessage = "";
-
-                    foreach (ValidationFailure failure in results.Errors)
-                    {
-                        validationFailureMessage += failure.ErrorMessage + "\n";
-                    }
-
-                    MessageBox.Show(validationFailureMessage);
-                    return false;
-                }
-                else
-                {
-                    context.Counts.Update(newCount);
-                    context.SaveChanges();
-                    return true;
-                }
-            }
-        }
-
-        public int createEmptyCountRow()
-        {
-            CountValidator validator = new CountValidator();
-
-            using CodeCampAppContext context = new CodeCampAppContext();
-            {
-                Count newCount = new Count()
-                {
-                    BeginningCount = 0,
-                    MiddleCount = 0,
-                    EndingCount = 0,
-                };
-
-                context.Counts.Add(newCount);
-                context.SaveChanges();
-
-                return newCount.CountId;
-            }
-        }
-
-        public int retrieveSessionCountId(String aSessionsName)
-        {
-            using CodeCampAppContext context = new CodeCampAppContext();
-            {
-                var sessions = context.Sessions.ToList();
-
-                foreach (var session in sessions)
-                {
-                    if (session.SessionTitle == aSessionsName)
-                    {
-                        return session.CountId;
-                    }
-                }
-                return 0;
-            }
-        }
-
-        public int? retrieveBeginningCountID(int countId)
-        {
-            using CodeCampAppContext context = new CodeCampAppContext();
-            {
-                var counts = context.Counts.ToList();
-
-                foreach (var count in counts)
-                {
-                    if (count.CountId == countId)
-                    {
-                        return count.BeginningCount;
-                    }
-                }
-                return 0;
-            }
-        }
-
-        public int? retrieveMiddleCountID(int countId)
-        {
-            using CodeCampAppContext context = new CodeCampAppContext();
-            {
-                var counts = context.Counts.ToList();
-
-                foreach (var count in counts)
-                {
-                    if (count.CountId == countId)
-                    {
-                        return count.MiddleCount;
-                    }
-                }
-                return 0;
-            }
-        }
-
-        public int? retrieveEndingCountID(int countId)
-        {
-            using CodeCampAppContext context = new CodeCampAppContext();
-            {
-                var counts = context.Counts.ToList();
-
-                foreach (var count in counts)
-                {
-                    if (count.CountId == countId)
-                    {
-                        return count.EndingCount;
-                    }
-                }
-                return 0;
-            }
-        }*/
 
         public bool addSpeaker(String fName, String lName, String eMail, String speakerPhone, String dayOfContact, String speakerBio, String speakerPastTalks)
         {
@@ -309,6 +182,33 @@ namespace temp.Data
                     return true;
                 }
             }
+        }
+
+        public bool updateSessionCounts(int sessionId, String countBegin, String countMid, String countEnd)
+        {
+            InputValidation validNumber = new InputValidation();
+
+            if (validNumber.validateAsInt(countBegin) == true || validNumber.validateAsInt(countMid) == true || validNumber.validateAsInt(countEnd) == true)
+            {
+                using CodeCampAppContext context = new CodeCampAppContext();
+                {
+                    Session sessionToUpdate = context.Sessions.Where(s => s.SessionId == sessionId).FirstOrDefault()!;
+                    if (sessionToUpdate != null)
+                    {
+                        sessionToUpdate.AttendeeCountBegin = Convert.ToInt32(countBegin);
+                        sessionToUpdate.AttendeeCountMid = Convert.ToInt32(countMid);
+                        sessionToUpdate.AttendeeCountEnd = Convert.ToInt32(countEnd);
+
+                        context.SaveChanges();
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            return false;
         }
 
         public bool addTimeSlot(DateTime timeBegin, DateTime timeEnd)
@@ -653,6 +553,40 @@ namespace temp.Data
                     }
                 }
                 return 0;
+            }
+        }
+        public int retrieveTimeIdBySessionId(int sessionId)
+        {
+            using CodeCampAppContext context = new CodeCampAppContext();
+            {
+                var sessions = context.Sessions.ToList();
+                foreach (var session in sessions)
+                {
+                    if (session.SessionId == sessionId)
+                    {
+                        return session.TimeId;
+                    }
+                }
+                return 0;
+            }
+        }
+
+        public List<string> ListSessionsWithAttendanceCounts()
+        {
+            using CodeCampAppContext context = new CodeCampAppContext();
+            {
+                List<string> sessionInfoList = new List<string>();
+
+                var sessions = context.Sessions.Include(s => s.Speaker).ToList();
+
+                foreach (var session in sessions)
+                {
+                    string speakerFullName = session.Speaker.SpeakerFname + " " + session.Speaker.SpeakerLname;
+                    string sessionInfo = $"Title: {session.SessionTitle} | Name: {speakerFullName} | Start: {session.AttendeeCountBegin} | Mid: {session.AttendeeCountMid} | End: {session.AttendeeCountEnd}";
+                    sessionInfoList.Add(sessionInfo);
+                }
+
+                return sessionInfoList;
             }
         }
     }

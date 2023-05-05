@@ -6,9 +6,9 @@ using System.Text.RegularExpressions;
 
 namespace SemesterProjectTest
 {
-    public class BackendInputValidation
+    public class InputValidation
     {
-        public BackendInputValidation() { }
+        public InputValidation() { }
 
         public bool validateAsDouble(string s)
         {
