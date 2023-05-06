@@ -9,9 +9,17 @@ namespace BostonCodeCampSessionTracker
 {
     public partial class SessionTrackerForm : Form
     {
+        public event EventHandler UserInactive;
+
         public SessionTrackerForm()
         {
             InitializeComponent();
+        }
+
+        public void ResetInactivityTimer()
+        {
+            tmrInactivity.Stop();
+            tmrInactivity.Start();
         }
 
         protected override void WndProc(ref Message m)
@@ -21,8 +29,7 @@ namespace BostonCodeCampSessionTracker
 
             if (m.Msg == WM_MOUSEMOVE || m.Msg == WM_KEYDOWN)
             {
-                tmrInactivity.Stop();
-                tmrInactivity.Start();
+                ResetInactivityTimer();
             }
 
             base.WndProc(ref m);
@@ -674,19 +681,7 @@ namespace BostonCodeCampSessionTracker
 
         private void tmrInactivity_Tick(object sender, EventArgs e)
         {
-            this.Hide();
-
-            using (LoginForm loginForm = new LoginForm())
-            {
-                if (loginForm.ShowDialog() == DialogResult.OK)
-                {
-                    this.Show();
-                }
-                else
-                {
-                    Application.Exit();
-                }
-            }
+            UserInactive?.Invoke(this, EventArgs.Empty);
         }
     }
 }

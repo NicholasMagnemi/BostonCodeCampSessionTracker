@@ -11,14 +11,7 @@ namespace BostonCodeCampSessionTracker
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            using (LoginForm loginForm = new LoginForm())
-            {
-                if (loginForm.ShowDialog() == DialogResult.OK)
-                {
-                    Application.Run(new SessionTrackerForm());
-                }
-            }
+            Application.Run(new LoginApplicationContext());
 
 
 
