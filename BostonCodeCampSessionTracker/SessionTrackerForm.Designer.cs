@@ -451,7 +451,6 @@
             cmbSpeakerName.Name = "cmbSpeakerName";
             cmbSpeakerName.Size = new Size(186, 23);
             cmbSpeakerName.TabIndex = 26;
-            cmbSpeakerName.SelectedIndexChanged += cmbSpeakerName_SelectedIndexChanged;
             // 
             // lblSpeakerName
             // 

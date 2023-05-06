@@ -212,11 +212,6 @@ namespace BostonCodeCampSessionTracker
             UpdateComboBoxes();
         }
 
-        private void cmbSpeakerName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void updateOverviewSpeakerNamesComboBox()
         {
             DataAccess db = new DataAccess();
