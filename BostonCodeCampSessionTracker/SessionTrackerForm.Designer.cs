@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             tbOverview = new TabPage();
             lblOverviewRoomName = new Label();
             lblOverviewTimeDuration = new Label();
@@ -123,6 +124,7 @@
             lbxSessionsWithAttendanceCount = new ListBox();
             prntSessionsAttendance = new System.Drawing.Printing.PrintDocument();
             prndPreviewPrint = new PrintDialog();
+            tmrInactivity = new System.Windows.Forms.Timer(components);
             tbOverview.SuspendLayout();
             tbSessionInfo.SuspendLayout();
             tbTimeSlotInfo.SuspendLayout();
@@ -1209,6 +1211,11 @@
             // 
             prndPreviewPrint.UseEXDialog = true;
             // 
+            // tmrInactivity
+            // 
+            tmrInactivity.Interval = 300000;
+            tmrInactivity.Tick += tmrInactivity_Tick;
+            // 
             // SessionTrackerForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1342,5 +1349,6 @@
         private Button button1;
         private System.Drawing.Printing.PrintDocument prntSessionsAttendance;
         private PrintDialog prndPreviewPrint;
+        private System.Windows.Forms.Timer tmrInactivity;
     }
 }

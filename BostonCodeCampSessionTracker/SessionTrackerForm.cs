@@ -14,6 +14,20 @@ namespace BostonCodeCampSessionTracker
             InitializeComponent();
         }
 
+        protected override void WndProc(ref Message m)
+        {
+            const int WM_MOUSEMOVE = 0x0200;
+            const int WM_KEYDOWN = 0x0100;
+
+            if (m.Msg == WM_MOUSEMOVE || m.Msg == WM_KEYDOWN)
+            {
+                tmrInactivity.Stop();
+                tmrInactivity.Start();
+            }
+
+            base.WndProc(ref m);
+        }
+
         private void btnCreateSpeaker_Click(object sender, EventArgs e)
         {
             DataAccess db = new DataAccess();
@@ -656,6 +670,23 @@ namespace BostonCodeCampSessionTracker
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void tmrInactivity_Tick(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            using (LoginForm loginForm = new LoginForm())
+            {
+                if (loginForm.ShowDialog() == DialogResult.OK)
+                {
+                    this.Show();
+                }
+                else
+                {
+                    Application.Exit();
+                }
+            }
         }
     }
 }
