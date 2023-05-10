@@ -1,6 +1,6 @@
 ﻿namespace BostonCodeCampSessionTracker
 {
-    partial class SessionTrackerForm
+    partial class frmSessionTrackerForm
     {
         /// <summary>
         /// Required designer variable.
@@ -60,6 +60,9 @@
             lblSessionName = new Label();
             lblSessionForm = new Label();
             tbTimeSlotInfo = new TabPage();
+            lblCurrentTimeSlots = new Label();
+            cmbTimeFormFullTimeSlots = new ComboBox();
+            btnDeleteTimeSlot = new Button();
             btnTimeSlotExitApplication = new Button();
             btnCreateTimeSlot = new Button();
             btnClearTimeSlotFields = new Button();
@@ -119,7 +122,7 @@
             tbAttendancebySession = new TabPage();
             button1 = new Button();
             lblPrintAttendanceList = new Button();
-            lblSessionsAttenance = new Label();
+            lblSessionsAttendance = new Label();
             label1 = new Label();
             lbxSessionsWithAttendanceCount = new ListBox();
             prntSessionsAttendance = new System.Drawing.Printing.PrintDocument();
@@ -484,6 +487,9 @@
             // 
             // tbTimeSlotInfo
             // 
+            tbTimeSlotInfo.Controls.Add(lblCurrentTimeSlots);
+            tbTimeSlotInfo.Controls.Add(cmbTimeFormFullTimeSlots);
+            tbTimeSlotInfo.Controls.Add(btnDeleteTimeSlot);
             tbTimeSlotInfo.Controls.Add(btnTimeSlotExitApplication);
             tbTimeSlotInfo.Controls.Add(btnCreateTimeSlot);
             tbTimeSlotInfo.Controls.Add(btnClearTimeSlotFields);
@@ -502,6 +508,36 @@
             tbTimeSlotInfo.Text = "Time Slot Info";
             tbTimeSlotInfo.UseVisualStyleBackColor = true;
             // 
+            // lblCurrentTimeSlots
+            // 
+            lblCurrentTimeSlots.AutoSize = true;
+            lblCurrentTimeSlots.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblCurrentTimeSlots.Location = new Point(399, 71);
+            lblCurrentTimeSlots.Name = "lblCurrentTimeSlots";
+            lblCurrentTimeSlots.Size = new Size(83, 21);
+            lblCurrentTimeSlots.TabIndex = 41;
+            lblCurrentTimeSlots.Text = "Start Time:";
+            // 
+            // cmbTimeFormFullTimeSlots
+            // 
+            cmbTimeFormFullTimeSlots.FormattingEnabled = true;
+            cmbTimeFormFullTimeSlots.Location = new Point(399, 95);
+            cmbTimeFormFullTimeSlots.Name = "cmbTimeFormFullTimeSlots";
+            cmbTimeFormFullTimeSlots.Size = new Size(179, 23);
+            cmbTimeFormFullTimeSlots.TabIndex = 40;
+            // 
+            // btnDeleteTimeSlot
+            // 
+            btnDeleteTimeSlot.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnDeleteTimeSlot.Location = new Point(399, 336);
+            btnDeleteTimeSlot.Margin = new Padding(3, 2, 3, 2);
+            btnDeleteTimeSlot.Name = "btnDeleteTimeSlot";
+            btnDeleteTimeSlot.Size = new Size(186, 30);
+            btnDeleteTimeSlot.TabIndex = 39;
+            btnDeleteTimeSlot.Text = "Remove Time Slot";
+            btnDeleteTimeSlot.UseVisualStyleBackColor = true;
+            btnDeleteTimeSlot.Click += btnDeleteTimeSlot_Click;
+            // 
             // btnTimeSlotExitApplication
             // 
             btnTimeSlotExitApplication.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -517,7 +553,7 @@
             // btnCreateTimeSlot
             // 
             btnCreateTimeSlot.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCreateTimeSlot.Location = new Point(312, 335);
+            btnCreateTimeSlot.Location = new Point(399, 302);
             btnCreateTimeSlot.Margin = new Padding(3, 2, 3, 2);
             btnCreateTimeSlot.Name = "btnCreateTimeSlot";
             btnCreateTimeSlot.Size = new Size(186, 30);
@@ -529,7 +565,7 @@
             // btnClearTimeSlotFields
             // 
             btnClearTimeSlotFields.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnClearTimeSlotFields.Location = new Point(312, 301);
+            btnClearTimeSlotFields.Location = new Point(399, 268);
             btnClearTimeSlotFields.Margin = new Padding(3, 2, 3, 2);
             btnClearTimeSlotFields.Name = "btnClearTimeSlotFields";
             btnClearTimeSlotFields.Size = new Size(186, 30);
@@ -1139,7 +1175,7 @@
             // 
             tbAttendancebySession.Controls.Add(button1);
             tbAttendancebySession.Controls.Add(lblPrintAttendanceList);
-            tbAttendancebySession.Controls.Add(lblSessionsAttenance);
+            tbAttendancebySession.Controls.Add(lblSessionsAttendance);
             tbAttendancebySession.Controls.Add(label1);
             tbAttendancebySession.Controls.Add(lbxSessionsWithAttendanceCount);
             tbAttendancebySession.Location = new Point(4, 24);
@@ -1173,15 +1209,16 @@
             lblPrintAttendanceList.UseVisualStyleBackColor = true;
             lblPrintAttendanceList.Click += lblPrintAttendanceList_Click;
             // 
-            // lblSessionsAttenance
+            // lblSessionsAttendance
             // 
-            lblSessionsAttenance.AutoSize = true;
-            lblSessionsAttenance.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            lblSessionsAttenance.Location = new Point(194, 0);
-            lblSessionsAttenance.Name = "lblSessionsAttenance";
-            lblSessionsAttenance.Size = new Size(247, 32);
-            lblSessionsAttenance.TabIndex = 5;
-            lblSessionsAttenance.Text = "Sessions Attendnance";
+            lblSessionsAttendance.AutoSize = true;
+            lblSessionsAttendance.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            lblSessionsAttendance.Location = new Point(194, 0);
+            lblSessionsAttendance.Name = "lblSessionsAttendance";
+            lblSessionsAttendance.Size = new Size(233, 32);
+            lblSessionsAttendance.TabIndex = 5;
+            lblSessionsAttendance.Text = "Sessions Attendance";
+            lblSessionsAttendance.Click += lblSessionsAttenance_Click;
             // 
             // label1
             // 
@@ -1215,13 +1252,13 @@
             tmrInactivity.Interval = 300000;
             tmrInactivity.Tick += tmrInactivity_Tick;
             // 
-            // SessionTrackerForm
+            // frmSessionTrackerForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(595, 396);
             Controls.Add(tbcSessionTracker);
-            Name = "SessionTrackerForm";
+            Name = "frmSessionTrackerForm";
             Text = "Session Tracker Form";
             tbOverview.ResumeLayout(false);
             tbOverview.PerformLayout();
@@ -1344,10 +1381,13 @@
         private ListBox lbSessionsWithAttendanceCount;
         private ListBox lbxSessionsWithAttendanceCount;
         private Label label1;
-        private Label lblSessionsAttenance;
+        private Label lblSessionsAttendance;
         private Button button1;
         private System.Drawing.Printing.PrintDocument prntSessionsAttendance;
         private PrintDialog prndPreviewPrint;
         private System.Windows.Forms.Timer tmrInactivity;
+        private Button btnDeleteTimeSlot;
+        private Label lblCurrentTimeSlots;
+        private ComboBox cmbTimeFormFullTimeSlots;
     }
 }

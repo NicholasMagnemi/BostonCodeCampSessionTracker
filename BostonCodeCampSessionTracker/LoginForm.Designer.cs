@@ -1,6 +1,6 @@
 ﻿namespace BostonCodeCampSessionTracker
 {
-    partial class LoginForm
+    partial class frmLoginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -88,7 +88,7 @@
             btnLoginPrompt.TabIndex = 4;
             btnLoginPrompt.Text = "Please, enter the password that was provided to you.";
             // 
-            // LoginForm
+            // frmLoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -98,8 +98,8 @@
             Controls.Add(btnLogin);
             Controls.Add(txtPassword);
             Controls.Add(lblPassword);
-            Name = "LoginForm";
-            Text = "LoginForm";
+            Name = "frmLoginForm";
+            Text = "Login Form";
             ResumeLayout(false);
             PerformLayout();
         }

@@ -73,6 +73,24 @@ namespace BostonCodeCampSessionTracker.Data
             }
         }
 
+        public bool deleteTimeSlot(int timeSlotId)
+        {
+            using CodeCampAppContext context = new CodeCampAppContext();
+            {
+                TimeSlot timeSlotToDelete = context.TimeSlots.Where(t => t.TimeId == timeSlotId).FirstOrDefault()!;
+                if (timeSlotToDelete == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    context.TimeSlots.Remove(timeSlotToDelete);
+                    context.SaveChanges();
+                    return true;
+                }
+            }
+        }
+
         public bool addRoom(int maxOccupancy, String roomName)
         {
             RoomValidator validator = new RoomValidator();
@@ -247,23 +265,7 @@ namespace BostonCodeCampSessionTracker.Data
             }
         }
 
-        public bool deleteTimeSlot(int timeId)
-        {
-            using CodeCampAppContext context = new CodeCampAppContext();
-            {
-                TimeSlot timeSlotToDelete = context.TimeSlots.Where(t => t.TimeId == timeId).FirstOrDefault()!;
-                if (timeSlotToDelete == null)
-                {
-                    return false;
-                }
-                else
-                {
-                    context.TimeSlots.Remove(timeSlotToDelete);
-                    context.SaveChanges();
-                    return true;
-                }
-            }
-        }
+
 
         public List<String> retrieveSpeakerNames()
         {
@@ -571,7 +573,7 @@ namespace BostonCodeCampSessionTracker.Data
             }
         }
 
-        public List<string> ListSessionsWithAttendanceCounts()
+        public List<String> ListSessionsWithAttendanceCounts()
         {
             using CodeCampAppContext context = new CodeCampAppContext();
             {
@@ -587,6 +589,20 @@ namespace BostonCodeCampSessionTracker.Data
                 }
 
                 return sessionInfoList;
+            }
+        }
+        
+        public List<String> retrieveAllTimeSlots()
+        {
+            using CodeCampAppContext context = new CodeCampAppContext();
+            {
+                List<string> timeSlots = new List<string>();
+                var times = context.TimeSlots.ToList();
+                foreach (var time in times)
+                {
+                    timeSlots.Add(time.TimeBegin.ToString() + " - " + time.TimeEnd.ToString());
+                }
+                return timeSlots;
             }
         }
     }

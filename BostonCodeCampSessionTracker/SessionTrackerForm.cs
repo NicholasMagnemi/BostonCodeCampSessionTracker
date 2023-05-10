@@ -7,11 +7,11 @@ using System.Windows.Forms;
 
 namespace BostonCodeCampSessionTracker
 {
-    public partial class SessionTrackerForm : Form
+    public partial class frmSessionTrackerForm : Form
     {
         public event EventHandler UserInactive;
 
-        public SessionTrackerForm()
+        public frmSessionTrackerForm()
         {
             InitializeComponent();
         }
@@ -205,6 +205,7 @@ namespace BostonCodeCampSessionTracker
             updateTimeSlotComboBoxes();
             updateOverviewSpeakerNamesComboBox();
             updateCountSessionNamesComboBox();
+            updateTimeSlotTimeSlotsComboBox();
         }
 
         private void tbcSessionTracker_Click(object sender, EventArgs e)
@@ -246,7 +247,7 @@ namespace BostonCodeCampSessionTracker
         {
             DataAccess db = new DataAccess();
 
-            cmbOverviewSessionNames.Items.Clear();
+            cmbAttendanceSessionNames.Items.Clear();
 
             List<String> sessionNames = db.retrieveSessionNames();
 
@@ -269,6 +270,20 @@ namespace BostonCodeCampSessionTracker
             foreach (String sessionTimeSlot in sessionTimeSlots)
             {
                 cmbOverviewTimeSlots.Items.Add(sessionTimeSlot);
+            }
+        }
+
+        private void updateTimeSlotTimeSlotsComboBox()
+        {
+            DataAccess db = new DataAccess();
+
+            cmbTimeFormFullTimeSlots.Items.Clear();
+
+            List<String> fullTimeSlots = db.retrieveAllTimeSlots();
+
+            foreach (String fullTimeSlot in fullTimeSlots)
+            {
+                cmbTimeFormFullTimeSlots.Items.Add(fullTimeSlot);
             }
         }
 
@@ -655,17 +670,17 @@ namespace BostonCodeCampSessionTracker
 
         private void prntSessionsAttendance_PrintPage(object sender, PrintPageEventArgs e)
         {
-            Graphics g = e.Graphics;
+            Graphics graphics = e.Graphics;
             Font font = new Font("Arial", 12);
-            float lineHeight = font.GetHeight(g);
-            float x = e.MarginBounds.Left;
-            float y = e.MarginBounds.Top;
+            float lineHeight = font.GetHeight(graphics);
+            float leftBounds = e.MarginBounds.Left;
+            float rightBounds = e.MarginBounds.Top;
 
-            for (int i = 0; i < lbxSessionsWithAttendanceCount.Items.Count; i++)
+            for (int count = 0; count < lbxSessionsWithAttendanceCount.Items.Count; count++)
             {
-                string line = lbxSessionsWithAttendanceCount.Items[i].ToString();
-                g.DrawString(line, font, Brushes.Black, x, y);
-                y += lineHeight;
+                string line = lbxSessionsWithAttendanceCount.Items[count].ToString();
+                graphics.DrawString(line, font, Brushes.Black, leftBounds, rightBounds);
+                rightBounds += lineHeight;
             }
         }
 
@@ -677,6 +692,22 @@ namespace BostonCodeCampSessionTracker
         private void tmrInactivity_Tick(object sender, EventArgs e)
         {
             UserInactive?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void lblSessionsAttenance_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeleteTimeSlot_Click(object sender, EventArgs e)
+        {
+            DataAccess db = new DataAccess();
+
+            int timeSlotId = db.retrieveTimeId(cmbTimeFormFullTimeSlots.Text);
+
+            db.deleteTimeSlot(timeSlotId);
+
+            UpdateComboBoxes();
         }
     }
 }

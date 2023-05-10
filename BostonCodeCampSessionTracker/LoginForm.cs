@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BostonCodeCampSessionTracker
 {
-    public partial class LoginForm : Form
+    public partial class frmLoginForm : Form
     {
-        public LoginForm()
+        public frmLoginForm()
         {
             InitializeComponent();
         }

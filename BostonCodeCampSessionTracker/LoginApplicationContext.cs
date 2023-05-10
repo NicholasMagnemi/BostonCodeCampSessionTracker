@@ -15,7 +15,7 @@ namespace BostonCodeCampSessionTracker
 
         private void ShowLoginForm()
         {
-            using (LoginForm loginForm = new LoginForm())
+            using (frmLoginForm loginForm = new frmLoginForm())
             {
                 if (loginForm.ShowDialog() == DialogResult.OK)
                 {
@@ -30,7 +30,7 @@ namespace BostonCodeCampSessionTracker
 
         private void ShowMainForm()
         {
-            SessionTrackerForm mainForm = new SessionTrackerForm();
+            frmSessionTrackerForm mainForm = new frmSessionTrackerForm();
             mainForm.FormClosed += (s, e) => ExitThread();
             mainForm.UserInactive += MainForm_UserInactive;
             mainForm.Show();
@@ -38,7 +38,7 @@ namespace BostonCodeCampSessionTracker
 
         private void MainForm_UserInactive(object sender, EventArgs e)
         {
-            SessionTrackerForm mainForm = sender as SessionTrackerForm;
+            frmSessionTrackerForm mainForm = sender as frmSessionTrackerForm;
 
             if (mainForm != null)
             {
