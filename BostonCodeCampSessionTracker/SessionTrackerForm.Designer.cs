@@ -514,9 +514,9 @@
             lblCurrentTimeSlots.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lblCurrentTimeSlots.Location = new Point(399, 71);
             lblCurrentTimeSlots.Name = "lblCurrentTimeSlots";
-            lblCurrentTimeSlots.Size = new Size(83, 21);
+            lblCurrentTimeSlots.Size = new Size(85, 21);
             lblCurrentTimeSlots.TabIndex = 41;
-            lblCurrentTimeSlots.Text = "Start Time:";
+            lblCurrentTimeSlots.Text = "Time Slots:";
             // 
             // cmbTimeFormFullTimeSlots
             // 
